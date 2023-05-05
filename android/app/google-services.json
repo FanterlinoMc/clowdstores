@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "700843547150",
+    "project_id": "clowdstores-101",
+    "storage_bucket": "clowdstores-101.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700843547150:android:f366cadf342030c0be7a5f",
+        "android_client_info": {
+          "package_name": "com.believers.clowdstores"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700843547150-94ri8qpqr7i9qhnpp75q0ep8uj6nnqot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTLiCeVsVbobxHyU7HIhSeZF-G_6vg_5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700843547150-7clm1qkndetett21a5sqllira944s6kc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
