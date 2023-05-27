@@ -25,7 +25,7 @@ class CartPage extends StatelessWidget {
                 child: SizedBox(
                   width: ResponsiveValue(context,
                       defaultValue: 1000.0,
-                      valueWhen: [
+                      conditionalValues: [
                         const Condition.smallerThan(
                           name: TABLET,
                           value: tW,
@@ -37,6 +37,10 @@ class CartPage extends StatelessWidget {
                       ]).value,
                   child: CustomScrollView(slivers: <Widget>[
                     const SliverAppBar(
+                      title: Text(
+                        "Cart",
+                        style: TextStyle(color: appBarColor),
+                      ),
                       leading: kIsWeb
                           ? SizedBox.shrink()
                           : BackButton(color: appBarColor),

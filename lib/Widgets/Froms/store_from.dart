@@ -22,6 +22,7 @@ class _StoreLogInState extends State<StoreLogIn> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: appBarColor,
       body: Consumer(builder: (context, ref, child) {
         refresh() {
           return ref.refresh(authStateStraem);
@@ -39,7 +40,7 @@ class _StoreLogInState extends State<StoreLogIn> {
               width: size.width,
               height: size.height,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   const Text(
@@ -47,24 +48,33 @@ class _StoreLogInState extends State<StoreLogIn> {
                     style: TextStyle(fontSize: 25, color: appBarColor),
                   ),
                   const SizedBox(height: 10),
+                  Image.asset(
+                    'assets/steps.png',
+                    height: 400,
+                    width: 400,
+                  ),
                   SignInButton(
                     Buttons.Google,
                     text: "Sign up with Google",
-                    onPressed: () {
+                    shape: Border.all(color: appBarColor),
+                    onPressed: () async {
                       //  user.changeStoreToken();
-                      context.go('/');
                       userSignIn.signInWithGoogle();
                       changeUserNotifer.chageUser(false);
                       changeUserNotifer.saveChanageUser();
                       isUser.saveUser();
+                      context.go('/');
                       refresh();
                     },
                   ),
-                  TextButton(
-                    child: const Text("Privacy Policy"),
-                    onPressed: () {
-                      context.go("/Privacy");
-                    },
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextButton(
+                      child: const Text("Privacy Policy"),
+                      onPressed: () {
+                        context.go("/Privacy");
+                      },
+                    ),
                   )
                 ],
               ),

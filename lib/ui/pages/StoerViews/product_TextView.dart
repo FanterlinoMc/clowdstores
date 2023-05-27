@@ -44,8 +44,8 @@ class TextProRowView extends StatelessWidget {
                     padding: const EdgeInsets.all(2.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Icon(Icons.favorite_outline_outlined,
+                      children: [
+                        const Icon(Icons.favorite_outline_outlined,
                             size: 24, color: Colors.red),
                         Text("favorite", style: subTextStyle),
                       ],
@@ -80,8 +80,8 @@ class TextProRowView extends StatelessWidget {
                     padding: const EdgeInsets.all(2.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Icon(Icons.reviews_outlined,
+                      children: [
+                        const Icon(Icons.reviews_outlined,
                             size: 24, color: Colors.indigo),
                         Text(
                           "Review",
@@ -127,8 +127,8 @@ class TextProRowView extends StatelessWidget {
                     padding: const EdgeInsets.all(2.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Icon(
+                      children: [
+                        const Icon(
                           Icons.location_pin,
                           size: 24,
                           color: Colors.orange,
@@ -171,8 +171,8 @@ class TextProRowView extends StatelessWidget {
                     padding: const EdgeInsets.all(2.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Icon(Icons.message_outlined,
+                      children: [
+                        const Icon(Icons.message_outlined,
                             size: 24, color: Colors.blue),
                         Text("Chats", style: subTextStyle),
                       ],

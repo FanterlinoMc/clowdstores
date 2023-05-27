@@ -111,24 +111,25 @@ class _AddBusinessState extends State<AddBusiness> {
               final validators = ref.read(validatorProvider);
               return Center(
                 child: SizedBox(
-                  width:
-                      ResponsiveValue(context, defaultValue: 500.0, valueWhen: [
-                    Condition.smallerThan(
-                      name: DESKTOP,
-                      value: size.width,
-                    ),
-                  ]).value,
+                  width: ResponsiveValue(context,
+                      defaultValue: 500.0,
+                      conditionalValues: [
+                        Condition.smallerThan(
+                          name: DESKTOP,
+                          value: size.width,
+                        ),
+                      ]).value,
                   child: CustomScrollView(
                     slivers: <Widget>[
                       SliverAppBar(
                         centerTitle: true,
-                        title: const Text(
-                          "Add Product",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: kIsWeb ? appBarColor : Colors.white,
-                          ),
-                        ),
+                        // title: const Text(
+                        //   "Add Product",
+                        //   style: TextStyle(
+                        //     fontSize: 20,
+                        //     color: kIsWeb ? appBarColor : Colors.white,
+                        //   ),
+                        // ),
                         leadingWidth: 130,
                         leading: OutlinedButton(
                           onPressed: () {
@@ -163,11 +164,14 @@ class _AddBusinessState extends State<AddBusiness> {
                               ),
                             ),
                             MyTextfiled(
+                              // color: validators.isNameValid
+                              //     ? appBarColor
+                              //     : Colors.green,
+                              validator: (value) =>
+                                  validators.businessName(value!),
                               color: validators.isNameValid
                                   ? appBarColor
                                   : Colors.green,
-                              validator: (value) =>
-                                  validators.businessName(value!),
                               labelText: "Business Name ",
                               hintText: "Business Name ",
                               onChanged: (value) {
@@ -191,11 +195,11 @@ class _AddBusinessState extends State<AddBusiness> {
                               controller: _businessPhone,
                             ),
                             MyTextfiled(
+                              validator: (value) =>
+                                  validators.businessAddress(value!),
                               color: validators.isAddressValid
                                   ? appBarColor
                                   : Colors.green,
-                              validator: (value) =>
-                                  validators.businessAddress(value!),
                               labelText: "Business Address",
                               hintText: "Business Address",
                               onChanged: (value) =>
@@ -244,24 +248,7 @@ class _AddBusinessState extends State<AddBusiness> {
                               controller: _webAdress,
                             ),
                             const SizedBox(height: 6),
-                            const Padding(
-                              padding: EdgeInsets.all(15.0),
-                              child: StoreUplaodPage(),
-                            ),
-                            // CloudButton(
-                            //   name: "Pick an Image",
-                            //   onPressed: () {
-                            //     validators.vaildtionCheck(true);
-                            //   },
-                            // ),
-
-                            // CloudButton(
-                            //   name: "Pick an Image",
-                            //   onPressed: () {
-                            //     store.uploadImage();
-                            //   },
-                            // ),
-
+                            const StoreUplaodPage(),
                             CloudButton(
                                 color: validators.isWebValid
                                     ? Colors.blueGrey

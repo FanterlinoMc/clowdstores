@@ -68,7 +68,7 @@ class _ProductState extends State<AddProduct> {
                     child: SizedBox(
                       width: ResponsiveValue(context,
                           defaultValue: 500.0,
-                          valueWhen: [
+                          conditionalValues: [
                             Condition.smallerThan(
                                 name: DESKTOP, value: size.width),
                           ]).value,
@@ -173,35 +173,33 @@ class _ProductState extends State<AddProduct> {
                                           ? Colors.blueGrey
                                           : appBarColor,
                                       name: "SaveProduct",
-                                      onPressed: validators.qunantiyy
-                                          ? null
-                                          : () async {
-                                              product.changeCity(
-                                                  await ReadCache.getString(
-                                                      key: "city"));
+                                      onPressed: () async {
+                                        product.changeCity(
+                                            await ReadCache.getString(
+                                                key: "city"));
 
-                                              product.changeStoreName(
-                                                  await ReadCache.getString(
-                                                      key: "name"));
+                                        product.changeStoreName(
+                                            await ReadCache.getString(
+                                                key: "name"));
 
-                                              product.changeLat(
-                                                  await ReadCache.getDouble(
-                                                      key: "lat"));
-                                              product.changeLon(
-                                                  await ReadCache.getDouble(
-                                                      key: "lng"));
-                                              product.changeStorePhotoUrl(
-                                                  await ReadCache.getString(
-                                                      key: "photoUrl"));
+                                        product.changeLat(
+                                            await ReadCache.getDouble(
+                                                key: "lat"));
+                                        product.changeLon(
+                                            await ReadCache.getDouble(
+                                                key: "lng"));
+                                        product.changeStorePhotoUrl(
+                                            await ReadCache.getString(
+                                                key: "photoUrl"));
 
-                                              product.saveProduct();
+                                        product.saveProduct();
 
-                                              _name.clear();
-                                              _price.clear();
-                                              _description.clear();
-                                              _quantity.clear();
-                                              return ref.refresh(productPro);
-                                            },
+                                        _name.clear();
+                                        _price.clear();
+                                        _description.clear();
+                                        _quantity.clear();
+                                        return ref.refresh(productPro);
+                                      },
                                     )
                                   ],
                                 ),

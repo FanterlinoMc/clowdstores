@@ -116,7 +116,7 @@ class _MapListOption extends State<MapListOption> {
     return LayoutBuilder(builder: (context, constraints) {
       return Consumer(
         builder: (context, ref, child) {
-          final store = ref.watch(storeNotifer);
+          //    final store = ref.watch(storeNotifer);
           final router = ref.read(routerState);
           return AnimationLimiter(
             child: ListView.builder(

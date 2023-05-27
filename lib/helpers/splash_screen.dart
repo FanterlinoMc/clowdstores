@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:clowdstores/Data/fire_store_streams.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+
 import 'package:go_router/go_router.dart';
 
 class MyCustomSplashScreen extends StatefulWidget {
@@ -24,7 +24,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
   @override
   void initState() {
     super.initState();
-    initialization();
+    //  initialization();
 
     _controller =
         AnimationController(vsync: this, duration: const Duration(seconds: 3));
@@ -73,9 +73,9 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
     //  _controller.stop();
   }
 
-  void initialization() async {
-    FlutterNativeSplash.remove();
-  }
+  // void initialization() async {
+  //   FlutterNativeSplash.remove();
+  // }
 
   @override
   void dispose() {

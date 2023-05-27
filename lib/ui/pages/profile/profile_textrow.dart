@@ -22,136 +22,93 @@ class TextProRow extends StatelessWidget {
         return Row(
           children: [
             Expanded(
-              child: Card(
-                shape: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.red,
-                    //  width: .5,
-                  ),
-                ),
-                shadowColor: Colors.black87,
-                elevation: 5,
-                color: Colors.white,
-                child: InkWell(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return const ComingSoon();
-                        });
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Icon(Icons.favorite_outline_outlined,
-                            size: 24, color: Colors.red),
-                        Text("favorite", style: textStyle),
-                      ],
-                    ),
+              child: InkWell(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const ComingSoon();
+                      });
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(2.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(Icons.favorite_outline_outlined,
+                          size: 18, color: Colors.red),
+                      Text("favorite", style: textStyle),
+                    ],
                   ),
                 ),
               ),
             ),
             Expanded(
-              child: Card(
-                shape: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.indigo,
-                    // width: 2.5,
-                  ),
-                ),
-                shadowColor: Colors.black87,
-                elevation: 5,
-                color: Colors.white,
-                child: InkWell(
-                  onTap: () {
-                    context.push("/ReviewPage");
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Icon(Icons.reviews_outlined,
-                            size: 24, color: Colors.indigo),
-                        Text(
-                          "Review",
-                          style: textStyle,
-                        ),
-                      ],
-                    ),
+              child: InkWell(
+                onTap: () {
+                  context.push("/ReviewPage");
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(2.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(Icons.reviews_outlined,
+                          size: 18, color: Colors.indigo),
+                      Text(
+                        "Review",
+                        style: textStyle,
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
             Expanded(
-              child: Card(
-                shape: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.orange,
-                    // width: 2.5,
-                  ),
-                ),
-                shadowColor: Colors.black87,
-                elevation: 5,
-                color: Colors.white,
-                child: InkWell(
-                  onTap: () {
-                    router.chanageLat(
-                      searchInfo!['latitude'],
-                    );
-                    router.chanageLng(
-                      searchInfo!['longitude'],
-                    );
-                    router.chanageRandomMap(
-                      searchInfo!['categories'],
-                    );
-                    router.routeSates();
-                    context.push("/NearMe");
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Icon(
-                          Icons.location_pin,
-                          size: 24,
-                          color: Colors.orange,
-                        ),
-                        Text("Location", style: textStyle),
-                      ],
-                    ),
+              child: InkWell(
+                onTap: () {
+                  router.chanageLat(
+                    searchInfo!['latitude'],
+                  );
+                  router.chanageLng(
+                    searchInfo!['longitude'],
+                  );
+                  router.chanageRandomMap(
+                    searchInfo!['categories'],
+                  );
+                  router.routeSates();
+                  context.push("/NearMe");
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(2.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.location_pin,
+                        size: 18,
+                        color: Colors.orange,
+                      ),
+                      Text("Location", style: textStyle),
+                    ],
                   ),
                 ),
               ),
             ),
             Expanded(
-              child: Card(
-                shape: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                  color: Colors.blue,
-                  // width: 2.5,
-                )),
-                shadowColor: Colors.black87,
-                elevation: 5,
-                color: Colors.white,
-                child: InkWell(
-                  onTap: () async {
-                    context.push("/ChatList");
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        Icon(Icons.message_outlined,
-                            size: 24, color: Colors.blue),
-                        Text("Chats", style: textStyle),
-                      ],
-                    ),
+              child: InkWell(
+                onTap: () async {
+                  context.push("/ChatList");
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(2.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(Icons.message_outlined,
+                          size: 18, color: Colors.blue),
+                      Text("Chats", style: textStyle),
+                    ],
                   ),
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -19,6 +20,7 @@ class DetaliPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(body: Consumer(builder: (context, ref, child) {
       final order = ref.read(orderNotifer);
       final cart = ref.read(cartNotifer);
@@ -30,13 +32,14 @@ class DetaliPage extends StatelessWidget {
           data: (QuerySnapshot value) {
             return Center(
               child: SizedBox(
-                width:
-                    ResponsiveValue(context, defaultValue: 800.0, valueWhen: [
-                  const Condition.smallerThan(
-                    name: DESKTOP,
-                    value: tW,
-                  ),
-                ]).value,
+                width: ResponsiveValue(context,
+                    defaultValue: 800.0,
+                    conditionalValues: [
+                      const Condition.smallerThan(
+                        name: DESKTOP,
+                        value: tW,
+                      ),
+                    ]).value,
                 child: CustomScrollView(
                   slivers: <Widget>[
                     ClowdSliverAppBar(),
@@ -45,80 +48,78 @@ class DetaliPage extends StatelessWidget {
                             (BuildContext context, int index) {
                       return Column(
                         children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              ExtendedImage.network(
-                                value.docs[index]["photoUrl"],
-                                shape: BoxShape.rectangle,
-                                fit: BoxFit.fitHeight,
-                                height: 250,
-                                width: 230,
-                                enableMemoryCache: true,
-                              ),
-                              SizedBox(
-                                width: ResponsiveValue(context,
-                                    defaultValue: 200.0,
-                                    valueWhen: [
-                                      const Condition.smallerThan(
-                                        name: DESKTOP,
-                                        value: 60.0,
-                                      ),
-                                    ]).value,
-                              ),
-                              FloatingActionButton.extended(
-                                //   hoverColor: Colors.white,
-                                backgroundColor: appBarColor,
-                                onPressed: () {
-                                  clowdlink.changeDescription(
-                                      value.docs[index]["description"]);
-                                  clowdlink.changeImage(
-                                      value.docs[index]["photoUrl"]);
-                                  clowdlink
-                                      .changeTitle(value.docs[index]["name"]);
-                                  clowdlink.changeProductId(
-                                      value.docs[index]["productId"]);
-                                  clowdlink.changeUserId(
-                                      value.docs[index]["storeId"]);
-                                  clowdlink.changePrice(
-                                      value.docs[index]["price"].toString());
-                                  clowdlink.createProductLink();
-                                },
-                                label: const Icon(Icons.share_sharp),
-                                //  icon: const Icon(Icons.location_on_outlined),
-                              ),
-                            ],
+                          ExtendedImage.network(
+                            value.docs[index]["photoUrl"],
+                            shape: BoxShape.rectangle,
+                            fit: BoxFit.fitWidth,
+                            height: size.height / 3,
+                            //  width: 270,
+                            enableMemoryCache: true,
                           ),
-                          InkWell(
-                            onTap: () {
-                              router.chanageRandomString(
-                                value.docs[index]["storeId"],
-                              );
-                              router.routeSates();
-                              context.push('/ProfileView');
-                            },
-                            child: Card(
-                              shape: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(11),
-                                borderSide:
-                                    const BorderSide(color: Colors.white),
-                              ),
-                              shadowColor: Colors.blueGrey,
-                              elevation: 5,
-                              child: Row(
-                                children: [
-                                  ExtendedImage.network(
-                                    value.docs[index]["storephotoUrl"],
-                                    fit: BoxFit.fitHeight,
-                                    height: 60,
-                                    width: 60,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  router.chanageRandomString(
+                                    value.docs[index]["storeId"],
+                                  );
+                                  router.routeSates();
+                                  context.push('/ProfileView');
+                                },
+                                child: SizedBox(
+                                  width: kIsWeb
+                                      ? size.width / 1.9
+                                      : size.width / 1.2,
+                                  child: Card(
+                                    shape: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(11),
+                                      borderSide:
+                                          const BorderSide(color: Colors.white),
+                                    ),
+                                    shadowColor: Colors.blueGrey,
+                                    elevation: 5,
+                                    child: Row(
+                                      children: [
+                                        ExtendedImage.network(
+                                          value.docs[index]["storephotoUrl"],
+                                          fit: BoxFit.fitHeight,
+                                          height: 60,
+                                          width: 60,
+                                        ),
+                                        Text(value.docs[index]["storeName"],
+                                            style: textStyle),
+                                      ],
+                                    ),
                                   ),
-                                  Text(value.docs[index]["storeName"],
-                                      style: textStyle),
-                                ],
+                                ),
                               ),
-                            ),
+                              kIsWeb
+                                  ? const SizedBox.shrink()
+                                  : FloatingActionButton.extended(
+                                      //   hoverColor: Colors.white,
+                                      backgroundColor: appBarColor,
+                                      onPressed: () {
+                                        clowdlink.changeDescription(
+                                            value.docs[index]["description"]);
+                                        clowdlink.changeImage(
+                                            value.docs[index]["photoUrl"]);
+                                        clowdlink.changeTitle(
+                                            value.docs[index]["name"]);
+                                        clowdlink.changeProductId(
+                                            value.docs[index]["productId"]);
+                                        clowdlink.changeUserId(
+                                            value.docs[index]["storeId"]);
+                                        clowdlink.changePrice(value.docs[index]
+                                                ["price"]
+                                            .toString());
+                                        clowdlink.createProductLink();
+                                      },
+                                      label: const Icon(Icons.share_sharp),
+                                      //  icon: const Icon(Icons.location_on_outlined),
+                                    )
+                              //      : const SizedBox.shrink()
+                            ],
                           ),
                           Card(
                             shadowColor: Colors.blueGrey,
@@ -130,16 +131,15 @@ class DetaliPage extends StatelessWidget {
                                     MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text("Name", style: subTextStyle),
+                                  Text("Name", style: subTextStyle),
                                   Text(value.docs[index]["name"],
                                       style: textStyle),
                                   const SizedBox(height: 10),
-                                  const Text("Description",
-                                      style: subTextStyle),
+                                  Text("Description", style: subTextStyle),
                                   Text(value.docs[index]["description"],
                                       style: textStyle),
                                   const SizedBox(height: 10),
-                                  const Text("price", style: subTextStyle),
+                                  Text("price", style: subTextStyle),
                                   Row(
                                     children: [
                                       Text(

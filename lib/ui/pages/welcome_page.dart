@@ -14,42 +14,45 @@ class OpeningView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: appBarColor,
       body: ListView(
         children: [
           SizedBox(height: MediaQuery.of(context).size.height / 10.5),
           Center(
             child: Container(
-              width: ResponsiveValue(context, defaultValue: 400.0, valueWhen: [
-                const Condition.smallerThan(
-                  name: TABLET,
-                  value: 400.0,
-                ),
-                const Condition.smallerThan(
-                  name: DESKTOP,
-                  value: mW,
-                ),
-              ]).value,
+              width: ResponsiveValue(context,
+                  defaultValue: 400.0,
+                  conditionalValues: [
+                    const Condition.smallerThan(
+                      name: TABLET,
+                      value: 400.0,
+                    ),
+                    const Condition.smallerThan(
+                      name: DESKTOP,
+                      value: mW,
+                    ),
+                  ]).value,
               decoration: BoxDecoration(
                   border: Border.all(
-                    color: appBarColor,
+                    color: Colors.white,
                     width: 2,
                   ),
                   borderRadius: (BorderRadius.circular(30))),
               padding: const EdgeInsets.symmetric(vertical: 50),
-              child: Column(
-                children: const [
+              child: const Column(
+                children: [
                   Text(
                     "Welcome to Clowd Stores",
-                    style: TextStyle(fontSize: 25, color: appBarColor),
+                    style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
                   SizedBox(height: 10.0),
                   Text(
                     "Grow you're Buisness with our",
-                    style: TextStyle(fontSize: 22, color: appBarColor),
+                    style: TextStyle(fontSize: 22, color: Colors.white),
                   ),
                   SizedBox(height: 10.0),
                   Text(" unfind Paltform That's Quick and Easy To Use",
-                      style: TextStyle(fontSize: 18, color: appBarColor)),
+                      style: TextStyle(fontSize: 18, color: Colors.white)),
                 ],
               ),
             ),
@@ -63,7 +66,7 @@ class OpeningView extends StatelessWidget {
                 height: 44,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    color: appBarColor),
+                    color: Colors.white),
                 child: MaterialButton(
                   onPressed: () {
                     context.go(
@@ -86,7 +89,7 @@ class OpeningView extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   border: Border.all(
-                    color: appBarColor,
+                    color: Colors.white,
                     width: 2.0,
                   ),
                 ),
@@ -97,7 +100,7 @@ class OpeningView extends StatelessWidget {
                   child: const Text(
                     "Customer",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,
                     ),

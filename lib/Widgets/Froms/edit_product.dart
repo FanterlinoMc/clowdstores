@@ -79,7 +79,7 @@ class _EditProductState extends State<EditProduct> {
                   child: SizedBox(
                     width: ResponsiveValue(context,
                         defaultValue: 500.0,
-                        valueWhen: [
+                        conditionalValues: [
                           const Condition.smallerThan(
                             name: DESKTOP,
                             value: 400.0,

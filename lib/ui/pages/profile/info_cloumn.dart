@@ -23,18 +23,19 @@ class InfoCloumn extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: SizedBox(
-        width: ResponsiveValue(context, defaultValue: 700.0, valueWhen: [
+        width:
+            ResponsiveValue(context, defaultValue: 700.0, conditionalValues: [
           const Condition.smallerThan(name: TABLET, value: tW),
           const Condition.smallerThan(name: DESKTOP, value: mW),
         ]).value,
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
+            const Padding(
+              padding: EdgeInsets.only(
                 right: 10,
               ),
               child: Row(
-                children: const [
+                children: [
                   Text(
                     "About",
                     style: TextStyle(fontSize: 30),

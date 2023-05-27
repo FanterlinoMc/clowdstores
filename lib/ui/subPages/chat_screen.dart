@@ -22,7 +22,7 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget _messagesList(
+    Widget messagesList(
       String message,
       bool isMe,
     ) {
@@ -63,7 +63,7 @@ class ChatPage extends StatelessWidget {
       );
     }
 
-    Widget _chatessages() {
+    Widget chatessages() {
       return Consumer(
         builder: (context, ref, child) {
           final chat = ref.watch(getMessages);
@@ -79,7 +79,7 @@ class ChatPage extends StatelessWidget {
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
                         (context, index) {
-                          return _messagesList(
+                          return messagesList(
                             value.docs[index]["message"],
                             value.docs[index]['isMe'],
                             //widget.senderInfo!['photoUrl']
@@ -125,7 +125,7 @@ class ChatPage extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(bottom: 70),
-                  child: _chatessages(),
+                  child: chatessages(),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,

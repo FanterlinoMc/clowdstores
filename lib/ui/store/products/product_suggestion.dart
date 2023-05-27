@@ -39,7 +39,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                     child: SizedBox(
                       width: ResponsiveValue(context,
                           defaultValue: size.width,
-                          valueWhen: [
+                          conditionalValues: [
                             const Condition.smallerThan(
                               name: DESKTOP,
                               value: 200.0,
@@ -70,14 +70,14 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                         itemCount: value.docs.length,
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
-                            onTap: () {
+                            onTap: () async {
                               router.chanageCollectionName(
                                   value.docs[index]["storeId"]);
                               router
                                   .chanageDocId(value.docs[index]["productId"]);
                               router.routeSates();
 
-                              context.push('/DetaliPage');
+                              context.go('/DetaliPage');
                             },
                             child: AnimationConfiguration.staggeredList(
                               position: index,

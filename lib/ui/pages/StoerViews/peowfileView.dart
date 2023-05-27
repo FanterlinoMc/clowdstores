@@ -42,7 +42,7 @@ class ProfileView extends StatelessWidget {
                     child: SizedBox(
                       width: ResponsiveValue(context,
                           defaultValue: 700.0,
-                          valueWhen: [
+                          conditionalValues: [
                             Condition.smallerThan(
                               name: DESKTOP,
                               value: size.width,
@@ -82,7 +82,7 @@ class ProfileView extends StatelessWidget {
                                               : BorderRadius.circular(0),
                                           height: ResponsiveValue(context,
                                               defaultValue: 220.0,
-                                              valueWhen: [
+                                              conditionalValues: [
                                                 const Condition.smallerThan(
                                                   name: TABLET,
                                                   value: 300.0,
@@ -95,7 +95,7 @@ class ProfileView extends StatelessWidget {
                                           width: ResponsiveValue(
                                             context,
                                             defaultValue: 400.0,
-                                            valueWhen: [
+                                            conditionalValues: [
                                               const Condition.smallerThan(
                                                 name: TABLET,
                                                 value: tW,
@@ -155,40 +155,49 @@ class ProfileView extends StatelessWidget {
                                                 )
                                               ],
                                             ),
-                                            Align(
-                                              alignment: Alignment.bottomRight,
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: FloatingActionButton
-                                                    .extended(
-                                                  //   hoverColor: Colors.white,
-                                                  backgroundColor: appBarColor,
-                                                  onPressed: () {
-                                                    clowdlink.changeUserId(
-                                                      value.docs[index]
-                                                          ["userId"],
-                                                    );
-                                                    clowdlink.changeDescription(
-                                                      value.docs[index]
-                                                          ["categories"],
-                                                    );
-                                                    clowdlink.changeImage(
-                                                      value.docs[index]
-                                                          ["photoUrl"],
-                                                    );
-                                                    clowdlink.changeTitle(
-                                                      value.docs[index]
-                                                          ["businessName"],
-                                                    );
-                                                    clowdlink.createStoreLink();
-                                                  },
-                                                  label: const Icon(
-                                                      Icons.share_sharp),
-                                                  //  icon: const Icon(Icons.location_on_outlined),
-                                                ),
-                                              ),
-                                            ),
+                                            kIsWeb
+                                                ? const SizedBox.shrink()
+                                                : Align(
+                                                    alignment:
+                                                        Alignment.bottomRight,
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child:
+                                                          FloatingActionButton
+                                                              .extended(
+                                                        //   hoverColor: Colors.white,
+                                                        backgroundColor:
+                                                            appBarColor,
+                                                        onPressed: () {
+                                                          clowdlink
+                                                              .changeUserId(
+                                                            value.docs[index]
+                                                                ["userId"],
+                                                          );
+                                                          clowdlink
+                                                              .changeDescription(
+                                                            value.docs[index]
+                                                                ["categories"],
+                                                          );
+                                                          clowdlink.changeImage(
+                                                            value.docs[index]
+                                                                ["photoUrl"],
+                                                          );
+                                                          clowdlink.changeTitle(
+                                                            value.docs[index][
+                                                                "businessName"],
+                                                          );
+                                                          clowdlink
+                                                              .createStoreLink();
+                                                        },
+                                                        label: const Icon(
+                                                            Icons.share_sharp),
+                                                        //  icon: const Icon(Icons.location_on_outlined),
+                                                      ),
+                                                    ),
+                                                  ),
                                           ],
                                         ),
                                       ],

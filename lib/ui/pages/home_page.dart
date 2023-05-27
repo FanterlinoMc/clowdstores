@@ -36,12 +36,12 @@ class Home extends StatelessWidget {
                             // storeModel.photoUrl ?? "No info",
 
                             shape: BoxShape.rectangle,
-                            fit: BoxFit.cover,
+                            fit: BoxFit.contain,
                             borderRadius: BorderRadius.circular(0),
 
                             //  scale: 0.5,
                             enableMemoryCache: true,
-                            //width: 300,
+                            width: 300,
                             height: 300,
                           ),
                         ),
@@ -71,10 +71,10 @@ class HomeCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.read(routerState);
-    final liveLocaion = ref.read(storeProvider);
+    //  final liveLocaion = ref.read(storeProvider);
 
     return SizedBox(
-      width: ResponsiveValue(context, defaultValue: 1000.0, valueWhen: [
+      width: ResponsiveValue(context, defaultValue: 1000.0, conditionalValues: [
         const Condition.smallerThan(
           name: DESKTOP,
           value: 300.0,
@@ -101,16 +101,17 @@ class HomeCard extends ConsumerWidget {
                     onTap: () {
                       context.go("/AddProduct");
                     },
-                    child: SizedBox(
+                    child: const SizedBox(
                       height: 30,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.pets_outlined,
                             color: Colors.tealAccent,
+                            size: 17,
                           ),
-                          Text("Pets", style: TextStyle(fontSize: 17)),
+                          Text("Pets", style: TextStyle(fontSize: 14)),
                         ],
                       ),
                     ),
@@ -137,17 +138,17 @@ class HomeCard extends ConsumerWidget {
                             return const ComingSoon();
                           });
                     },
-                    child: SizedBox(
+                    child: const SizedBox(
                       height: 30,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.local_offer_outlined,
-                            size: 20,
+                            size: 17,
                             color: Colors.greenAccent,
                           ),
-                          Text("Sales", style: TextStyle(fontSize: 17))
+                          Text("Sales", style: TextStyle(fontSize: 14))
                         ],
                       ),
                     ),
@@ -178,12 +179,12 @@ class HomeCard extends ConsumerWidget {
                           extra: "Tech Stores",
                         );
                       },
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.phone_android_outlined,
-                            size: 20,
+                            size: 17,
                             color: Colors.blue,
                           ),
                           Text("TechStores", style: TextStyle(fontSize: 15)),
@@ -195,7 +196,7 @@ class HomeCard extends ConsumerWidget {
               ),
               const ResponsiveRowColumnItem(
                   child: SizedBox(
-                height: 20,
+                height: 17,
               )),
               ResponsiveRowColumnItem(
                 rowFlex: 1,
@@ -218,17 +219,17 @@ class HomeCard extends ConsumerWidget {
                         extra: "Automtive",
                       );
                     },
-                    child: SizedBox(
+                    child: const SizedBox(
                       height: 30,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.car_repair,
-                            size: 20,
+                            size: 17,
                             color: Colors.orange,
                           ),
-                          Text("Automtive", style: TextStyle(fontSize: 17))
+                          Text("Automtive", style: TextStyle(fontSize: 14))
                         ],
                       ),
                     ),
@@ -260,17 +261,17 @@ class HomeCard extends ConsumerWidget {
                             return const ComingSoon();
                           });
                     },
-                    child: SizedBox(
+                    child: const SizedBox(
                       height: 30,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.local_fire_department_outlined,
-                            size: 20,
+                            size: 17,
                             color: Colors.red,
                           ),
-                          Text("Hot&New", style: TextStyle(fontSize: 17)),
+                          Text("Hot&New", style: TextStyle(fontSize: 14)),
                         ],
                       ),
                     ),
@@ -299,17 +300,17 @@ class HomeCard extends ConsumerWidget {
                         //   extra: "Fashion",
                       );
                     },
-                    child: SizedBox(
+                    child: const SizedBox(
                       height: 30,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.shopping_basket_outlined,
-                            size: 20,
+                            size: 17,
                             color: Colors.pink,
                           ),
-                          Text("Fashion", style: TextStyle(fontSize: 17))
+                          Text("Fashion", style: TextStyle(fontSize: 14))
                         ],
                       ),
                     ),
@@ -338,17 +339,17 @@ class HomeCard extends ConsumerWidget {
                               return const ComingSoon();
                             });
                       },
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.delivery_dining_outlined,
-                            size: 20,
+                            size: 17,
                             color: Colors.cyan,
                           ),
                           Text(
                             "Devlivery",
-                            style: TextStyle(fontSize: 17),
+                            style: TextStyle(fontSize: 14),
                           ),
                         ],
                       ),
@@ -377,17 +378,17 @@ class HomeCard extends ConsumerWidget {
                         extra: "Cinema",
                       );
                     },
-                    child: SizedBox(
+                    child: const SizedBox(
                       height: 30,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.local_movies_outlined,
-                            size: 20,
+                            size: 17,
                             color: Colors.amber,
                           ),
-                          Text("Cinema", style: TextStyle(fontSize: 17)),
+                          Text("Cinema", style: TextStyle(fontSize: 14)),
                         ],
                       ),
                     ),

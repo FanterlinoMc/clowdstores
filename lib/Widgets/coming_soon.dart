@@ -67,7 +67,7 @@ class _UserNumberState extends State<UserNumber> {
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
       final order = ref.read(orderNotifer);
-      final _isUser = ref.read(orderNotifer);
+      final isUser = ref.read(orderNotifer);
       return Dialog(
         backgroundColor: Colors.white,
         // title: Text(
@@ -87,7 +87,7 @@ class _UserNumberState extends State<UserNumber> {
               Padding(
                 padding: const EdgeInsets.only(left: 14.0, right: 14.0),
                 child: MyTextfiled(
-                    onChanged: (value) => _isUser.chnageUserNumber(value),
+                    onChanged: (value) => isUser.chnageUserNumber(value),
                     maxLength: 11,
                     keyboardType: TextInputType.number,
                     labelText: "Enter your mobile number",
@@ -130,7 +130,7 @@ class ClowdSliverAppBar extends StatelessWidget {
     return SliverAppBar(
       centerTitle: true,
       title: title,
-      leading: SizedBox.shrink(),
+      leading: const SizedBox.shrink(),
       backgroundColor: kIsWeb ? Colors.white : appBarColor,
     );
   }

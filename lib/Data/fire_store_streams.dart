@@ -7,11 +7,11 @@ import 'package:flutter/material.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
 
-String? uid = auth.currentUser?.uid;
-String? fUserP = auth.currentUser?.photoURL;
-String? fUserN = auth.currentUser?.displayName;
-String? fUserE = auth.currentUser?.email;
-String? fUserPhone = auth.currentUser?.phoneNumber;
+final String uid = auth.currentUser!.uid;
+final String? fUserP = auth.currentUser!.photoURL;
+final String? fUserN = auth.currentUser!.displayName;
+final String? fUserE = auth.currentUser!.email;
+final String? fUserPhone = auth.currentUser!.phoneNumber;
 FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
 const appBarColor = //Colors.blueGrey;
@@ -19,7 +19,7 @@ const appBarColor = //Colors.blueGrey;
 const size = MediaQuery;
 const subTextStyle = TextStyle(fontSize: 14, color: Colors.black);
 const textStyle = TextStyle(
-  fontSize: 15,
+  fontSize: 12,
   fontFamily: "Roboto",
 );
 const rowStyle =
@@ -88,7 +88,7 @@ class CloudStreams {
         .collectionGroup("product")
         // .doc()
         // .collection("product")
-        .where("productType", isEqualTo: "Phones")
+        .where("productType", isEqualTo: proType ?? "Phones")
         .snapshots();
   }
 

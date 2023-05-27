@@ -63,8 +63,11 @@ class MoreColumn extends StatelessWidget {
                 router.chanageRandomString("Active Life");
                 router.routeSates();
                 context.push(
-                  '/Categories',
+                  '/Privacy',
                 );
+                // context.push(
+                //   '/Categories',
+                // );
               },
             ),
           ),

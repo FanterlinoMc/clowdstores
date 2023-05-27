@@ -280,7 +280,7 @@ class _NearMeState extends State<NearMe> {
                                         borderRadius: BorderRadius.circular(10),
                                         height: ResponsiveValue(context,
                                             defaultValue: 60.0,
-                                            valueWhen: [
+                                            conditionalValues: [
                                               const Condition.smallerThan(
                                                 name: DESKTOP,
                                                 value: 30.0,
@@ -289,7 +289,7 @@ class _NearMeState extends State<NearMe> {
                                         width: ResponsiveValue(
                                           context,
                                           defaultValue: 60.0,
-                                          valueWhen: [
+                                          conditionalValues: [
                                             const Condition.smallerThan(
                                               name: DESKTOP,
                                               value: 30.0,

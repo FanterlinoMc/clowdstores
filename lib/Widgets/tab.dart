@@ -1,7 +1,7 @@
 import 'package:clowdstores/Data/fire_store_streams.dart';
 import 'package:clowdstores/ui/pages/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../ui/WebUI/web_Profile.dart';
@@ -24,12 +24,12 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
     tabController = TabController(length: 5, vsync: this, initialIndex: 2);
     //StoreProvider().getLocationPro();
     super.initState();
-    initialization();
+    //  initialization();
   }
 
-  void initialization() async {
-    FlutterNativeSplash.remove();
-  }
+  // void initialization() async {
+  //   FlutterNativeSplash.remove();
+  // }
 
   @override
   void dispose() {
@@ -78,10 +78,10 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                                 style: TextStyle(
                                     fontSize: ResponsiveValue(
                                   context,
-                                  defaultValue: 15.0,
-                                  valueWhen: [
+                                  defaultValue: 13.0,
+                                  conditionalValues: [
                                     const Condition.smallerThan(
-                                        name: DESKTOP, value: 15.0)
+                                        name: DESKTOP, value: 13.0)
                                   ],
                                 ).value),
                               ),
@@ -90,10 +90,10 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                                 style: TextStyle(
                                     fontSize: ResponsiveValue(
                                   context,
-                                  defaultValue: 15.0,
-                                  valueWhen: [
+                                  defaultValue: 13.0,
+                                  conditionalValues: [
                                     const Condition.smallerThan(
-                                        name: DESKTOP, value: 15.0)
+                                        name: DESKTOP, value: 13.0)
                                   ],
                                 ).value),
                               ),
@@ -102,10 +102,10 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                                 style: TextStyle(
                                     fontSize: ResponsiveValue(
                                   context,
-                                  defaultValue: 15.0,
-                                  valueWhen: [
+                                  defaultValue: 13.0,
+                                  conditionalValues: [
                                     const Condition.smallerThan(
-                                        name: DESKTOP, value: 15.0)
+                                        name: DESKTOP, value: 13.0)
                                   ],
                                 ).value),
                               ),
@@ -114,10 +114,10 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                                 style: TextStyle(
                                     fontSize: ResponsiveValue(
                                   context,
-                                  defaultValue: 15.0,
-                                  valueWhen: [
+                                  defaultValue: 13.0,
+                                  conditionalValues: [
                                     const Condition.smallerThan(
-                                        name: DESKTOP, value: 15.0)
+                                        name: DESKTOP, value: 13.0)
                                   ],
                                 ).value),
                               ),
@@ -126,10 +126,10 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                                 style: TextStyle(
                                     fontSize: ResponsiveValue(
                                   context,
-                                  defaultValue: 15.0,
-                                  valueWhen: [
+                                  defaultValue: 13.0,
+                                  conditionalValues: [
                                     const Condition.smallerThan(
-                                        name: DESKTOP, value: 15.0)
+                                        name: DESKTOP, value: 13.0)
                                   ],
                                 ).value),
                               ),

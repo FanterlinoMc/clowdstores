@@ -84,7 +84,7 @@ class _ProfileState extends State<Profile> {
                                               : BorderRadius.circular(0),
                                           height: ResponsiveValue(context,
                                               defaultValue: 220.0,
-                                              valueWhen: [
+                                              conditionalValues: [
                                                 const Condition.smallerThan(
                                                     name: TABLET, value: 300.0),
                                                 const Condition.smallerThan(
@@ -94,7 +94,7 @@ class _ProfileState extends State<Profile> {
                                           width: ResponsiveValue(
                                             context,
                                             defaultValue: 400.0,
-                                            valueWhen: [
+                                            conditionalValues: [
                                               const Condition.smallerThan(
                                                   name: TABLET, value: tW),
                                               const Condition.smallerThan(

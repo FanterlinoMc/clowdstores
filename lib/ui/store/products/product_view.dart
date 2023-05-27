@@ -118,7 +118,7 @@ class ProductView extends StatelessWidget {
                                                                   ["price"]
                                                               .toString(),
                                                           style: textStyle),
-                                                      const Text("EGP",
+                                                      Text("EGP",
                                                           style: textStyle),
                                                       //  const Text("EGP")
                                                     ],

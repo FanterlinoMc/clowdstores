@@ -36,7 +36,7 @@ class Categories extends StatelessWidget {
                   child: SizedBox(
                     width: ResponsiveValue(context,
                         defaultValue: 1000.0,
-                        valueWhen: [
+                        conditionalValues: [
                           Condition.smallerThan(
                             name: DESKTOP,
                             value: size.width,
@@ -97,17 +97,17 @@ class Categories extends StatelessWidget {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            const Text("business Name",
+                                             Text("business Name",
                                                 style: subTextStyle),
                                             Text(
                                                 value.docs[index]
                                                     ["businessName"],
                                                 style: textStyle),
-                                            const Text("city",
+                                             Text("city",
                                                 style: subTextStyle),
                                             Text(value.docs[index]["city"],
                                                 style: textStyle),
-                                            const Text("category",
+                                             Text("category",
                                                 style: subTextStyle),
                                             Text(
                                                 value.docs[index]["categories"],
@@ -130,7 +130,7 @@ class Categories extends StatelessWidget {
               }
               return null;
             },
-            loading: () => const Center(child: CircularProgressIndicator()),
+            loading: () =>  Center(child: CircularProgressIndicator()),
             error: (value, stack) {
               return const Center(
                 child: Text("Erorr"),

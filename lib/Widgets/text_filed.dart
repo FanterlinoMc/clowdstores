@@ -46,7 +46,7 @@ class _MyTextfiledState extends State<MyTextfiled> {
             child: TextFormField(
               validator: widget.validator,
               onSaved: widget.saved,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
+              autovalidateMode: AutovalidateMode.always,
               maxLength: widget.maxLength,
               keyboardType: widget.keyboardType,
               controller: widget.controller,

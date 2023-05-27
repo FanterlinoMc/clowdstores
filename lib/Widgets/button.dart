@@ -22,12 +22,12 @@ class CloudButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: ResponsiveValue(context, defaultValue: 50.0, valueWhen: [
+        height: ResponsiveValue(context, defaultValue: 50.0, conditionalValues: [
           const Condition.smallerThan(name: TABLET, value: bottonH),
           const Condition.smallerThan(name: DESKTOP, value: bottonHT),
         ]).value,
         width: 200,
-        // width: ResponsiveValue(context, defaultValue: 200.0, valueWhen: [
+        // width: ResponsiveValue(context, defaultValue: 200.0, conditionalValues: [
         //   const Condition.smallerThan(
         //     name: DESKTop,
         //     value: bottonW,
@@ -70,11 +70,11 @@ class CloudButtonTow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: ResponsiveValue(context, defaultValue: 50.0, valueWhen: [
+        height: ResponsiveValue(context, defaultValue: 50.0, conditionalValues: [
           const Condition.smallerThan(name: TABLET, value: bottonH),
           const Condition.smallerThan(name: DESKTOP, value: bottonHT),
         ]).value,
-        width: ResponsiveValue(context, defaultValue: 200.0, valueWhen: [
+        width: ResponsiveValue(context, defaultValue: 200.0, conditionalValues: [
           const Condition.smallerThan(
             name: TABLET,
             value: bottonW,

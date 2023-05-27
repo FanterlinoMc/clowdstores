@@ -16,7 +16,7 @@ class ValidatorProvider with ChangeNotifier {
   late bool _desctiotion = true;
   late bool _price = true;
   late bool _qunantity = true;
-  late bool _done = false;
+  late bool _done = true;
 
   bool get done => _done;
   bool get isValid => _isValid;
@@ -40,128 +40,128 @@ class ValidatorProvider with ChangeNotifier {
   bool get qunantiyy => _qunantity;
 
   businessName(String value) {
-    if (value.length <= 4) {
-      _isNameValid = true;
-    } else {
+    if (value.length >= 5) {
       _isNameValid = false;
+    } else {
+      _isNameValid = true;
     }
     return _isNameValid ? "it has to be more then five letters" : "✔";
   }
 
   businessAddress(String value) {
-    if (value.length <= 4) {
-      _isAddressValid = true;
-    } else {
+    if (value.length >= 5) {
       _isAddressValid = false;
+    } else {
+      _isAddressValid = true;
     }
     return _isAddressValid ? "it has to be more then five letters" : "✔";
   }
 
   businessCity(String value) {
-    if (value.length <= 4) {
-      _isCityValid = true;
-    } else {
+    if (value.length >= 5) {
       _isCityValid = false;
+    } else {
+      _isCityValid = true;
     }
     return _isCityValid ? "it has to be more then five letters" : "✔";
   }
 
   businessWeb(String value) {
-    if (value.endsWith(".com")) {
-      _isWebValid = true;
-    } else {
+    if (value.length >= 5) {
       _isWebValid = false;
+    } else {
+      _isWebValid = true;
     }
     return _isWebValid ? "it has to be more then five letters" : "✔";
   }
 
   businessEmail(String value) {
-    if (value.contains(".com")) {
-      _isEmailValid = true;
-    } else {
+    if (value.length >= 5) {
       _isEmailValid = false;
+    } else {
+      _isEmailValid = true;
     }
     return _isEmailValid ? "it has to be more then five letters" : "✔";
   }
 
   businessPhone(String value) {
-    if (value.startsWith("011,012,015")) {
-      _isNumberValid = true;
-    } else {
+    if (value.length >= 5) {
       _isNumberValid = false;
+    } else {
+      _isNumberValid = true;
     }
     return _isNumberValid ? "the number it's not valid" : "✔";
   }
 
   isValidHour(String value) {
-    if (value.length <= 4) {
-      _isHourValid = true;
-    } else {
+    if (value.length >= 5) {
       _isHourValid = false;
+    } else {
+      _isHourValid = true;
     }
     return _isHourValid ? "Enter working Hours" : "✔";
   }
 
   isValidproductType0(String value) {
-    if (value.length <= 4) {
-      _productType0 = true;
-    } else {
+    if (value.length >= 5) {
       _productType0 = false;
+    } else {
+      _productType0 = true;
     }
     return _productType0 ? "it has to be more then five letters" : "✔";
   }
 
   isValidproductType1(String value) {
-    if (value.length <= 4) {
-      _productType1 = true;
-    } else {
+    if (value.length >= 5) {
       _productType1 = false;
+    } else {
+      _productType1 = true;
     }
     return _productType1 ? "it has to be more then five letters" : "✔";
   }
 
   isValidproductType2(String value) {
-    if (value.length <= 4) {
-      _productType2 = true;
-    } else {
+    if (value.length >= 5) {
       _productType2 = false;
+    } else {
+      _productType2 = true;
     }
     return _productType2 ? "it has to be more then five letters" : "✔";
   }
 
   //? Product Validation
   isProductNameValid(String value) {
-    if (value.length <= 4) {
-      _productName = true;
-    } else {
+    if (value.length >= 5) {
       _productName = false;
+    } else {
+      _productName = true;
     }
     return _productName ? "it has to be more then five letters" : "✔";
   }
 
   ispriceValid(String value) {
-    if (value.length <= 4) {
-      _price = true;
-    } else {
+    if (value.length >= 5) {
       _price = false;
+    } else {
+      _price = true;
     }
     return _price ? "the number it's not valid" : "✔";
   }
 
   isDescription(String value) {
-    if (value.length <= 4) {
-      _desctiotion = true;
-    } else {
+    if (value.length >= 5) {
       _desctiotion = false;
+    } else {
+      _desctiotion = true;
     }
     return _desctiotion ? "it has to be more then five letters" : "✔";
   }
 
   isQuantity(String value) {
     if (value.length <= 1) {
-      _qunantity = true;
-    } else {
       _qunantity = false;
+    } else {
+      _qunantity = true;
     }
     return _qunantity ? "the number it's not valid" : "✔";
   }

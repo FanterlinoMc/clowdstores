@@ -146,9 +146,10 @@ class StoreProvider extends ChangeNotifier {
           description: '', imageUrl: Uri.parse(image), title: title),
     );
     FirebaseDynamicLinks link = FirebaseDynamicLinks.instance;
-    final ShortDynamicLink dynamicUrl = await link.buildShortLink(parameters);
 
-    //String? desc = '${dynamicUrl.shortUrl.toString()}';
+    await link.buildShortLink(parameters);
+
+    // String? desc = '${dynamicUrl.shortUrl.toString()}';
   }
   // laodStores(StoreModel storeModel) {
   //   _businessName = storeModel.businessName;

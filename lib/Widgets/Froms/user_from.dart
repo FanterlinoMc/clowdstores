@@ -28,6 +28,7 @@ class _UserLogInState extends State<UserLogIn> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: appBarColor,
       body: Consumer(builder: (context, ref, child) {
         refresh() {
           return ref.refresh(authStateStraem);
@@ -39,41 +40,47 @@ class _UserLogInState extends State<UserLogIn> {
         return Center(
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                const Text(
-                  "Welcome to clowd stores",
-                  style: TextStyle(fontSize: 25, color: appBarColor),
+                // const Text(
+                //   "Welcome to clowd stores",
+                //   style: TextStyle(fontSize: 25, color: Colors.white),
+                // ),
+                Image.asset(
+                  'assets/logInUser.png',
+                  height: 280,
+                  width: 400,
+                ),
+                SizedBox(
+                  width: size.width / 1.2,
+                  child: const Divider(
+                    //    height: size.height * 0.01,
+                    color: Colors.white,
+                  ),
                 ),
                 const Text(
                   "Shop Smart, Shop Local",
-                  style: TextStyle(fontSize: 25, color: appBarColor),
+                  style: TextStyle(fontSize: 30, color: Colors.white),
                 ),
-                const Text(
-                  "Sign In as customer",
-                  style: TextStyle(fontSize: 25, color: appBarColor),
-                ),
-                SizedBox(
-                  width: size.width * 0.8,
-                  child: Divider(
-                    height: size.height * 0.02,
-                    color: appBarColor,
-                  ),
-                ),
+                // const Text(
+                //   "Sign In as customer",
+                //   style: TextStyle(fontSize: 25, color: Colors.white),
+                // ),
                 const SizedBox(
                   height: 20,
                 ),
                 SignInButton(
                   Buttons.Google,
                   text: "Sign up with Google",
-                  onPressed: () {
+                  onPressed: () async {
                     //  user.changeStoreToken();
-                    context.go("/");
 
                     userSignIn.signInWithGoogle();
                     changeUserNotifer.chageUser(true);
                     changeUserNotifer.saveChanageUser();
                     isUser.saveUser();
+                    context.go("/");
+                    refresh();
                     refresh();
                   },
                 ),

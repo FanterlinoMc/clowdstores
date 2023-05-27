@@ -71,7 +71,7 @@ class UserProfile extends StatelessWidget {
                       SizedBox(
                         width: ResponsiveValue(context,
                             defaultValue: 700.0,
-                            valueWhen: [
+                            conditionalValues: [
                               const Condition.smallerThan(
                                 name: TABLET,
                                 value: tW,
@@ -143,12 +143,12 @@ class UserProfile extends StatelessWidget {
                                               return const ComingSoon();
                                             });
                                       },
-                                      child: SizedBox(
+                                      child: const SizedBox(
                                         height: 30,
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
-                                          children: const [
+                                          children: [
                                             Icon(
                                                 Icons.favorite_outline_outlined,
                                                 size: 15,
@@ -181,12 +181,12 @@ class UserProfile extends StatelessWidget {
                                               return const ComingSoon();
                                             });
                                       },
-                                      child: SizedBox(
+                                      child: const SizedBox(
                                         height: 30,
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
-                                          children: const [
+                                          children: [
                                             Icon(Icons.reviews_outlined,
                                                 size: 15, color: Colors.indigo),
                                             Text(
@@ -222,10 +222,10 @@ class UserProfile extends StatelessWidget {
                                                     const CartPage()),
                                           );
                                         },
-                                        child: Row(
+                                        child: const Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
-                                          children: const [
+                                          children: [
                                             Icon(
                                               Icons
                                                   .shopping_cart_checkout_outlined,
@@ -255,12 +255,12 @@ class UserProfile extends StatelessWidget {
                                       onTap: () async {
                                         context.go("/ChatList");
                                       },
-                                      child: SizedBox(
+                                      child: const SizedBox(
                                         height: 30,
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
-                                          children: const [
+                                          children: [
                                             Icon(Icons.message_outlined,
                                                 size: 15, color: Colors.blue),
                                             Text("Chats",
