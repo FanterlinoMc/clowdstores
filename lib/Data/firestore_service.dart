@@ -8,6 +8,7 @@ import '../Models/messages_model.dart';
 import '../Models/order.dart';
 import '../Models/product.dart';
 import '../Models/review_model.dart';
+import '../Models/sfeedModel.dart';
 import '../Models/store.dart';
 import '../Widgets/coming_soon.dart';
 import 'fire_store_streams.dart';
@@ -24,6 +25,16 @@ class FirestoreService {
         .collection("Order")
         .doc(id)
         .set(orderModel.toMap());
+  }
+
+  Future savepost(ShoppingFeedModel savePost) async {
+    // var id = orderModel.orderId;
+    return await _db
+        .collection("Post")
+        .doc(uid)
+        .collection("Post")
+        .doc()
+        .set(savePost.toMap());
   }
 
   Future userCart(CartModel cartModel) async {

@@ -10,6 +10,7 @@ import '../providers/order.dart';
 import '../providers/product_provider.dart';
 import '../providers/review_provider.dart';
 import '../providers/routerProvider.dart';
+import '../providers/shoppingfeed_pro.dart';
 import '../providers/store_porvider.dart';
 import '../providers/user_provider.dart';
 
@@ -45,3 +46,5 @@ final validatorProvider =
 final clowdLink = ChangeNotifierProvider<ClowdLink>((ref) => ClowdLink());
 final signIn =
     ChangeNotifierProvider<SignInWithGoogle>((ref) => SignInWithGoogle());
+final postNotifire = ChangeNotifierProvider<ShoppingFeedProvider>(
+    (ref) => ShoppingFeedProvider());

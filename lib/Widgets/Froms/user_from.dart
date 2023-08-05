@@ -80,8 +80,6 @@ class _UserLogInState extends State<UserLogIn> {
                     changeUserNotifer.saveChanageUser();
                     isUser.saveUser();
                     context.go("/");
-                    refresh();
-                    refresh();
                   },
                 ),
                 TextButton(

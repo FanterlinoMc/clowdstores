@@ -64,7 +64,7 @@ class _StoreLogInState extends State<StoreLogIn> {
                       changeUserNotifer.saveChanageUser();
                       isUser.saveUser();
                       context.go('/');
-                      refresh();
+                 
                     },
                   ),
                   Padding(

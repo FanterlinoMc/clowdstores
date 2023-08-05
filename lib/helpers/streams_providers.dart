@@ -27,6 +27,10 @@ final getStores = StreamProvider.autoDispose((ref) {
   final streams = ref.watch(getStreams);
   return streams.getStores();
 });
+final getPost = StreamProvider.autoDispose((ref) {
+  final streams = ref.watch(getStreams);
+  return streams.getPost();
+});
 final getStore = StreamProvider.autoDispose<QuerySnapshot>((ref) {
   final streams = ref.watch(getStreams);
   return streams.getStore();

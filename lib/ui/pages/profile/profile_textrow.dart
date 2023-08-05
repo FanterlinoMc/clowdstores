@@ -46,6 +46,14 @@ class TextProRow extends StatelessWidget {
             Expanded(
               child: InkWell(
                 onTap: () {
+                  router.chanageRandomString(
+                    searchInfo!['userId'],
+                  );
+                  router.routeSates();
+                  print(
+                    searchInfo!['userId'],
+                  );
+
                   context.push("/ReviewPage");
                 },
                 child: const Padding(

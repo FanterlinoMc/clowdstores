@@ -40,12 +40,12 @@ class TextProRowView extends StatelessWidget {
                           return const ComingSoon();
                         });
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(2.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Icon(Icons.favorite_outline_outlined,
+                        Icon(Icons.favorite_outline_outlined,
                             size: 24, color: Colors.red),
                         Text("favorite", style: subTextStyle),
                       ],
@@ -76,12 +76,12 @@ class TextProRowView extends StatelessWidget {
                     );
                     context.push("/ReviewPage");
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(2.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Icon(Icons.reviews_outlined,
+                        Icon(Icons.reviews_outlined,
                             size: 24, color: Colors.indigo),
                         Text(
                           "Review",
@@ -123,12 +123,12 @@ class TextProRowView extends StatelessWidget {
                     //       return ComingSoon();
                     //     });
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(2.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.location_pin,
                           size: 24,
                           color: Colors.orange,
@@ -167,12 +167,12 @@ class TextProRowView extends StatelessWidget {
 
                     context.push("/ChatList");
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(2.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Icon(Icons.message_outlined,
+                        Icon(Icons.message_outlined,
                             size: 24, color: Colors.blue),
                         Text("Chats", style: subTextStyle),
                       ],

@@ -38,6 +38,10 @@ class CloudStreams {
         .snapshots();
   }
 
+  Stream<QuerySnapshot<Map<String, dynamic>>> getPost() {
+    return FirebaseFirestore.instance.collectionGroup('Post').snapshots();
+  }
+
   Stream<QuerySnapshot<Map<String, dynamic>>> getStore() async* {
     yield* FirebaseFirestore.instance
         .collection('Stores')

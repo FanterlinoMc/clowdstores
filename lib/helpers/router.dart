@@ -1,3 +1,5 @@
+import 'package:clowdstores/Widgets/Froms/post_from.dart';
+import 'package:clowdstores/ui/pages/shopping_feed.dart';
 import 'package:clowdstores/ui/store/dash_bord.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +13,6 @@ import '../ui/categroise/categroise.dart';
 import '../ui/pages/User/cart.dart';
 import '../ui/pages/User/free_user.dart';
 import '../ui/pages/chat_list.dart';
-import '../ui/pages/home_page.dart';
 import '../ui/pages/more.dart';
 import '../ui/pages/near_me_page.dart';
 import '../ui/pages/StoerViews/peowfileView.dart';
@@ -165,7 +166,7 @@ final GoRouter clowdRouter = GoRouter(
         return CustomTransitionPage(
           key: state.pageKey,
           // transitionDuration: Duration(milliseconds: 100),
-          child: const Home(),
+          child: const ShoppingFeed(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             // Change the opacity of the screen using a Curve based on the the animation's
             // value
@@ -632,6 +633,29 @@ final GoRouter clowdRouter = GoRouter(
           key: state.pageKey,
           // transitionDuration: Duration(milliseconds: 100),
           child: const Privacy(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            // Change the opacity of the screen using a Curve based on the the animation's
+            // value
+            return ScaleTransition(
+              alignment: Alignment.bottomCenter,
+              scale: animation,
+              child: FadeTransition(
+                opacity: animation,
+                child: child,
+              ),
+            );
+          },
+        );
+      },
+    ),
+    GoRoute(
+      path: '/PostPage',
+      name: "PostPage",
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          key: state.pageKey,
+          // transitionDuration: Duration(milliseconds: 100),
+          child: const AddPost(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             // Change the opacity of the screen using a Curve based on the the animation's
             // value

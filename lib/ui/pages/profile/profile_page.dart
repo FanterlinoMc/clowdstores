@@ -104,7 +104,8 @@ class _ProfileState extends State<Profile> {
                                           enableMemoryCache: true,
                                         ),
                                         const SizedBox(height: 13),
-                                        TextProRow(),
+                                        TextProRow(
+                                            searchInfo: value.docs[index]),
                                         const SizedBox(height: 6),
                                         const ProductRow(),
                                         Padding(

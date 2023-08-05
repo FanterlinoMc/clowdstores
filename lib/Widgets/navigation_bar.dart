@@ -1,4 +1,5 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:clowdstores/ui/pages/shopping_feed.dart';
 
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,7 @@ class _NaviBarState extends State<NaviBar> {
   List<Widget> pageView = [
     const ProfileState(),
     const SearchScreen(),
-    const Home(),
+    const ShoppingFeed(),
     const NearMe(),
     const More(),
   ];

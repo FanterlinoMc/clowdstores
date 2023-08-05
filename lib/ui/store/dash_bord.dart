@@ -57,6 +57,11 @@ class DashBrod extends StatelessWidget {
                       onPressed: () {
                         context.push('/OrderPage');
                       }),
+                  CloudButton(
+                      name: "Post",
+                      onPressed: () {
+                        context.push('/PostPage');
+                      }),
                 ],
               )
             ],

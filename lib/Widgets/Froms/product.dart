@@ -36,18 +36,17 @@ class _ProductState extends State<AddProduct> {
   final TextEditingController _productTypeController0 = TextEditingController();
   final TextEditingController _productTypeController1 = TextEditingController();
   final TextEditingController _productTypeController2 = TextEditingController();
-  @override
-  void dispose() {
-    _name.dispose();
-    _description.dispose();
-
-    _price.dispose();
-    _quantity.dispose();
-    _productTypeController0.dispose();
-    _productTypeController1.dispose();
-    _productTypeController2.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _name.dispose();
+  //   _description.dispose();
+  //   _price.dispose();
+  //   _quantity.dispose();
+  //   _productTypeController0.dispose();
+  //   _productTypeController1.dispose();
+  //   _productTypeController2.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -198,6 +197,8 @@ class _ProductState extends State<AddProduct> {
                                         _price.clear();
                                         _description.clear();
                                         _quantity.clear();
+
+                                        // html.window.location.reload();
                                         return ref.refresh(productPro);
                                       },
                                     )

@@ -131,15 +131,16 @@ class DetaliPage extends StatelessWidget {
                                     MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("Name", style: subTextStyle),
+                                  const Text("Name", style: subTextStyle),
                                   Text(value.docs[index]["name"],
                                       style: textStyle),
                                   const SizedBox(height: 10),
-                                  Text("Description", style: subTextStyle),
+                                  const Text("Description",
+                                      style: subTextStyle),
                                   Text(value.docs[index]["description"],
                                       style: textStyle),
                                   const SizedBox(height: 10),
-                                  Text("price", style: subTextStyle),
+                                  const Text("price", style: subTextStyle),
                                   Row(
                                     children: [
                                       Text(

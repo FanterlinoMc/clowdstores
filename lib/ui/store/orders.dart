@@ -86,7 +86,7 @@ class OrderPage extends StatelessWidget {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                               Text(
+                                              const Text(
                                                 "Name",
                                                 style: subTextStyle,
                                               ),
@@ -94,7 +94,7 @@ class OrderPage extends StatelessWidget {
                                                   value.docs[index]
                                                       ["productName"],
                                                   style: textStyle),
-                                               Text(
+                                              const Text(
                                                 "price",
                                                 style: subTextStyle,
                                               ),
@@ -105,18 +105,18 @@ class OrderPage extends StatelessWidget {
                                                               ["productPrice"]
                                                           .toString(),
                                                       style: textStyle),
-                                                   Text("EGP",
+                                                  const Text("EGP",
                                                       style: textStyle)
                                                 ],
                                               ),
-                                               Text(
+                                              const Text(
                                                 "Ordre name",
                                                 style: subTextStyle,
                                               ),
                                               Text(
                                                   value.docs[index]["userName"],
                                                   style: textStyle),
-                                               Text(
+                                              const Text(
                                                 "Customer Number",
                                                 style: subTextStyle,
                                               ),

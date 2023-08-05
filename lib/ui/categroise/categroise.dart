@@ -97,17 +97,17 @@ class Categories extends StatelessWidget {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                             Text("business Name",
+                                            const Text("business Name",
                                                 style: subTextStyle),
                                             Text(
                                                 value.docs[index]
                                                     ["businessName"],
                                                 style: textStyle),
-                                             Text("city",
+                                            const Text("city",
                                                 style: subTextStyle),
                                             Text(value.docs[index]["city"],
                                                 style: textStyle),
-                                             Text("category",
+                                            const Text("category",
                                                 style: subTextStyle),
                                             Text(
                                                 value.docs[index]["categories"],
@@ -130,7 +130,7 @@ class Categories extends StatelessWidget {
               }
               return null;
             },
-            loading: () =>  Center(child: CircularProgressIndicator()),
+            loading: () => const Center(child: CircularProgressIndicator()),
             error: (value, stack) {
               return const Center(
                 child: Text("Erorr"),

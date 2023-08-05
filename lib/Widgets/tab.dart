@@ -1,5 +1,4 @@
 import 'package:clowdstores/Data/fire_store_streams.dart';
-import 'package:clowdstores/ui/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
@@ -8,6 +7,7 @@ import '../ui/WebUI/web_Profile.dart';
 import '../ui/pages/more.dart';
 import '../ui/pages/near_me_page.dart';
 import '../ui/pages/search_page.dart';
+import '../ui/pages/shopping_feed.dart';
 
 class MyTab extends StatefulWidget {
   const MyTab({Key? key}) : super(key: key);
@@ -98,7 +98,7 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                                 ).value),
                               ),
                               Text(
-                                "Home",
+                                "SFeed",
                                 style: TextStyle(
                                     fontSize: ResponsiveValue(
                                   context,
@@ -147,7 +147,7 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                     children: const [
                       WebProfile(),
                       SearchScreen(),
-                      Home(),
+                      ShoppingFeed(),
                       NearMe(),
                       More(),
                     ],
