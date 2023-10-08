@@ -9,7 +9,7 @@ import '../providers/messages_pro.dart';
 import '../providers/order.dart';
 import '../providers/product_provider.dart';
 import '../providers/review_provider.dart';
-import '../providers/routerProvider.dart';
+import '../providers/cacheProvider.dart';
 import '../providers/shoppingfeed_pro.dart';
 import '../providers/store_porvider.dart';
 import '../providers/user_provider.dart';
@@ -39,8 +39,8 @@ final storeNotifer =
 
 final addReview =
     ChangeNotifierProvider<ReviewProvider>((ref) => ReviewProvider());
-final routerState =
-    ChangeNotifierProvider<RouterProvider>((ref) => RouterProvider());
+final cacheState =
+    ChangeNotifierProvider<CacheProvider>((ref) => CacheProvider());
 final validatorProvider =
     ChangeNotifierProvider<ValidatorProvider>((ref) => ValidatorProvider());
 final clowdLink = ChangeNotifierProvider<ClowdLink>((ref) => ClowdLink());

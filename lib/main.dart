@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 
-import 'package:flutter_web_plugins/url_strategy.dart';
 import 'firebase_options.dart';
 import 'helpers/router.dart';
 import 'scroll_behavior.dart';
@@ -24,11 +23,12 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   //   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  usePathUrlStrategy();
+  // usePathUrlStrategy();
   // PendingDynamicLinkData? linkData =
   //     await FirebaseDynamicLinks.instance.getInitialLink();
   // String? link = linkData?.link.toString();
   //  final PendingDynamicLinkData? initialLink = await FirebaseDynamicLinks.instance.getInitialLink();
+  // initMeeduPlayer();
 
   runApp(const ProviderScope(child: MyApp()));
 }

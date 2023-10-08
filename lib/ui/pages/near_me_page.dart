@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -150,7 +151,7 @@ class _NearMeState extends State<NearMe> {
       builder: (context, ref, child) {
         final storesMap = ref.watch(storeMap);
         //  final storePro = ref(storeProvider);
-        final router = ref.read(routerState);
+        final router = ref.read(cacheState);
         final liveLocaion = ref.read(storeProvider);
 
         return storesMap.when(
@@ -167,18 +168,19 @@ class _NearMeState extends State<NearMe> {
                 onTap: () {
                   router.chanageRandomString(value.docs[index]['userId']);
                   router.routeSates();
+                  context.go("/ProfileView");
 
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) => Dialog(
-                      alignment: Alignment.topLeft,
-                      child: SizedBox(
-                        height: size.height / 1,
-                        width: kIsWeb ? size.width / 3 : size.width / 1.2,
-                        child: const ProfileView(),
-                      ),
-                    ),
-                  );
+                  // showDialog(
+                  //   context: context,
+                  //   builder: (BuildContext context) => Dialog(
+                  //     // alignment: Alignment.topLeft,
+                  //     child: SizedBox(
+                  //       height: size.height / 1,
+                  //       width: size.width,
+                  //       child: const ProfileView(),
+                  //     ),
+                  //   ),
+                  // );
                 },
                 infoWindow: InfoWindow(
                   title: value.docs[index]["businessName"],
@@ -253,20 +255,20 @@ class _NearMeState extends State<NearMe> {
                                         router.chanageRandomString(
                                             value.docs[index]['userId']);
                                         router.routeSates();
-                                        showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) =>
-                                              Dialog(
-                                            alignment: Alignment.topRight,
-                                            child: SizedBox(
-                                              height: size.height / 1,
-                                              width: kIsWeb
-                                                  ? size.width / 3
-                                                  : size.width / 1.2,
-                                              child: const ProfileView(),
-                                            ),
-                                          ),
-                                        );
+                                        context.go("/ProfileView");
+
+                                        // showDialog(
+                                        //   context: context,
+                                        //   builder: (BuildContext context) =>
+                                        //       Dialog(
+                                        //     // alignment: Alignment.topRight,
+                                        //     child: SizedBox(
+                                        //       height: size.height / 1,
+                                        //       width: size.width,
+                                        //       child: const ProfileView(),
+                                        //     ),
+                                        //   ),
+                                        // );
                                       },
                                       title: Text(
                                         value.docs[index]["businessName"],
@@ -281,7 +283,7 @@ class _NearMeState extends State<NearMe> {
                                         height: ResponsiveValue(context,
                                             defaultValue: 60.0,
                                             conditionalValues: [
-                                              const Condition.smallerThan(
+                                              Condition.smallerThan(
                                                 name: DESKTOP,
                                                 value: 30.0,
                                               ),
@@ -290,7 +292,7 @@ class _NearMeState extends State<NearMe> {
                                           context,
                                           defaultValue: 60.0,
                                           conditionalValues: [
-                                            const Condition.smallerThan(
+                                            Condition.smallerThan(
                                               name: DESKTOP,
                                               value: 30.0,
                                             ),

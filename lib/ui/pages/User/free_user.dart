@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/Data/fire_store_streams.dart';
 import 'package:clowdstores/Widgets/coming_soon.dart';
-import 'package:clowdstores/ui/pages/User/cart.dart';
 
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/foundation.dart';
@@ -60,7 +59,7 @@ class UserProfile extends StatelessWidget {
                         ),
                         onPressed: () {
                           googleUser.signOut();
-                          context.go("/OpeningView");
+                          context.go("/");
                           return ref.refresh(authStateStraem);
                         }),
                   ],
@@ -72,11 +71,11 @@ class UserProfile extends StatelessWidget {
                         width: ResponsiveValue(context,
                             defaultValue: 700.0,
                             conditionalValues: [
-                              const Condition.smallerThan(
+                              Condition.smallerThan(
                                 name: TABLET,
                                 value: tW,
                               ),
-                              const Condition.smallerThan(
+                              Condition.smallerThan(
                                 name: DESKTOP,
                                 value: mW,
                               ),
@@ -215,12 +214,7 @@ class UserProfile extends StatelessWidget {
                                       height: 30,
                                       child: InkWell(
                                         onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const CartPage()),
-                                          );
+                                          context.go("/CartPage");
                                         },
                                         child: const Row(
                                           mainAxisAlignment:

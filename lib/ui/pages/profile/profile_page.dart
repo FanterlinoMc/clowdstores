@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/Widgets/Froms/add_business_from.dart';
-import 'package:clowdstores/helpers/responive.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +15,7 @@ import '../../../Widgets/coming_soon.dart';
 import '../../../helpers/change_notifiiers.dart';
 import '../../../helpers/streams_providers.dart';
 import '../../../providers/deep_link.dart';
+import 'post.dart';
 import 'product_row.dart';
 import 'profile_textrow.dart';
 
@@ -38,14 +38,14 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      // final size = MediaQuery.of(context).size;
+      final size = MediaQuery.of(context).size;
       return Scaffold(
         backgroundColor: Colors.white,
         body: Consumer(
           builder: (context, ref, child) {
             final clowdlink = ref.read(clowdLink);
             final store = ref.watch(getStore);
-            final route = ref.read(routerState);
+            final cachwRoute = ref.read(cacheState);
 
             return store.when(
               data: (QuerySnapshot value) {
@@ -80,25 +80,22 @@ class _ProfileState extends State<Profile> {
                                           shape: BoxShape.rectangle,
                                           fit: BoxFit.fitWidth,
                                           borderRadius: kIsWeb
-                                              ? BorderRadius.circular(10)
+                                              ? BorderRadius.circular(0)
                                               : BorderRadius.circular(0),
                                           height: ResponsiveValue(context,
                                               defaultValue: 220.0,
                                               conditionalValues: [
-                                                const Condition.smallerThan(
-                                                    name: TABLET, value: 300.0),
-                                                const Condition.smallerThan(
-                                                    name: DESKTOP,
-                                                    value: 150.0),
+                                                Condition.smallerThan(
+                                                    name: TABLET,
+                                                    value: size.height / 3),
                                               ]).value,
                                           width: ResponsiveValue(
                                             context,
                                             defaultValue: 400.0,
                                             conditionalValues: [
-                                              const Condition.smallerThan(
-                                                  name: TABLET, value: tW),
-                                              const Condition.smallerThan(
-                                                  name: DESKTOP, value: mW),
+                                              Condition.smallerThan(
+                                                  name: TABLET,
+                                                  value: size.width),
                                             ],
                                           ).value,
                                           enableMemoryCache: true,
@@ -110,115 +107,113 @@ class _ProfileState extends State<Profile> {
                                         const ProductRow(),
                                         Padding(
                                           padding: const EdgeInsets.all(10.0),
-                                          child: Row(
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
-                                              Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  const Text(
-                                                    "About",
-                                                    style:
-                                                        TextStyle(fontSize: 30),
-                                                  ),
-                                                  const SizedBox(height: 5),
-                                                  // Text(
-                                                  //     value.docs[index]
-                                                  //         ["businessEmail"],
-                                                  //     style: textStyle),
-                                                  const SizedBox(height: 5),
-                                                  Text(
-                                                      value.docs[index]
-                                                          ["categories"],
-                                                      style: textStyle),
-                                                  const SizedBox(height: 5),
-                                                  Text(
-                                                      value.docs[index]["city"],
-                                                      style: textStyle),
-                                                  TextButton(
-                                                    child: Text(
-                                                      value.docs[index]
-                                                          ["webAddress"],
-                                                      style: const TextStyle(
-                                                          fontSize: 16),
-                                                    ),
-                                                    onPressed: () {
-                                                      launchUrl(Uri(
-                                                        scheme: "https",
-                                                        host: value.docs[index]
-                                                            ["webAddress"],
-                                                      ));
-                                                    },
-                                                  ),
-
-                                                  // IconButton(
-                                                  //   icon:
-                                                  //       Icon(Icons.share_sharp),
-                                                  //   onPressed: () {
-
-                                                  //   },
-                                                  // ),
-                                                ],
+                                              const Text(
+                                                "About",
+                                                style: TextStyle(fontSize: 30),
                                               ),
-                                            ],
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment: Alignment.bottomRight,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child:
-                                                FloatingActionButton.extended(
-                                              //   hoverColor: Colors.white,
-                                              backgroundColor: appBarColor,
-                                              onPressed: () {
-                                                clowdlink.changeUserId(
-                                                  value.docs[index]["userId"],
-                                                );
-                                                clowdlink.changeDescription(
+                                              const SizedBox(height: 5),
+                                              const SizedBox(height: 5),
+                                              Text(
                                                   value.docs[index]
                                                       ["categories"],
-                                                );
-                                                clowdlink.changeImage(
-                                                  value.docs[index]["photoUrl"],
-                                                );
-                                                clowdlink.changeTitle(
+                                                  style: textStyle),
+                                              const SizedBox(height: 5),
+                                              Text(value.docs[index]["city"],
+                                                  style: textStyle),
+                                              const SizedBox(height: 5),
+                                              InkWell(
+                                                focusColor: Colors.blue,
+                                                child: Text(
                                                   value.docs[index]
-                                                      ["businessName"],
-                                                );
-                                                clowdlink.createStoreLink();
-                                              },
-                                              label:
-                                                  const Icon(Icons.share_sharp),
-                                              //  icon: const Icon(Icons.location_on_outlined),
-                                            ),
+                                                      ["webAddress"],
+                                                  style: const TextStyle(
+                                                      fontSize: 16),
+                                                ),
+                                                onTap: () {
+                                                  launchUrl(Uri(
+                                                    scheme: "https",
+                                                    host: value.docs[index]
+                                                        ["webAddress"],
+                                                  ));
+                                                },
+                                              ),
+                                              const SizedBox(height: 5),
+                                              Center(
+                                                child: CloudButton(
+                                                  name: "DashBrod",
+                                                  onPressed: () async {
+                                                    cachwRoute.chanagePhotoUrl(
+                                                      value.docs[index]
+                                                          ["photoUrl"],
+                                                    );
+
+                                                    cachwRoute.chanagecity(
+                                                      value.docs[index]["city"],
+                                                    );
+                                                    cachwRoute.chanageRouterId(
+                                                      value.docs[index]
+                                                          ["categories"],
+                                                    );
+                                                    cachwRoute.chanageName(
+                                                      value.docs[index]
+                                                          ["businessName"],
+                                                    );
+                                                    cachwRoute.chanageLat(
+                                                      value.docs[index]
+                                                          ["latitude"],
+                                                    );
+                                                    cachwRoute.chanageLng(
+                                                      value.docs[index]
+                                                          ["longitude"],
+                                                    );
+                                                    cachwRoute.routeSates();
+                                                    context.push('/DashBrod',
+                                                        extra:
+                                                            value.docs[index]);
+                                                  },
+                                                ),
+                                              ),
+                                              kIsWeb
+                                                  ? const SizedBox.shrink()
+                                                  : FloatingActionButton
+                                                      .extended(
+                                                      //   hoverColor: Colors.white,
+                                                      backgroundColor:
+                                                          appBarColor,
+                                                      onPressed: () {
+                                                        clowdlink.changeUserId(
+                                                          value.docs[index]
+                                                              ["userId"],
+                                                        );
+                                                        clowdlink
+                                                            .changeDescription(
+                                                          value.docs[index]
+                                                              ["categories"],
+                                                        );
+                                                        clowdlink.changeImage(
+                                                          value.docs[index]
+                                                              ["photoUrl"],
+                                                        );
+                                                        clowdlink.changeTitle(
+                                                          value.docs[index]
+                                                              ["businessName"],
+                                                        );
+                                                        clowdlink
+                                                            .createStoreLink();
+                                                      },
+                                                      label: const Icon(
+                                                          Icons.share_sharp),
+                                                      //  icon: const Icon(Icons.location_on_outlined),
+                                                    ),
+                                              const Post(),
+                                            ],
                                           ),
-                                        ),
-                                        CloudButton(
-                                          name: "DashBrod",
-                                          onPressed: () {
-                                            route.chanagePhotoUrl(
-                                              value.docs[index]["photoUrl"],
-                                            );
-                                            route.chanagecity(
-                                              value.docs[index]["city"],
-                                            );
-                                            route.chanageName(
-                                              value.docs[index]["businessName"],
-                                            );
-                                            route.chanageLat(
-                                              value.docs[index]["latitude"],
-                                            );
-                                            route.chanageLng(
-                                              value.docs[index]["longitude"],
-                                            );
-                                            route.routeSates();
-                                            context.push('/DashBrod',
-                                                extra: value.docs[index]);
-                                          },
                                         ),
                                       ],
                                     ),

@@ -37,7 +37,7 @@ class _DropDownState extends State<DropDown> {
       return Consumer(
         builder: (context, ref, child) {
           final store = ref.watch(storeNotifer);
-          final router = ref.read(routerState);
+          final router = ref.read(cacheState);
           return Container(
             width: constraints.maxWidth,
             height: 50,
@@ -117,7 +117,7 @@ class _MapListOption extends State<MapListOption> {
       return Consumer(
         builder: (context, ref, child) {
           //    final store = ref.watch(storeNotifer);
-          final router = ref.read(routerState);
+          final router = ref.read(cacheState);
           return AnimationLimiter(
             child: ListView.builder(
                 // physics: NeverScrollableScrollPhysics(),

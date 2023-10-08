@@ -13,11 +13,7 @@ class UserPro extends ChangeNotifier {
   /* getters
    */
   bool get isUser => _isUser;
-  // chageUser(bool value) async {
-  //   // final prefs = await SharedPreferences.getInstance();
-  //   // bool? isUser = await prefs.getBool("isUser");
-  //   return _isUser = value;
-  // }
+  
 
   saveUser() {
     var newUser = UserModel(
@@ -49,7 +45,7 @@ class ChangeUserPro extends ChangeNotifier {
   saveChanageUser() {
     var newUser = ChangeUseModel(
       isUser: _isUser!,
-      // uid: uid,
+      userId: uid,
       // email: fUserE!,
       // userName: fUserN!,
       // photoUrl: fUserP!,

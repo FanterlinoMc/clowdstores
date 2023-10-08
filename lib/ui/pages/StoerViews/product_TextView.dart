@@ -17,7 +17,7 @@ class TextProRowView extends StatelessWidget {
     return Consumer(builder: (context, ref, child) {
       final saveRoom = ref.watch(sendMessageNotifer);
       // final review = ref(addReview);
-      final router = ref.read(routerState);
+      final router = ref.read(cacheState);
       return LayoutBuilder(builder: (context, constraints) {
         return Row(
           children: [

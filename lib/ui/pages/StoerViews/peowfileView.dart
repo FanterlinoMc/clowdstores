@@ -12,6 +12,7 @@ import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/coming_soon.dart';
 import '../../../helpers/change_notifiiers.dart';
 import '../../../helpers/streams_providers.dart';
+import '../profile/post.dart';
 import 'product_Row_View.dart';
 import 'product_TextView.dart';
 
@@ -49,164 +50,182 @@ class ProfileView extends StatelessWidget {
                             ),
                           ]).value,
                       child: CustomScrollView(
+                        physics: const NeverScrollableScrollPhysics(),
                         slivers: [
-                          ClowdSliverAppBar(
-                            title: Center(
-                              child: Text(
-                                value.docs[0]["businessName"],
-                                style: const TextStyle(
-                                    fontSize: 25, color: Colors.white),
-                              ),
-                            ),
-                          ),
-                          SliverList(
-                            delegate: SliverChildBuilderDelegate(
-                                (BuildContext context, int index) {
-                              return AnimationConfiguration.staggeredList(
-                                position: index,
-                                //columnCount: value.docs.length,
-                                child: ScaleAnimation(
-                                  delay: const Duration(milliseconds: 200),
-                                  // verticalOffset: 50.0,
-                                  child: FadeInAnimation(
-                                    delay: const Duration(milliseconds: 100),
-                                    //  delay: Duration(seconds: 1),
-                                    child: Column(
-                                      children: [
-                                        ExtendedImage.network(
-                                          value.docs[index]["photoUrl"],
-                                          shape: BoxShape.rectangle,
-                                          fit: BoxFit.fitWidth,
-                                          borderRadius: kIsWeb
-                                              ? BorderRadius.circular(10)
-                                              : BorderRadius.circular(0),
-                                          height: ResponsiveValue(context,
-                                              defaultValue: 220.0,
-                                              conditionalValues: [
-                                                const Condition.smallerThan(
-                                                  name: TABLET,
-                                                  value: 300.0,
-                                                ),
-                                                const Condition.smallerThan(
-                                                  name: DESKTOP,
-                                                  value: 150.0,
-                                                ),
-                                              ]).value,
-                                          width: ResponsiveValue(
-                                            context,
-                                            defaultValue: 400.0,
-                                            conditionalValues: [
-                                              const Condition.smallerThan(
-                                                name: TABLET,
-                                                value: tW,
-                                              ),
-                                              const Condition.smallerThan(
-                                                name: DESKTOP,
-                                                value: mW,
-                                              ),
-                                            ],
-                                          ).value,
-                                          enableMemoryCache: true,
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        TextProRowView(
-                                            searchInfo: value.docs[index]),
-                                        const ProductRowView(),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                          SliverAppBar(
+                            collapsedHeight: 200,
+                            pinned: true,
+                            expandedHeight: size.height,
+                            backgroundColor: Colors.white,
+                            flexibleSpace: ListView.builder(
+                                // physics: const NeverScrollableScrollPhysics(),
+                                itemCount: value.docs.length,
+                                itemBuilder: (context, index) {
+                                  return AnimationConfiguration.staggeredList(
+                                    position: index,
+                                    //columnCount: value.docs.length,
+                                    child: ScaleAnimation(
+                                      delay: const Duration(milliseconds: 200),
+                                      // verticalOffset: 50.0,
+                                      child: FadeInAnimation(
+                                        delay:
+                                            const Duration(milliseconds: 100),
+                                        //  delay: Duration(seconds: 1),
+                                        child: Column(
                                           children: [
-                                            const Text(
-                                              "About",
-                                              style: TextStyle(fontSize: 30),
-                                            ),
-                                            // Text(
-                                            //     value.docs[index]
-                                            //         ["businessEmail"],
-                                            //     style: textStyle),
-                                            Text(
-                                                value.docs[index]["categories"],
-                                                style: textStyle),
-                                            Text(value.docs[index]["city"],
-                                                style: textStyle),
-                                            Row(
-                                              children: [
-                                                TextButton(
-                                                  child: Text(
-                                                    value.docs[index]
-                                                        ["webAddress"],
-                                                    style: const TextStyle(
-                                                        fontSize: 16),
-                                                  ),
-                                                  onPressed: () {
-                                                    launchUrl(Uri(
-                                                      scheme: "https",
-                                                      host: value.docs[index]
-                                                          ["webAddress"],
-                                                    ));
-                                                  },
-                                                )
-                                              ],
-                                            ),
-                                            kIsWeb
-                                                ? const SizedBox.shrink()
-                                                : Align(
-                                                    alignment:
-                                                        Alignment.bottomRight,
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              8.0),
-                                                      child:
-                                                          FloatingActionButton
-                                                              .extended(
-                                                        //   hoverColor: Colors.white,
-                                                        backgroundColor:
-                                                            appBarColor,
-                                                        onPressed: () {
-                                                          clowdlink
-                                                              .changeUserId(
-                                                            value.docs[index]
-                                                                ["userId"],
-                                                          );
-                                                          clowdlink
-                                                              .changeDescription(
-                                                            value.docs[index]
-                                                                ["categories"],
-                                                          );
-                                                          clowdlink.changeImage(
-                                                            value.docs[index]
-                                                                ["photoUrl"],
-                                                          );
-                                                          clowdlink.changeTitle(
-                                                            value.docs[index][
-                                                                "businessName"],
-                                                          );
-                                                          clowdlink
-                                                              .createStoreLink();
-                                                        },
-                                                        label: const Icon(
-                                                            Icons.share_sharp),
-                                                        //  icon: const Icon(Icons.location_on_outlined),
-                                                      ),
+                                            ExtendedImage.network(
+                                              value.docs[index]["photoUrl"],
+                                              shape: BoxShape.rectangle,
+                                              fit: BoxFit.fitWidth,
+                                              borderRadius: kIsWeb
+                                                  ? BorderRadius.circular(10)
+                                                  : BorderRadius.circular(0),
+                                              height: ResponsiveValue(context,
+                                                  defaultValue: 400.0,
+                                                  conditionalValues: [
+                                                    Condition.smallerThan(
+                                                      name: DESKTOP,
+                                                      value: 250.0,
                                                     ),
+                                                  ]).value,
+                                              width: ResponsiveValue(
+                                                context,
+                                                defaultValue: 400.0,
+                                                conditionalValues: [
+                                                  Condition.smallerThan(
+                                                    name: TABLET,
+                                                    value: tW,
                                                   ),
+                                                  Condition.smallerThan(
+                                                    name: DESKTOP,
+                                                    value: mW,
+                                                  ),
+                                                ],
+                                              ).value,
+                                              enableMemoryCache: true,
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            TextProRowView(
+                                                searchInfo: value.docs[index]),
+                                            const ProductRowView(),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(10.0),
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  const Text(
+                                                    "About",
+                                                    style:
+                                                        TextStyle(fontSize: 30),
+                                                  ),
+                                                  const SizedBox(height: 5),
+                                                  const SizedBox(height: 5),
+                                                  Text(
+                                                      value.docs[index]
+                                                          ["categories"],
+                                                      style: textStyle),
+                                                  const SizedBox(height: 5),
+                                                  Text(
+                                                      value.docs[index]["city"],
+                                                      style: textStyle),
+                                                  const SizedBox(height: 5),
+                                                  InkWell(
+                                                    focusColor: Colors.blue,
+                                                    child: Text(
+                                                      value.docs[index]
+                                                          ["webAddress"],
+                                                      style: const TextStyle(
+                                                          fontSize: 16),
+                                                    ),
+                                                    onTap: () {
+                                                      launchUrl(Uri(
+                                                        scheme: "https",
+                                                        host: value.docs[index]
+                                                            ["webAddress"],
+                                                      ));
+                                                    },
+                                                  ),
+                                                  const SizedBox(height: 5),
+                                                  kIsWeb
+                                                      ? const SizedBox.shrink()
+                                                      : Align(
+                                                          alignment: Alignment
+                                                              .bottomRight,
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(8.0),
+                                                            child:
+                                                                FloatingActionButton
+                                                                    .extended(
+                                                              //   hoverColor: Colors.white,
+                                                              backgroundColor:
+                                                                  appBarColor,
+                                                              onPressed: () {
+                                                                clowdlink
+                                                                    .changeUserId(
+                                                                  value.docs[
+                                                                          index]
+                                                                      [
+                                                                      "userId"],
+                                                                );
+                                                                clowdlink
+                                                                    .changeDescription(
+                                                                  value.docs[
+                                                                          index]
+                                                                      [
+                                                                      "categories"],
+                                                                );
+                                                                clowdlink
+                                                                    .changeImage(
+                                                                  value.docs[
+                                                                          index]
+                                                                      [
+                                                                      "photoUrl"],
+                                                                );
+                                                                clowdlink
+                                                                    .changeTitle(
+                                                                  value.docs[
+                                                                          index]
+                                                                      [
+                                                                      "businessName"],
+                                                                );
+                                                                clowdlink
+                                                                    .createStoreLink();
+                                                              },
+                                                              label: const Icon(
+                                                                  Icons
+                                                                      .share_sharp),
+                                                              //  icon: const Icon(Icons.location_on_outlined),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                  const Post()
+                                                ],
+                                              ),
+                                            ),
                                           ],
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              );
-                            }, childCount: 1),
-                          )
+                                  );
+                                }),
+                          ),
+                          // ClowdSliverAppBar(
+
+                          // SliverList(
+                          //     delegate: SliverChildListDelegate(
+                          //         <Widget>[const Post()]))
                         ],
                       ),
                     ),

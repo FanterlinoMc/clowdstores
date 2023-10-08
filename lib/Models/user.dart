@@ -46,14 +46,14 @@ class UserModel {
 class ChangeUseModel {
   final bool isUser;
   // final String userName;
-  // final String? uid;
+  final String? userId;
   // final String email;
   // final String photoUrl;
 
   ChangeUseModel({
     required this.isUser,
     // required this.userName,
-    // required this.uid,
+    required this.userId,
     // required this.email,
     // required this.photoUrl,
   });
@@ -62,7 +62,7 @@ class ChangeUseModel {
     return {
       // 'userName': fUserN,
       'isStoreOwner': isUser,
-      // 'uid': uid,
+      'userId': userId,
       // 'email': fUserE,
       // 'photoUrl': fUserP,
     };
@@ -72,7 +72,7 @@ class ChangeUseModel {
     return ChangeUseModel(
       isUser: map['isStoreOwner'] ?? '',
       // userName: map['userName'] ?? '',
-      // uid: map['uid'] ?? '',
+      userId: map['userId'] ?? '',
       // email: map['email'] ?? '',
       // photoUrl: map['photoUrl'] ?? '',
     );

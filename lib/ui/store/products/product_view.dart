@@ -17,12 +17,11 @@ class ProductView extends StatelessWidget {
     Key? key,
   }) : super(key: key);
   @override
-  @override
   Widget build(BuildContext contex) {
     // final size = MediaQuery.of(contex).size;
     return Scaffold(body: Consumer(
       builder: ((context, ref, child) {
-        final router = ref.read(routerState);
+        final router = ref.read(cacheState);
         final getProduc = ref.watch(getProduct);
         return getProduc.when(
           data: (QuerySnapshot value) {
@@ -47,8 +46,8 @@ class ProductView extends StatelessWidget {
                     ),
                     SliverGrid(
                       gridDelegate: const ResponsiveGridDelegate(
-                          crossAxisExtent: 222,
-                          childAspectRatio: 0.7,
+                          crossAxisExtent: 180,
+                          childAspectRatio: 0.6,
                           //   mainAxisSpacing: 0.1,
                           crossAxisSpacing: 0),
                       delegate: SliverChildBuilderDelegate(
@@ -78,56 +77,49 @@ class ProductView extends StatelessWidget {
                                     return ref.refresh(getProductDetail);
                                   },
                                   child: Padding(
-                                    padding: const EdgeInsets.all(0.0),
-                                    child: SizedBox(
-                                      height: 200,
-                                      width: 180,
-                                      child: Card(
-                                        shadowColor: Colors.blueGrey,
-                                        elevation: 5,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            ExtendedImage.network(
-                                              value.docs[index]["photoUrl"] ??
-                                                  "No Info",
-                                              shape: BoxShape.rectangle,
-                                              fit: BoxFit.cover,
-                                              height: 240,
-                                              width: 200,
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              enableMemoryCache: true,
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Card(
+                                      shadowColor: Colors.blueGrey,
+                                      elevation: 5,
+                                      child: Column(
+                                        children: [
+                                          ExtendedImage.network(
+                                            value.docs[index]["photoUrl"] ??
+                                                "No Info",
+                                            shape: BoxShape.rectangle,
+                                            fit: BoxFit.cover,
+                                            height: 210,
+                                            width: 170,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            enableMemoryCache: true,
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Wrap(
+                                              alignment: WrapAlignment.center,
+                                              children: [
+                                                Text(value.docs[index]["name"],
+                                                    maxLines: 2,
+                                                    style: textStyle),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                        value.docs[index]
+                                                                ["price"]
+                                                            .toString(),
+                                                        style: subTextStyle),
+                                                    const Text("EGP",
+                                                        style: textStyle),
+                                                    //  const Text("EGP")
+                                                  ],
+                                                ),
+                                              ],
                                             ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                      value.docs[index]["name"],
-                                                      maxLines: 1,
-                                                      style: textStyle),
-                                                  Row(
-                                                    children: [
-                                                      Text(
-                                                          value.docs[index]
-                                                                  ["price"]
-                                                              .toString(),
-                                                          style: textStyle),
-                                                      const Text("EGP",
-                                                          style: textStyle),
-                                                      //  const Text("EGP")
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),

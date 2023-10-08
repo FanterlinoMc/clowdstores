@@ -21,7 +21,7 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
       final getCategroy = ref.watch(getCategroise);
-      final router = ref.read(routerState);
+      final router = ref.read(cacheState);
       final size = MediaQuery.of(context).size;
 
       return Scaffold(

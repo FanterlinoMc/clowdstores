@@ -36,7 +36,8 @@ class DashBrod extends StatelessWidget {
         SliverList(
           delegate: SliverChildListDelegate(
             <Widget>[
-              Column(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   CloudButton(
                     name: "add Products",
@@ -52,6 +53,11 @@ class DashBrod extends StatelessWidget {
                       context.push('/AddBusiness');
                     },
                   ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
                   CloudButton(
                       name: "Orders",
                       onPressed: () {
@@ -63,7 +69,7 @@ class DashBrod extends StatelessWidget {
                         context.push('/PostPage');
                       }),
                 ],
-              )
+              ),
             ],
           ),
         ),

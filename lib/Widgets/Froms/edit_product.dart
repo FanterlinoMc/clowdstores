@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:clowdstores/helpers/test.dart';
+import 'package:clowdstores/helpers/upload_phtoto.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -80,7 +80,7 @@ class _EditProductState extends State<EditProduct> {
                     width: ResponsiveValue(context,
                         defaultValue: 500.0,
                         conditionalValues: [
-                          const Condition.smallerThan(
+                          Condition.smallerThan(
                             name: DESKTOP,
                             value: 400.0,
                           ),
@@ -142,7 +142,7 @@ class _EditProductState extends State<EditProduct> {
                                 //   },
                                 // ),
                                 CloudButton(
-                                  name: "SaveProduct",
+                                  name: "Save Product",
                                   onPressed: () {
                                     product.changeCity(
                                       widget.updateProduct?["city"],

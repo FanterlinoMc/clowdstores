@@ -19,7 +19,7 @@ class ChatList extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Consumer(builder: (context, ref, child) {
         final chat = ref.watch(messageList);
-        final route = ref.read(routerState);
+        final route = ref.read(cacheState);
         //    final cha = ref(messageLis);
         return chat.when(data: (QuerySnapshot value) {
           return CustomScrollView(

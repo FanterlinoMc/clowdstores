@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../Data/fire_store_streams.dart';
-import '../../helpers/test.dart';
+import '../../helpers/upload_phtoto.dart';
 import '../button.dart';
 import '../product_drop.dart';
 import '../text_filed.dart';
@@ -31,20 +31,12 @@ class _ProductState extends State<AddProduct> {
   final TextEditingController _price = TextEditingController();
 
   final TextEditingController _quantity = TextEditingController();
-
-  // final TextEditingController _productTypeController = TextEditingController();
-  final TextEditingController _productTypeController0 = TextEditingController();
-  final TextEditingController _productTypeController1 = TextEditingController();
-  final TextEditingController _productTypeController2 = TextEditingController();
   // @override
   // void dispose() {
   //   _name.dispose();
   //   _description.dispose();
   //   _price.dispose();
   //   _quantity.dispose();
-  //   _productTypeController0.dispose();
-  //   _productTypeController1.dispose();
-  //   _productTypeController2.dispose();
   //   super.dispose();
   // }
 
@@ -88,31 +80,13 @@ class _ProductState extends State<AddProduct> {
                                 Column(
                                   children: <Widget>[
                                     const SizedBox(height: 15),
-                                    // CircleAvatar(
-                                    //   backgroundImage:
-                                    //       NetworkImage(product.photoUrl ?? ""),
-                                    //   backgroundColor: Colors.blue,
-                                    //   radius: 100,
-                                    //   child: InkWell(
-                                    //     onTap: () {
-                                    //       //  context.refresh(productPro)
-                                    //       product.changePhoto(
-                                    //           uploadingTask: uploadTask);
-                                    //     },
-                                    //   ),
-                                    //   // product.photoUrl ?? "",
-                                    //   // //   color: Colors.blue,
-                                    //   // handleLoadingProgress: true,
-                                    //   // height: 80,
-                                    //   // width: 120,
-                                    // ),
                                     MyTextfiled(
                                       color: validators.productName
                                           ? appBarColor
                                           : Colors.green,
                                       validator: (value) =>
                                           validators.isProductNameValid(value!),
-                                      maxLength: 15,
+                                      maxLength: 30,
                                       labelText: "Name",
                                       hintText: "Name",
                                       controller: _name,
@@ -162,16 +136,11 @@ class _ProductState extends State<AddProduct> {
                                       height: 20,
                                     ),
                                     const ProductUplaodPage(),
-                                    // CloudButton(
-                                    //     name: "Pick an Image",
-                                    //     onPressed: () {
-                                    //       product.changePhoto();
-                                    //     }),
                                     CloudButton(
                                       color: validators.qunantiyy
                                           ? Colors.blueGrey
                                           : appBarColor,
-                                      name: "SaveProduct",
+                                      name: "Save product",
                                       onPressed: () async {
                                         product.changeCity(
                                             await ReadCache.getString(
@@ -199,7 +168,7 @@ class _ProductState extends State<AddProduct> {
                                         _quantity.clear();
 
                                         // html.window.location.reload();
-                                        return ref.refresh(productPro);
+                                        //  return ref.refresh(productPro);
                                       },
                                     )
                                   ],

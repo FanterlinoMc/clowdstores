@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../ui/WebUI/shopping_feed_web.dart';
 import '../ui/WebUI/web_Profile.dart';
 import '../ui/pages/more.dart';
 import '../ui/pages/near_me_page.dart';
@@ -80,8 +81,8 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                                   context,
                                   defaultValue: 13.0,
                                   conditionalValues: [
-                                    const Condition.smallerThan(
-                                        name: DESKTOP, value: 13.0)
+                                    Condition.smallerThan(
+                                        name: DESKTOP, value: 10.0)
                                   ],
                                 ).value),
                               ),
@@ -92,20 +93,20 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                                   context,
                                   defaultValue: 13.0,
                                   conditionalValues: [
-                                    const Condition.smallerThan(
-                                        name: DESKTOP, value: 13.0)
+                                    Condition.smallerThan(
+                                        name: DESKTOP, value: 10.0)
                                   ],
                                 ).value),
                               ),
                               Text(
-                                "SFeed",
+                                "Shopping",
                                 style: TextStyle(
                                     fontSize: ResponsiveValue(
                                   context,
                                   defaultValue: 13.0,
                                   conditionalValues: [
-                                    const Condition.smallerThan(
-                                        name: DESKTOP, value: 13.0)
+                                    Condition.smallerThan(
+                                        name: DESKTOP, value: 10.0)
                                   ],
                                 ).value),
                               ),
@@ -116,8 +117,8 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                                   context,
                                   defaultValue: 13.0,
                                   conditionalValues: [
-                                    const Condition.smallerThan(
-                                        name: DESKTOP, value: 13.0)
+                                    Condition.smallerThan(
+                                        name: DESKTOP, value: 10.0)
                                   ],
                                 ).value),
                               ),
@@ -128,8 +129,8 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                                   context,
                                   defaultValue: 13.0,
                                   conditionalValues: [
-                                    const Condition.smallerThan(
-                                        name: DESKTOP, value: 13.0)
+                                    Condition.smallerThan(
+                                        name: DESKTOP, value: 10.0)
                                   ],
                                 ).value),
                               ),
@@ -147,7 +148,7 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                     children: const [
                       WebProfile(),
                       SearchScreen(),
-                      ShoppingFeed(),
+                      ShoppingFeedWeb(),
                       NearMe(),
                       More(),
                     ],

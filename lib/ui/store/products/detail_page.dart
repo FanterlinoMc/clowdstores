@@ -25,7 +25,7 @@ class DetaliPage extends StatelessWidget {
       final order = ref.read(orderNotifer);
       final cart = ref.read(cartNotifer);
       final getProductD = ref.watch(getProductDetail);
-      final router = ref.read(routerState);
+      final router = ref.read(cacheState);
       final clowdlink = ref.read(clowdLink);
 
       return getProductD.when(
@@ -35,7 +35,7 @@ class DetaliPage extends StatelessWidget {
                 width: ResponsiveValue(context,
                     defaultValue: 800.0,
                     conditionalValues: [
-                      const Condition.smallerThan(
+                      Condition.smallerThan(
                         name: DESKTOP,
                         value: tW,
                       ),
@@ -68,9 +68,13 @@ class DetaliPage extends StatelessWidget {
                                   context.push('/ProfileView');
                                 },
                                 child: SizedBox(
-                                  width: kIsWeb
-                                      ? size.width / 1.9
-                                      : size.width / 1.2,
+                                  width: ResponsiveValue(context,
+                                      defaultValue: 800.0,
+                                      conditionalValues: [
+                                        Condition.smallerThan(
+                                            name: TABLET,
+                                            value: size.width / 1),
+                                      ]).value,
                                   child: Card(
                                     shape: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(11),
@@ -95,7 +99,7 @@ class DetaliPage extends StatelessWidget {
                                 ),
                               ),
                               kIsWeb
-                                  ? const SizedBox.shrink()
+                                  ? const SizedBox()
                                   : FloatingActionButton.extended(
                                       //   hoverColor: Colors.white,
                                       backgroundColor: appBarColor,
@@ -231,7 +235,7 @@ class DetaliPage extends StatelessWidget {
           },
           loading: () => const Center(child: CircularProgressIndicator()),
           error: (error, stackTrace) {
-            return const Text("Error");
+            return const Center(child: CircularProgressIndicator());
           });
     }));
   }

@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../Widgets/Froms/sgingIn_page.dart';
+import '../../Widgets/users.dart';
 import '../../helpers/streams_providers.dart';
 import '../pages/User/cart.dart';
 import '../pages/User/free_user.dart';
@@ -26,7 +28,9 @@ class WebProfile extends StatelessWidget {
             visible: true,
             replacement:
                 value["isStoreOwner"] ? const UserProfile() : const Profile(),
-            hiddenConditions: const [Condition.smallerThan(name: DESKTOP)],
+            hiddenConditions: [
+              Condition.smallerThan(name: DESKTOP, value: 100)
+            ],
             child: ResponsiveRowColumn(
                 layout: ResponsiveRowColumnType.ROW,
                 children: [
@@ -52,7 +56,7 @@ class WebProfile extends StatelessWidget {
                 ]),
           );
         } else {
-          return const OpeningView();
+          return const SgingInPage();
         }
         // );
       }, loading: () {
@@ -60,7 +64,7 @@ class WebProfile extends StatelessWidget {
           body: Center(child: CircularProgressIndicator()),
         );
       }, error: (stack, erorr) {
-        return const OpeningView();
+        return const Text("");
       });
     });
   }

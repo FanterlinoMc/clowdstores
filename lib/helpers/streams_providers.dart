@@ -31,6 +31,10 @@ final getPost = StreamProvider.autoDispose((ref) {
   final streams = ref.watch(getStreams);
   return streams.getPost();
 });
+final getUserPost = StreamProvider.autoDispose((ref) {
+  final streams = ref.watch(getStreams);
+  return streams.getUserPost();
+});
 final getStore = StreamProvider.autoDispose<QuerySnapshot>((ref) {
   final streams = ref.watch(getStreams);
   return streams.getStore();

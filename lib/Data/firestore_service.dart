@@ -8,7 +8,7 @@ import '../Models/messages_model.dart';
 import '../Models/order.dart';
 import '../Models/product.dart';
 import '../Models/review_model.dart';
-import '../Models/sfeedModel.dart';
+import '../Models/shopping_feedModel.dart';
 import '../Models/store.dart';
 import '../Widgets/coming_soon.dart';
 import 'fire_store_streams.dart';
@@ -28,12 +28,12 @@ class FirestoreService {
   }
 
   Future savepost(ShoppingFeedModel savePost) async {
-    // var id = orderModel.orderId;
+    var id = savePost.postId;
     return await _db
         .collection("Post")
         .doc(uid)
         .collection("Post")
-        .doc()
+        .doc(id)
         .set(savePost.toMap());
   }
 
@@ -170,8 +170,8 @@ class FirestoreService {
   }
 
   Future changeUser(ChangeUseModel userModel) async {
-    //   FirebaseAuth auth = FirebaseAuth.instance;
-    return _db.collection("ChangeUser").doc(uid).set(userModel.toMap());
+    final id = userModel.userId;
+    return _db.collection("ChangeUser").doc(id).set(userModel.toMap());
   }
 
   Stream<QuerySnapshot> getUser(String userName, String cate) {

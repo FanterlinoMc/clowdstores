@@ -42,10 +42,8 @@ class _ProductSuggestonPro extends State<ProductSuggestonPro> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: appBarColor,
                                 foregroundColor: Colors.white),
-                            child: Text(
-                              value.docs[index]["productType0"],
-                              style: const TextStyle(),
-                            ),
+                            child: Text(value.docs[index]["productType0"],
+                                style: textStyle),
                             onPressed: () {
                               WriteCache.setString(
                                 key: "proType",
@@ -64,7 +62,7 @@ class _ProductSuggestonPro extends State<ProductSuggestonPro> {
                                 foregroundColor: Colors.white),
                             child: Text(
                               value.docs[index]["productType1"],
-                              style: const TextStyle(),
+                              style: textStyle,
                             ),
                             onPressed: () {
                               WriteCache.setString(
@@ -81,10 +79,8 @@ class _ProductSuggestonPro extends State<ProductSuggestonPro> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: appBarColor,
                                 foregroundColor: Colors.white),
-                            child: Text(
-                              value.docs[index]["productType2"],
-                              style: const TextStyle(),
-                            ),
+                            child: Text(value.docs[index]["productType2"],
+                                style: textStyle),
                             onPressed: () {
                               WriteCache.setString(
                                 key: "proType",

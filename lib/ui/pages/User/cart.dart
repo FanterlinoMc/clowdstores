@@ -18,6 +18,7 @@ class CartPage extends StatelessWidget {
     return Consumer(builder: (context, ref, child) {
       final getCartPro = ref.watch(getCart);
       return Scaffold(
+        backgroundColor: Colors.white,
         extendBodyBehindAppBar: true,
         body: getCartPro.when(
             data: (QuerySnapshot value) {
@@ -26,11 +27,11 @@ class CartPage extends StatelessWidget {
                   width: ResponsiveValue(context,
                       defaultValue: 1000.0,
                       conditionalValues: [
-                        const Condition.smallerThan(
+                        Condition.smallerThan(
                           name: TABLET,
                           value: tW,
                         ),
-                        const Condition.smallerThan(
+                        Condition.smallerThan(
                           name: DESKTOP,
                           value: mW,
                         ),
@@ -48,9 +49,10 @@ class CartPage extends StatelessWidget {
                     ),
                     SliverGrid(
                       gridDelegate: const ResponsiveGridDelegate(
-                          crossAxisExtent: 220,
-                          childAspectRatio: 0.7,
-                          crossAxisSpacing: 1),
+                          crossAxisExtent: 190,
+                          childAspectRatio: 0.5,
+                          //   mainAxisSpacing: 0.1,
+                          crossAxisSpacing: 0),
                       delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
                           return Column(
@@ -58,10 +60,6 @@ class CartPage extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.all(6.0),
                                 child: Card(
-                                  // shape: OutlineInputBorder(
-                                  //   borderRadius: BorderRadius.circular(0),
-                                  //   borderSide: const BorderSide(color: appBarColor),
-                                  // ),
                                   shadowColor: Colors.blueGrey,
                                   elevation: 10,
                                   child: Column(
@@ -81,69 +79,60 @@ class CartPage extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                           //  scale: 1,
-                                          height: 210,
+                                          height: 220,
                                           width: 190,
 
                                           enableMemoryCache: true,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const Text("Name"),
-                                            Text(
-                                              value.docs[index]["productName"],
-                                              style: const TextStyle(
-                                                fontSize: 17,
-                                                color: Colors.black,
-                                              ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text("Name"),
+                                          Text(
+                                            value.docs[index]["productName"],
+                                            style: const TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.black,
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const Text("price"),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  value.docs[index]
-                                                          ["productPrice"]
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                    fontSize: 17,
-                                                    color: Colors.black,
-                                                  ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text("price"),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                value.docs[index]
+                                                        ["productPrice"]
+                                                    .toString(),
+                                                style: const TextStyle(
+                                                  fontSize: 17,
+                                                  color: Colors.black,
                                                 ),
-                                                const Text("EGP")
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const Text("storeName"),
-                                            Text(
-                                              value.docs[index]["storeName"],
-                                              style: const TextStyle(
-                                                fontSize: 17,
-                                                color: Colors.black,
                                               ),
+                                              const Text("EGP")
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text("storeName"),
+                                          Text(
+                                            value.docs[index]["storeName"],
+                                            style: const TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.black,
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),

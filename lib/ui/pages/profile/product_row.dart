@@ -22,7 +22,7 @@ class ProductRow extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Consumer(builder: (context, ref, child) {
       final product = ref.watch(productRow);
-      final router = ref.read(routerState);
+      final router = ref.read(cacheState);
 
       return product.when(
         data: (QuerySnapshot val) {

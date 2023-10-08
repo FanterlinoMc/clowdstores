@@ -30,9 +30,9 @@ class _UserLogInState extends State<UserLogIn> {
     return Scaffold(
       backgroundColor: appBarColor,
       body: Consumer(builder: (context, ref, child) {
-        refresh() {
-          return ref.refresh(authStateStraem);
-        }
+        // refresh() {
+        //   return ref.refresh(authStateStraem);
+        // }
 
         final isUser = ref.read(isUserNotifer);
         final userSignIn = ref.read(signIn);
@@ -76,10 +76,12 @@ class _UserLogInState extends State<UserLogIn> {
                     //  user.changeStoreToken();
 
                     userSignIn.signInWithGoogle();
-                    changeUserNotifer.chageUser(true);
+
                     changeUserNotifer.saveChanageUser();
+
                     isUser.saveUser();
-                    context.go("/");
+                    context.replace("/");
+                    // : const CircularProgressIndicator();
                   },
                 ),
                 TextButton(

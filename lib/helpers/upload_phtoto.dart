@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:clowdstores/Data/fire_store_streams.dart';
 import 'package:clowdstores/Widgets/button.dart';
 import 'package:clowdstores/helpers/change_notifiiers.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
@@ -31,15 +32,10 @@ class _ProductUplaodPageState extends State<ProductUplaodPage> {
             value: progress / 100,
             //specify only one: color or gradient
             color: appBarColor,
-            // gradient: const LinearGradient(
-            //   begin: Alignment.topLeft,
-            //   end: Alignment.bottomRight,
-            //   colors: [Colors.yellowAccent, Colors.deepOrange],
-            // ),
           ),
           CloudButton(
             color: progress == 100.0 ? Colors.green : appBarColor,
-            name: progress == 100.0 ? "Upload complete" : "Upload image",
+            name: progress == 100.0 ? "Done" : "Upload image",
             onPressed: () async {
               FilePickerResult? result = await FilePicker.platform.pickFiles();
 
@@ -116,6 +112,8 @@ class _ProductUplaodPageState extends State<ProductUplaodPage> {
     });
   }
 }
+
+//?StoreUplaodPage//////////////////////////////////////////////////////////
 
 class StoreUplaodPage extends StatefulWidget {
   const StoreUplaodPage({Key? key}) : super(key: key);
@@ -146,7 +144,7 @@ class _StoreUplaodPageState extends State<StoreUplaodPage> {
           ),
           CloudButton(
             color: progress == 100.0 ? Colors.green : appBarColor,
-            name: progress == 100.0 ? "Upload complete" : "Upload image",
+            name: progress == 100.0 ? "Done" : "Upload image",
             onPressed: () async {
               FilePickerResult? result = await FilePicker.platform.pickFiles();
 
@@ -224,8 +222,11 @@ class _StoreUplaodPageState extends State<StoreUplaodPage> {
   }
 }
 
+///?PostUplaodPage///////////////////////////////////////////////////////////////////
+
 class PostUplaodPage extends StatefulWidget {
-  const PostUplaodPage({Key? key}) : super(key: key);
+  final dynamic postImage;
+  const PostUplaodPage({Key? key, this.postImage}) : super(key: key);
 
   @override
   _PostUplaodPageState createState() => _PostUplaodPageState();
@@ -233,11 +234,13 @@ class PostUplaodPage extends StatefulWidget {
 
 class _PostUplaodPageState extends State<PostUplaodPage> {
   double progress = 0.0;
+  String postImage = "";
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
       final post = ref.read(postNotifire);
-      // final valid = ref.read(validatorProvider);
+      final cacheRoute = ref.read(cacheState);
+
       return Column(
         children: [
           ProgressBar(
@@ -253,7 +256,7 @@ class _PostUplaodPageState extends State<PostUplaodPage> {
           ),
           CloudButton(
             color: progress == 100.0 ? Colors.green : appBarColor,
-            name: progress == 100.0 ? "Upload complete" : "Upload image",
+            name: progress == 100.0 ? "Done" : "Upload image",
             onPressed: () async {
               FilePickerResult? result = await FilePicker.platform.pickFiles();
 
@@ -263,7 +266,7 @@ class _PostUplaodPageState extends State<PostUplaodPage> {
                 if (kIsWeb) {
                   UploadTask task = FirebaseStorage.instance
                       .ref()
-                      .child("Post/$fileName")
+                      .child("Posts/$fileName")
                       .putData(file!);
                   task.snapshotEvents.listen((event) {
                     setState(() {
@@ -273,8 +276,11 @@ class _PostUplaodPageState extends State<PostUplaodPage> {
                           .roundToDouble();
 
                       if (progress == 100) {
-                        event.ref.getDownloadURL().then(
-                            (downloadUrl) => post.changePostImage(downloadUrl));
+                        event.ref.getDownloadURL().then((downloadUrl) {
+                          post.changePostImage(downloadUrl);
+                          cacheRoute.chanagePhotoUrl(downloadUrl);
+                          ExtendedImage.network(downloadUrl);
+                        });
                       }
 
                       //  print(progress);
@@ -299,7 +305,7 @@ class _PostUplaodPageState extends State<PostUplaodPage> {
 
                   UploadTask task = FirebaseStorage.instance
                       .ref()
-                      .child("Post/$fileName")
+                      .child("Posts/$fileName")
                       .putFile(
                         File(croppedFile!.path),
                       );
@@ -312,8 +318,109 @@ class _PostUplaodPageState extends State<PostUplaodPage> {
                           .roundToDouble();
 
                       if (progress == 100) {
-                        event.ref.getDownloadURL().then(
-                            (downloadUrl) => post.changePostImage(downloadUrl));
+                        event.ref.getDownloadURL().then((downloadUrl) {
+                          post.changePostImage(downloadUrl);
+                          postImage = downloadUrl;
+                        });
+                      }
+
+                      //  print(progress);
+                    });
+                  });
+                }
+              }
+              // valid.vaildtionCheck();
+              //valid.vaildtionCheck(true);
+            },
+          ),
+          ExtendedImage.network(postImage),
+        ],
+      );
+    });
+  }
+}
+
+class UploadVudeo extends StatefulWidget {
+  const UploadVudeo({Key? key}) : super(key: key);
+
+  @override
+  _UploadVudeoState createState() => _UploadVudeoState();
+}
+
+class _UploadVudeoState extends State<UploadVudeo> {
+  double progress = 0.0;
+  @override
+  Widget build(BuildContext context) {
+    return Consumer(builder: (context, ref, child) {
+      final post = ref.read(postNotifire);
+      final cacheRoute = ref.read(cacheState);
+      return Column(
+        children: [
+          ProgressBar(
+            //   duration: const Duration(seconds: 3),
+            value: progress / 100,
+            //specify only one: color or gradient
+            color: appBarColor,
+            // gradient: const LinearGradient(
+            //   begin: Alignment.topLeft,
+            //   end: Alignment.bottomRight,
+            //   colors: [Colors.yellowAccent, Colors.deepOrange],
+            // ),
+          ),
+          CloudButton(
+            color: progress == 100.0 ? Colors.green : appBarColor,
+            name: progress == 100.0 ? "Done" : "Upload Video",
+            onPressed: () async {
+              FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+              if (result != null) {
+                //Uint8List? file = result.files.first.bytes;
+                String fileName = result.files.first.name;
+                if (kIsWeb) {
+                  UploadTask task = FirebaseStorage.instance
+                      .ref()
+                      .child("Videos/$fileName")
+                      .putFile(
+                        File(result.files.first.path!),
+                      );
+                  task.snapshotEvents.listen((event) {
+                    setState(() {
+                      progress = ((event.bytesTransferred.toDouble() /
+                                  event.totalBytes.toDouble()) *
+                              100)
+                          .roundToDouble();
+
+                      if (progress == 100) {
+                        event.ref.getDownloadURL().then((downloadUrl) {
+                          // post.changeVideoUrl(downloadUrl);
+                          cacheRoute.chanagePhotoUrl(downloadUrl);
+                        });
+                      }
+
+                      //  print(progress);
+                    });
+                  });
+                } else {
+                  UploadTask task = FirebaseStorage.instance
+                      .ref()
+                      .child("Videos/$fileName")
+                      .putFile(
+                        File(result.files.first.path!),
+                      );
+
+                  task.snapshotEvents.listen((event) {
+                    setState(() {
+                      progress = ((event.bytesTransferred.toDouble() /
+                                  event.totalBytes.toDouble()) *
+                              100)
+                          .roundToDouble();
+
+                      if (progress == 100) {
+                        event.ref.getDownloadURL().then((downloadUrl) {
+                          // post.changeVideoUrl(downloadUrl);
+
+                          cacheRoute.chanagePhotoUrl(downloadUrl);
+                        });
                       }
 
                       //  print(progress);

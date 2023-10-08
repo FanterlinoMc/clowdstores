@@ -25,8 +25,8 @@ class InfoCloumn extends StatelessWidget {
       child: SizedBox(
         width:
             ResponsiveValue(context, defaultValue: 700.0, conditionalValues: [
-          const Condition.smallerThan(name: TABLET, value: tW),
-          const Condition.smallerThan(name: DESKTOP, value: mW),
+          Condition.smallerThan(name: TABLET, value: tW),
+          Condition.smallerThan(name: DESKTOP, value: mW),
         ]).value,
         child: Column(
           children: [
@@ -43,14 +43,6 @@ class InfoCloumn extends StatelessWidget {
                 ],
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(vertical: 5),
-            //   child: Row(
-            //     children: [
-            //       Text(storeInfo?["businessEmail"], style: textStyle),
-            //     ],
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 0),
               child: Row(

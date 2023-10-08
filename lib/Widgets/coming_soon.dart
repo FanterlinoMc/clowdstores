@@ -109,6 +109,65 @@ class _UserNumberState extends State<UserNumber> {
   }
 }
 
+///?PostOption//////////////////////////////////////////////
+class PostOption extends StatefulWidget {
+  final String storeId;
+  const PostOption({
+    Key? key,
+    required this.storeId,
+  }) : super(key: key);
+
+  @override
+  State<PostOption> createState() => _PostOptionState();
+}
+
+// final TextEditingController numberController = TextEditingController();
+
+class _PostOptionState extends State<PostOption> {
+  @override
+  Widget build(BuildContext context) {
+    return Consumer(builder: (context, ref, child) {
+      final order = ref.read(orderNotifer);
+      // final isUser = ref.read(orderNotifer);
+      return Dialog(
+        backgroundColor: Colors.white,
+        // title: Text(
+        //   "Enter your Phone number",
+        //   style: TextStyle(color: Colors.white),
+        // ),
+        child: SizedBox(
+          width: 400,
+          height: 400,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const Text(
+                "Edite Post",
+                style: TextStyle(color: appBarColor, fontSize: 22),
+              ),
+              const Text(
+                "Save Post",
+                style: TextStyle(color: appBarColor, fontSize: 22),
+              ),
+              const Text(
+                "Delet Post",
+                style: TextStyle(color: appBarColor, fontSize: 22),
+              ),
+              CloudButton(
+                  name: "done",
+                  onPressed: () {
+                    //context.push('/');
+                    order.saveOrder(widget.storeId);
+                    Navigator.pop(context);
+                  })
+            ],
+          ),
+        ),
+      );
+    });
+  }
+}
+
 class ClowdSliverAppBar extends StatelessWidget {
   late final Widget? title;
   ClowdSliverAppBar({Key? key, this.title}) : super(key: key);

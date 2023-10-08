@@ -10,7 +10,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../Data/fire_store_streams.dart';
 import '../../Data/sign_In_google.dart';
-import '../../helpers/test.dart';
+import '../../helpers/upload_phtoto.dart';
 import '../button.dart';
 import '../drop_down.dart';
 import '../text_filed.dart';

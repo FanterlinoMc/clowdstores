@@ -4,6 +4,7 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../Data/fire_store_streams.dart';
 import '../../helpers/change_notifiiers.dart';
@@ -95,27 +96,19 @@ class _SearchScreenState extends State<SearchScreen> {
           ? ListView(
               children: [
                 SizedBox(
-                  width: size.width,
-                  height: 280,
+                  width: 150,
+                  height: ResponsiveValue(context,
+                      defaultValue: 370.0,
+                      conditionalValues: [
+                        Condition.smallerThan(name: TABLET, value: 370.0),
+                      ]).value,
                   child: const ProductSuggestion(),
                 ),
               ],
             )
-          // Center(
-          //     child: Column(
-          //       mainAxisAlignment: MainAxisAlignment.center,
-          //       children: const [
-          //         Icon(Icons.search, size: 200),
-          //         Text(
-          //           'Search Products...',
-          //           style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400),
-          //         )
-          //       ],
-          //     ),
-          //   )
           : Consumer(
               builder: (context, ref, child) {
-                final router = ref.read(routerState);
+                final router = ref.read(cacheState);
                 return StreamBuilder(
                   stream: _product,
                   builder: (BuildContext context, AsyncSnapshot snapshot) {

@@ -26,7 +26,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
     final size = MediaQuery.of(context).size;
     return Consumer(
       builder: ((context, ref, child) {
-        final router = ref.read(routerState);
+        final router = ref.read(cacheState);
         final getProduct = ref.watch(getRandomProduct);
         return getProduct.when(
           data: (QuerySnapshot value) {
@@ -37,14 +37,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
-                      width: ResponsiveValue(context,
-                          defaultValue: size.width,
-                          conditionalValues: [
-                            const Condition.smallerThan(
-                              name: DESKTOP,
-                              value: 200.0,
-                            ),
-                          ]).value,
+                      width: size.width,
                       height: 30,
                       child: const ProductSuggestonPro(),
                     ),
@@ -60,90 +53,97 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                       padding: const EdgeInsets.all(15.0),
                       child: SizedBox(
                         width: size.width,
-                        height: 30,
+                        height: 60,
                         child: const ProductSuggestonPro(),
                       ),
                     ),
                     Flexible(
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: value.docs.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return InkWell(
-                            onTap: () async {
-                              router.chanageCollectionName(
-                                  value.docs[index]["storeId"]);
-                              router
-                                  .chanageDocId(value.docs[index]["productId"]);
-                              router.routeSates();
+                      child: SizedBox(
+                        width: size.width,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: value.docs.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return InkWell(
+                              onTap: () async {
+                                router.chanageCollectionName(
+                                    value.docs[index]["storeId"]);
+                                router.chanageDocId(
+                                    value.docs[index]["productId"]);
+                                router.routeSates();
 
-                              context.go('/DetaliPage');
-                            },
-                            child: AnimationConfiguration.staggeredList(
-                              position: index,
-                              child: ScaleAnimation(
-                                // horizontalOffset: 50.0,
-                                delay: const Duration(milliseconds: 200),
-                                child: FadeInAnimation(
-                                  delay: const Duration(milliseconds: 100),
-                                  child: SizedBox(
-                                    width: 135,
-                                    height: 170,
-                                    child: Card(
-                                      shadowColor: Colors.blueGrey,
-                                      elevation: 5,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          ExtendedImage.network(
-                                            value.docs[index]["photoUrl"] ??
-                                                "No Info",
-                                            shape: BoxShape.rectangle,
-                                            fit: BoxFit.cover,
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            height: 140,
-                                            width: 130,
-                                            enableMemoryCache: true,
-                                          ),
-                                          Wrap(
-                                            // crossAxisAlignment:
-                                            //     CrossAxisAlignment.start,
-                                            children: [
-                                              // const Text("Name"),
-                                              Text(value.docs[index]["name"],
-                                                  maxLines: 1,
-                                                  //  textDirectionsoftWrap: true,
-
-                                                  style: textStyle),
-                                              Row(
+                                context.go('/DetaliPage');
+                              },
+                              child: AnimationConfiguration.staggeredList(
+                                position: index,
+                                child: ScaleAnimation(
+                                  // horizontalOffset: 50.0,
+                                  delay: const Duration(milliseconds: 200),
+                                  child: FadeInAnimation(
+                                    delay: const Duration(milliseconds: 100),
+                                    child: SizedBox(
+                                      child: Card(
+                                        shadowColor: Colors.blueGrey,
+                                        elevation: 5,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            ExtendedImage.network(
+                                              value.docs[index]["photoUrl"] ??
+                                                  "No Info",
+                                              shape: BoxShape.rectangle,
+                                              fit: BoxFit.fitHeight,
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              height: 210,
+                                              width: 170,
+                                              enableMemoryCache: true,
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Wrap(
+                                                clipBehavior: Clip.antiAlias,
+                                                direction: Axis.vertical,
+                                                crossAxisAlignment:
+                                                    WrapCrossAlignment.center,
                                                 children: [
                                                   Text(
-                                                      value.docs[index]["price"]
-                                                          .toString(),
+                                                      value.docs[index]["name"],
+                                                      maxLines: 1,
                                                       style: textStyle),
-                                                  const Text(
-                                                    "EGP",
-                                                    style: TextStyle(
-                                                      fontSize: 14,
-                                                      color: Colors.black,
-                                                    ),
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                          value.docs[index]
+                                                                  ["price"]
+                                                              .toString(),
+                                                          style: textStyle),
+                                                      const Text(
+                                                        "EGP",
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+
+                                                      //  const Text("EGP")
+                                                    ],
                                                   ),
-                                                  //  const Text("EGP")
                                                 ],
                                               ),
-                                            ],
-                                          ),
-                                        ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          );
-                        },
+                            );
+                          },
+                        ),
                       ),
                     )
                   ],

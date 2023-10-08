@@ -25,7 +25,7 @@ import '../ui/store/products/detail_page.dart';
 import '../ui/store/products/product_view.dart';
 import '../Widgets/Froms/add_business_from.dart';
 import '../Widgets/Froms/product.dart';
-import '../Widgets/Froms/store_from.dart';
+import '../Widgets/Froms/sgingIn_page.dart';
 import '../Widgets/Froms/user_from.dart';
 import '../ui/subPages/chat_screen.dart';
 import 'privacy _policy .dart';
@@ -346,13 +346,13 @@ final GoRouter clowdRouter = GoRouter(
     //   },
     // ),
     GoRoute(
-      path: '/StoreLogIn',
-      name: "StoreLogIn",
+      path: '/SgingInPage',
+      name: "SgingInPage",
       pageBuilder: (context, state) {
         return CustomTransitionPage(
           key: state.pageKey,
           // transitionDuration: Duration(milliseconds: 100),
-          child: const StoreLogIn(),
+          child: const SgingInPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             // Change the opacity of the screen using a Curve based on the the animation's
             // value
@@ -633,6 +633,29 @@ final GoRouter clowdRouter = GoRouter(
           key: state.pageKey,
           // transitionDuration: Duration(milliseconds: 100),
           child: const Privacy(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            // Change the opacity of the screen using a Curve based on the the animation's
+            // value
+            return ScaleTransition(
+              alignment: Alignment.bottomCenter,
+              scale: animation,
+              child: FadeTransition(
+                opacity: animation,
+                child: child,
+              ),
+            );
+          },
+        );
+      },
+    ),
+    GoRoute(
+      path: '/WebProfile',
+      name: "WebProfile",
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          key: state.pageKey,
+          // transitionDuration: Duration(milliseconds: 100),
+          child: const AddPost(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             // Change the opacity of the screen using a Curve based on the the animation's
             // value

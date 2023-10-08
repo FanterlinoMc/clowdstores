@@ -1,7 +1,7 @@
 import 'package:cache_manager/cache_manager.dart';
 import 'package:flutter/material.dart';
 
-class RouterProvider with ChangeNotifier {
+class CacheProvider with ChangeNotifier {
   late dynamic _routeId = "";
   late dynamic _subRoute = "";
   late dynamic _collectionName = "";

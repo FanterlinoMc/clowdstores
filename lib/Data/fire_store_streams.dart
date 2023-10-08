@@ -3,23 +3,24 @@ import "package:cloud_firestore/cloud_firestore.dart";
 // import 'package:provider/provider.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
 
-final String uid = auth.currentUser!.uid;
-final String? fUserP = auth.currentUser!.photoURL;
-final String? fUserN = auth.currentUser!.displayName;
-final String? fUserE = auth.currentUser!.email;
-final String? fUserPhone = auth.currentUser!.phoneNumber;
+final String? uid = auth.currentUser?.uid;
+final String? fUserP = auth.currentUser?.photoURL;
+final String? fUserN = auth.currentUser?.displayName;
+final String? fUserE = auth.currentUser?.email;
+final String? fUserPhone = auth.currentUser?.phoneNumber;
 FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
 const appBarColor = //Colors.blueGrey;
     Color(0xFF082032);
 const size = MediaQuery;
-const subTextStyle = TextStyle(fontSize: 14, color: Colors.black);
+const subTextStyle = TextStyle(fontSize: 16, color: Colors.black);
 const textStyle = TextStyle(
-  fontSize: 12,
+  fontSize: kIsWeb ? 16 : 16,
   fontFamily: "Roboto",
 );
 const rowStyle =
@@ -40,6 +41,15 @@ class CloudStreams {
 
   Stream<QuerySnapshot<Map<String, dynamic>>> getPost() {
     return FirebaseFirestore.instance.collectionGroup('Post').snapshots();
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> getUserPost() async* {
+    String? randomString = await ReadCache.getString(key: "randomString");
+
+    yield* FirebaseFirestore.instance
+        .collectionGroup('Post')
+        .where("userpostId", isEqualTo: randomString)
+        .snapshots();
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> getStore() async* {
@@ -173,15 +183,6 @@ class CloudStreams {
         .collection("Messages")
         .snapshots();
   }
-
-  // Stream<DocumentSnapshot<Map<String, dynamic>>> messageLis() {
-  //   return _firestore
-  //       .collection("ChatList")
-  //       .doc(uid)
-  //       .collection("Messages")
-  //       .doc()
-  //       .snapshots();
-  // }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> chatRoom() async* {
     String? id = await ReadCache.getString(key: "roomId");

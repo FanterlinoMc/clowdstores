@@ -14,7 +14,7 @@ class HomeCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final router = ref.read(routerState);
+    final router = ref.read(cacheState);
     //  final liveLocaion = ref.read(storeProvider);
 
     return Column(
@@ -142,45 +142,6 @@ class HomeCard extends ConsumerWidget {
                 child: SizedBox(
               height: 17,
             )),
-            // ResponsiveRowColumnItem(
-            //   // rowFlex: 1,
-            //   child: Card(
-            //     shape: const OutlineInputBorder(
-            //         borderSide: BorderSide(
-            //       color: Colors.orange,
-            //       // width: 2.5,
-            //     )),
-            //     shadowColor: Colors.black87,
-            //     elevation: 5,
-            //     color: Colors.white,
-            //     child: InkWell(
-            //       onTap: () async {
-            //         router.chanageRandomString("Automtive");
-
-            //         router.routeSates();
-            //         context.push(
-            //           '/Categories',
-            //           extra: "Automtive",
-            //         );
-            //       },
-            //       child: const SizedBox(
-            //         height: 30,
-            //         width: 100,
-            //         child: Row(
-            //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //           children: [
-            //             Icon(
-            //               Icons.car_repair,
-            //               size: 17,
-            //               color: Colors.orange,
-            //             ),
-            //             Text("Automtive", style: TextStyle(fontSize: 14))
-            //           ],
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
         ResponsiveRowColumn(
@@ -265,47 +226,6 @@ class HomeCard extends ConsumerWidget {
                 ),
               ),
             ),
-            // ResponsiveRowColumnItem(
-            //   // rowFlex: 1,
-            //   child: Card(
-            //     shape: const OutlineInputBorder(
-            //       borderSide: BorderSide(
-            //         color: Colors.cyan,
-            //         // width: 2.5,
-            //       ),
-            //     ),
-            //     shadowColor: Colors.black87,
-            //     elevation: 5,
-            //     color: Colors.white,
-            //     child: SizedBox(
-            //       height: 30,
-            //       width: 100,
-            //       child: InkWell(
-            //         onTap: () {
-            //           showDialog(
-            //               context: context,
-            //               builder: (context) {
-            //                 return const ComingSoon();
-            //               });
-            //         },
-            //         child: const Row(
-            //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //           children: [
-            //             Icon(
-            //               Icons.delivery_dining_outlined,
-            //               size: 17,
-            //               color: Colors.cyan,
-            //             ),
-            //             Text(
-            //               "Devlivery",
-            //               style: TextStyle(fontSize: 14),
-            //             ),
-            //           ],
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
             ResponsiveRowColumnItem(
               // rowFlex: 1,
               child: Card(

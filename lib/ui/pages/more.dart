@@ -41,7 +41,7 @@ class MoreColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
-      final router = ref.read(routerState);
+      final router = ref.read(cacheState);
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

@@ -1,11 +1,11 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:clowdstores/ui/WebUI/web_Profile.dart';
 import 'package:clowdstores/ui/pages/shopping_feed.dart';
 
 import 'package:flutter/material.dart';
 
 import '../Data/fire_store_streams.dart';
 import '../providers/deep_link.dart';
-import '../ui/pages/home_page.dart';
 import '../ui/pages/more.dart';
 import '../ui/pages/near_me_page.dart';
 import '../ui/pages/search_page.dart';
@@ -29,7 +29,7 @@ class _NaviBarState extends State<NaviBar> {
 
   int _selectedPage = 2;
   List<Widget> pageView = [
-    const ProfileState(),
+    const WebProfile(),
     const SearchScreen(),
     const ShoppingFeed(),
     const NearMe(),
@@ -48,7 +48,7 @@ class _NaviBarState extends State<NaviBar> {
             BottomNavyBarItem(
               icon: const Icon(Icons.account_circle_outlined,
                   color: appBarColor, size: 25),
-              title: const Text("My Account"),
+              title: const Text("Me"),
               activeColor: appBarColor,
             ),
             BottomNavyBarItem(
@@ -58,7 +58,7 @@ class _NaviBarState extends State<NaviBar> {
                 activeColor: appBarColor),
             BottomNavyBarItem(
                 icon: const Icon(Icons.home, color: appBarColor, size: 25),
-                title: const Text("Home"),
+                title: const Text("Shopping"),
                 activeColor: appBarColor),
             BottomNavyBarItem(
                 icon: const Icon(Icons.near_me_outlined,

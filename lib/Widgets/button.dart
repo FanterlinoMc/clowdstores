@@ -19,20 +19,18 @@ class CloudButton extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: ResponsiveValue(context, defaultValue: 50.0, conditionalValues: [
-          const Condition.smallerThan(name: TABLET, value: bottonH),
-          const Condition.smallerThan(name: DESKTOP, value: bottonHT),
+        height:
+            ResponsiveValue(context, defaultValue: 50.0, conditionalValues: [
+          Condition.smallerThan(name: TABLET, value: bottonH),
         ]).value,
-        width: 200,
-        // width: ResponsiveValue(context, defaultValue: 200.0, conditionalValues: [
-        //   const Condition.smallerThan(
-        //     name: DESKTop,
-        //     value: bottonW,
-        //   ),
-        // ]).value,
+        width:
+            ResponsiveValue(context, defaultValue: 200.0, conditionalValues: [
+          Condition.smallerThan(name: TABLET, value: size.width / 2.5),
+        ]).value,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
           color: color ?? appBarColor,
@@ -70,12 +68,14 @@ class CloudButtonTow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: ResponsiveValue(context, defaultValue: 50.0, conditionalValues: [
-          const Condition.smallerThan(name: TABLET, value: bottonH),
-          const Condition.smallerThan(name: DESKTOP, value: bottonHT),
+        height:
+            ResponsiveValue(context, defaultValue: 50.0, conditionalValues: [
+          Condition.smallerThan(name: TABLET, value: bottonH),
+          Condition.smallerThan(name: DESKTOP, value: bottonHT),
         ]).value,
-        width: ResponsiveValue(context, defaultValue: 200.0, conditionalValues: [
-          const Condition.smallerThan(
+        width:
+            ResponsiveValue(context, defaultValue: 200.0, conditionalValues: [
+          Condition.smallerThan(
             name: TABLET,
             value: bottonW,
           ),
