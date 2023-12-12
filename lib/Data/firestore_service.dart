@@ -4,6 +4,7 @@ import 'package:clowdstores/Models/user.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../Models/delivery_model.dart';
 import '../Models/messages_model.dart';
 import '../Models/order.dart';
 import '../Models/product.dart';
@@ -174,33 +175,37 @@ class FirestoreService {
     return _db.collection("ChangeUser").doc(id).set(userModel.toMap());
   }
 
-  Stream<QuerySnapshot> getUser(String userName, String cate) {
-    return FirebaseFirestore.instance
-        .collection("User")
-        .where("Name", isLessThanOrEqualTo: userName)
-        .snapshots();
-  }
-
-  ///? Stores Collection
-
   Future saveStore(StoreModel userStore) async {
     return _db.collection("Stores").doc(uid).set(userStore.toMap());
   }
 
-  static Future<QuerySnapshot> searchUsers(String name) async {
-    Future<QuerySnapshot> users = FirebaseFirestore.instance
-        .collection("Stores")
-        .where("businessName", isGreaterThanOrEqualTo: name)
-        .get();
-
-    return users;
+  Future setDelivery(DeliveryModel deliveryModel) {
+    final String orderId = deliveryModel.orderId;
+    return _db.collection("Deliverys").doc(orderId).set(deliveryModel.toMap());
   }
+  // Stream<QuerySnapshot> getUser(String userName, String cate) {
+  //   return FirebaseFirestore.instance
+  //       .collection("User")
+  //       .where("Name", isLessThanOrEqualTo: userName)
+  //       .snapshots();
+  // }
 
-  Stream<QuerySnapshot<Map<String, dynamic>>> reviewStream(String? userId) {
-    return FirebaseFirestore.instance
-        .collection('Reviews')
-        .doc(userId)
-        .collection("Reviews")
-        .snapshots();
-  }
+  // ///? Stores Collection
+
+  // static Future<QuerySnapshot> searchUsers(String name) async {
+  //   Future<QuerySnapshot> users = FirebaseFirestore.instance
+  //       .collection("Stores")
+  //       .where("businessName", isGreaterThanOrEqualTo: name)
+  //       .get();
+
+  //   return users;
+  // }
+
+  // Stream<QuerySnapshot<Map<String, dynamic>>> reviewStream(String? userId) {
+  //   return FirebaseFirestore.instance
+  //       .collection('Reviews')
+  //       .doc(userId)
+  //       .collection("Reviews")
+  //       .snapshots();
+  // }
 }

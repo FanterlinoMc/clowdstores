@@ -147,16 +147,9 @@ class DetaliPage extends StatelessWidget {
                                   const Text("price", style: subTextStyle),
                                   Row(
                                     children: [
-                                      Text(
-                                          value.docs[index]["price"].toString(),
+                                      //  Text('${value.docs[index]['price']}EG'),
+                                      Text('${value.docs[index]['price']}EG',
                                           style: textStyle),
-                                      const Text(
-                                        "EGP",
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.black,
-                                        ),
-                                      )
                                     ],
                                   ),
                                 ],
@@ -195,30 +188,38 @@ class DetaliPage extends StatelessWidget {
                               CloudButton(
                                   name: "Checkout",
                                   onPressed: () async {
-                                    order.chnageProductName(
-                                        value.docs[index]["name"]);
-                                    order.chnageProductPrice(
-                                        value.docs[index]["price"].toString());
+                                    // order.chnageProductName(
+                                    //     value.docs[index]["name"]);
+                                    // order.chnageProductPrice(
+                                    //     value.docs[index]["price"].toString());
 
-                                    order.chnageProductproductPhotoUrl(
-                                        value.docs[index]["photoUrl"]);
-                                    order.chnageUserName(
-                                        auth.currentUser!.displayName);
-                                    // order.chnageUserNumber(  value.docs[index])
+                                    // order.chnageProductproductPhotoUrl(
+                                    //     value.docs[index]["photoUrl"]);
+                                    // order.chnageUserName(
+                                    //     auth.currentUser!.displayName);
+                                    // // order.chnageUserNumber(  value.docs[index])
 
-                                    order.chnageProductId(
+                                    // order.chnageProductId(
+                                    //     value.docs[index]["productId"]);
+                                    // order.chnageProductType(
+                                    //     value.docs[index]["productType"]);
+                                    // await showDialog(
+                                    //     context: context,
+                                    //     builder: (context) {
+                                    //       return UserNumber(
+                                    //         storeId: value.docs[index]
+                                    //                 ["storeId"]
+                                    //             .toString(),
+                                    //       );
+                                    //     });
+                                    router.chanageCollectionName(
+                                        value.docs[index]["storeId"]);
+                                    router.chanageDocId(
                                         value.docs[index]["productId"]);
-                                    order.chnageProductType(
-                                        value.docs[index]["productType"]);
-                                    await showDialog(
-                                        context: context,
-                                        builder: (context) {
-                                          return UserNumber(
-                                            storeId: value.docs[index]
-                                                    ["storeId"]
-                                                .toString(),
-                                          );
-                                        });
+                                    router.routeSates();
+                                    context.go("/checkOut");
+                                    // context.push('/DetaliPage');
+                                    return ref.refresh(getCheckOut);
                                   }),
                             ],
                           ),

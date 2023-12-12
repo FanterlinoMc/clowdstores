@@ -136,3 +136,8 @@ final reviewstream =
   final streams = ref.watch(getStreams);
   return streams.reviewStream();
 });
+final getCheckOut =
+    StreamProvider.autoDispose<QuerySnapshot<Map<String, dynamic>>>((ref) {
+  final streams = ref.watch(getStreams);
+  return streams.getCheckOut();
+});

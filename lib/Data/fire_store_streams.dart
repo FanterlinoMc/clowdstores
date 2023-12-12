@@ -117,6 +117,17 @@ class CloudStreams {
         .snapshots();
   }
 
+  Stream<QuerySnapshot<Map<String, dynamic>>> getCheckOut() async* {
+    String? collectionId = await ReadCache.getString(key: "collectionId");
+    String? docId = await ReadCache.getString(key: "docId");
+    yield* FirebaseFirestore.instance
+        .collection("product")
+        .doc(collectionId)
+        .collection("product")
+        .where("productId", isEqualTo: docId)
+        .snapshots();
+  }
+
   Stream<QuerySnapshot<Map<String, dynamic>>> getCategroise() async* {
     String? randomString = await ReadCache.getString(key: "randomString");
 

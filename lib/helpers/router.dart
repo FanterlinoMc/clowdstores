@@ -21,6 +21,7 @@ import '../ui/pages/review_page.dart';
 import '../ui/pages/search_page.dart';
 import '../ui/pages/welcome_page.dart';
 import '../ui/store/orders.dart';
+import '../ui/store/products/checkout.dart';
 import '../ui/store/products/detail_page.dart';
 import '../ui/store/products/product_view.dart';
 import '../Widgets/Froms/add_business_from.dart';
@@ -672,13 +673,13 @@ final GoRouter clowdRouter = GoRouter(
       },
     ),
     GoRoute(
-      path: '/PostPage',
-      name: "PostPage",
+      path: '/CheckOut',
+      name: "CheckOut",
       pageBuilder: (context, state) {
         return CustomTransitionPage(
           key: state.pageKey,
           // transitionDuration: Duration(milliseconds: 100),
-          child: const AddPost(),
+          child: const CheckOut(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             // Change the opacity of the screen using a Curve based on the the animation's
             // value
@@ -694,5 +695,28 @@ final GoRouter clowdRouter = GoRouter(
         );
       },
     ),
+    // GoRoute(
+    //   path: '/CheckOut',
+    //   name: "CheckOut",
+    //   pageBuilder: (context, state) {
+    //     return CustomTransitionPage(
+    //       key: state.pageKey,
+    //       // transitionDuration: Duration(milliseconds: 100),
+    //       child: const AddPost(),
+    //       transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    //         // Change the opacity of the screen using a Curve based on the the animation's
+    //         // value
+    //         return ScaleTransition(
+    //           alignment: Alignment.bottomCenter,
+    //           scale: animation,
+    //           child: FadeTransition(
+    //             opacity: animation,
+    //             child: child,
+    //           ),
+    //         );
+    //       },
+    //     );
+    //   },
+    // ),
   ],
 );
