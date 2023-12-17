@@ -72,7 +72,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                     value.docs[index]["productId"]);
                                 router.routeSates();
 
-                                context.go('/DetaliPage');
+                                context.push('/DetaliPage');
                               },
                               child: AnimationConfiguration.staggeredList(
                                 position: index,

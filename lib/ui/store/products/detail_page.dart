@@ -73,7 +73,7 @@ class DetaliPage extends StatelessWidget {
                                       conditionalValues: [
                                         Condition.smallerThan(
                                             name: TABLET,
-                                            value: size.width / 1),
+                                            value: size.width / 1.3),
                                       ]).value,
                                   child: Card(
                                     shape: OutlineInputBorder(
@@ -119,7 +119,10 @@ class DetaliPage extends StatelessWidget {
                                             .toString());
                                         clowdlink.createProductLink();
                                       },
-                                      label: const Icon(Icons.share_sharp),
+                                      label: const Icon(
+                                        Icons.share_sharp,
+                                        color: Colors.white,
+                                      ),
                                       //  icon: const Icon(Icons.location_on_outlined),
                                     )
                               //      : const SizedBox.shrink()
@@ -217,7 +220,7 @@ class DetaliPage extends StatelessWidget {
                                     router.chanageDocId(
                                         value.docs[index]["productId"]);
                                     router.routeSates();
-                                    context.go("/checkOut");
+                                    context.push("/checkOut");
                                     // context.push('/DetaliPage');
                                     return ref.refresh(getCheckOut);
                                   }),
