@@ -9,7 +9,6 @@ import '../providers/deep_link.dart';
 import '../ui/pages/more.dart';
 import '../ui/pages/near_me_page.dart';
 import '../ui/pages/search_page.dart';
-import 'users.dart';
 
 class NaviBar extends StatefulWidget {
   const NaviBar({

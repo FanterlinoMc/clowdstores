@@ -100,7 +100,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   height: ResponsiveValue(context,
                       defaultValue: 370.0,
                       conditionalValues: [
-                        Condition.smallerThan(name: TABLET, value: 370.0),
+                        Condition.smallerThan(name: TABLET, value: 440.0),
                       ]).value,
                   child: const ProductSuggestion(),
                 ),

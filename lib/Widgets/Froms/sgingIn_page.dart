@@ -7,7 +7,6 @@ import 'package:responsive_framework/responsive_framework.dart';
 import '../../Data/fire_store_streams.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../../helpers/responive.dart';
-import '../../helpers/streams_providers.dart';
 
 class SgingInPage extends StatefulWidget {
   const SgingInPage({Key? key}) : super(key: key);

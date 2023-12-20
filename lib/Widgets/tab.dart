@@ -8,7 +8,6 @@ import '../ui/WebUI/web_Profile.dart';
 import '../ui/pages/more.dart';
 import '../ui/pages/near_me_page.dart';
 import '../ui/pages/search_page.dart';
-import '../ui/pages/shopping_feed.dart';
 
 class MyTab extends StatefulWidget {
   const MyTab({Key? key}) : super(key: key);

@@ -9,7 +9,6 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../Data/fire_store_streams.dart';
-import '../../../Widgets/coming_soon.dart';
 import '../../../helpers/change_notifiiers.dart';
 import '../../../helpers/streams_providers.dart';
 import '../profile/post.dart';
@@ -204,8 +203,11 @@ class ProfileView extends StatelessWidget {
                                                                     .createStoreLink();
                                                               },
                                                               label: const Icon(
-                                                                  Icons
-                                                                      .share_sharp),
+                                                                Icons
+                                                                    .share_sharp,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
                                                               //  icon: const Icon(Icons.location_on_outlined),
                                                             ),
                                                           ),

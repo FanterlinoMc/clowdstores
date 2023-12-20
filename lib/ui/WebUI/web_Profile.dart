@@ -1,13 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/ui/pages/chat_list.dart';
-import 'package:clowdstores/ui/pages/welcome_page.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../Widgets/Froms/sgingIn_page.dart';
-import '../../Widgets/users.dart';
+
 import '../../helpers/streams_providers.dart';
 import '../pages/User/cart.dart';
 import '../pages/User/free_user.dart';

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:go_router/go_router.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../helpers/change_notifiiers.dart';
 import '../../../Data/fire_store_streams.dart';
@@ -53,7 +52,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                       padding: const EdgeInsets.all(15.0),
                       child: SizedBox(
                         width: size.width,
-                        height: 60,
+                        height: 80,
                         child: const ProductSuggestonPro(),
                       ),
                     ),
@@ -83,6 +82,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                     delay: const Duration(milliseconds: 100),
                                     child: SizedBox(
                                       child: Card(
+                                        color: Colors.white,
                                         shadowColor: Colors.blueGrey,
                                         elevation: 5,
                                         child: Column(
@@ -93,11 +93,11 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                               value.docs[index]["photoUrl"] ??
                                                   "No Info",
                                               shape: BoxShape.rectangle,
-                                              fit: BoxFit.fitHeight,
+                                              fit: BoxFit.cover,
                                               borderRadius:
                                                   BorderRadius.circular(10),
-                                              height: 210,
-                                              width: 170,
+                                              height: size.height / 3.7,
+                                              width: size.width / 2,
                                               enableMemoryCache: true,
                                             ),
                                             Padding(
@@ -116,17 +116,8 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                                   Row(
                                                     children: [
                                                       Text(
-                                                          value.docs[index]
-                                                                  ["price"]
-                                                              .toString(),
+                                                          '${value.docs[index]["price"]}EGP',
                                                           style: textStyle),
-                                                      const Text(
-                                                        "EGP",
-                                                        style: TextStyle(
-                                                          fontSize: 14,
-                                                          color: Colors.black,
-                                                        ),
-                                                      ),
 
                                                       //  const Text("EGP")
                                                     ],

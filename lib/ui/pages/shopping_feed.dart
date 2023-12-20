@@ -53,6 +53,7 @@ class ShoppingFeed extends StatelessWidget {
                             return Padding(
                               padding: const EdgeInsets.symmetric(vertical: 5),
                               child: Card(
+                                color: Colors.white,
                                 elevation: 10,
                                 // color: Colors.blue,
                                 // height: 200,
@@ -67,11 +68,8 @@ class ShoppingFeed extends StatelessWidget {
                                       ),
                                       title: Column(
                                         children: [
-                                          Text(
-                                            value.docs[index]["storeName"],
-                                            style: const TextStyle(
-                                                color: appBarColor),
-                                          ),
+                                          Text(value.docs[index]["storeName"],
+                                              style: textStyle),
                                           Text(
                                               value.docs[index]["postCategory"],
                                               style: const TextStyle(
@@ -90,7 +88,8 @@ class ShoppingFeed extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                          value.docs[index]["postContent"]),
+                                          value.docs[index]["postContent"],
+                                          style: textStyle),
                                     ),
                                     ExtendedImage.network(
                                       value.docs[index]["postImage"],
@@ -139,12 +138,14 @@ class ShoppingFeed extends StatelessWidget {
                                                         .add_shopping_cart_outlined,
                                                     size: 25,
                                                   )),
-                                              const Text("Add to Cart"),
+                                              const Text("Add to Cart",
+                                                  style: subTextStyle),
                                             ],
                                           ),
                                           Row(
                                             children: [
-                                              const Text("shear"),
+                                              const Text("shear",
+                                                  style: subTextStyle),
                                               IconButton(
                                                   onPressed: () {},
                                                   icon: const Icon(

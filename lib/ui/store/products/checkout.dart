@@ -6,8 +6,8 @@ import 'package:extended_image/extended_image.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/Froms/check_from.dart';
 
 class CheckOut extends StatelessWidget {
@@ -42,8 +42,10 @@ class CheckOut extends StatelessWidget {
                                       height: 200,
                                       width: 210,
                                     ),
-                                    Text(value.docs[index]['name']),
-                                    Text('${value.docs[index]['price']}EG'),
+                                    Text(value.docs[index]['name'],
+                                        style: textStyle),
+                                    Text('${value.docs[index]['price']}EG',
+                                        style: textStyle),
                                   ],
                                 ),
                               ),

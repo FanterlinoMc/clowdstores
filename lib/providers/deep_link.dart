@@ -3,7 +3,7 @@ import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../ui/pages/StoerViews/peowfileView.dart';
+import '../ui/pages/StoerViews/peowfile_view.dart';
 import '../ui/store/products/detail_page.dart';
 
 class ClowdLink with ChangeNotifier {

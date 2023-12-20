@@ -18,7 +18,7 @@ class ProductView extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext contex) {
-    // final size = MediaQuery.of(contex).size;
+    final size = MediaQuery.of(contex).size;
     return Scaffold(body: Consumer(
       builder: ((context, ref, child) {
         final router = ref.read(cacheState);
@@ -46,7 +46,7 @@ class ProductView extends StatelessWidget {
                     ),
                     SliverGrid(
                       gridDelegate: const ResponsiveGridDelegate(
-                          crossAxisExtent: 180,
+                          crossAxisExtent: 200,
                           childAspectRatio: 0.6,
                           //   mainAxisSpacing: 0.1,
                           crossAxisSpacing: 0),
@@ -88,8 +88,8 @@ class ProductView extends StatelessWidget {
                                                 "No Info",
                                             shape: BoxShape.rectangle,
                                             fit: BoxFit.cover,
-                                            height: 210,
-                                            width: 170,
+                                            height: size.height / 3.8,
+                                            width: size.width / 2,
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             enableMemoryCache: true,
@@ -107,13 +107,8 @@ class ProductView extends StatelessWidget {
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                        value.docs[index]
-                                                                ["price"]
-                                                            .toString(),
-                                                        style: subTextStyle),
-                                                    const Text("EGP",
+                                                        '${value.docs[index]['price']}EGP',
                                                         style: textStyle),
-                                                    //  const Text("EGP")
                                                   ],
                                                 ),
                                               ],

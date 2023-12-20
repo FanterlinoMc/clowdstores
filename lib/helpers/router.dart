@@ -15,7 +15,7 @@ import '../ui/pages/User/free_user.dart';
 import '../ui/pages/chat_list.dart';
 import '../ui/pages/more.dart';
 import '../ui/pages/near_me_page.dart';
-import '../ui/pages/StoerViews/peowfileView.dart';
+import '../ui/pages/StoerViews/peowfile_view.dart';
 import '../ui/pages/profile/profile_page.dart';
 import '../ui/pages/review_page.dart';
 import '../ui/pages/search_page.dart';

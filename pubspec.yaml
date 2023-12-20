@@ -60,7 +60,7 @@ dependencies:
   image_cropper: ^5.0.0
   #image_compression_flutter: ^1.0.2
   flutter_image_compress: ^2.0.1
-  image_picker: ^0.8.6+4
+  image_picker: ^1.0.5
   #video_player: ^2.7.0
   #video_compress: ^3.1.2
   #flutter_meedu_videoplayer: ^4.2.24
@@ -82,11 +82,10 @@ dependencies:
 
   shared_preferences: ^2.0.18
 
-  flutter_branch_sdk: ^6.4.0
   #get: ^4.6.3
 
   #//////////////////////////////////////////
-  go_router: ^7.0.0
+  go_router: ^12.1.3
   bottom_navy_bar: ^6.0.0
 
   font_awesome_flutter: ^9.0.0
@@ -96,15 +95,15 @@ dependencies:
 
     #flutter_google_maps: ^4.0.0
     #permission_handler: ^8.3.0
-  google_maps_flutter: ^2.2.1
+  google_maps_flutter: ^2.5.0
 
-  google_maps_flutter_web: ^0.4.0+3
+  google_maps_flutter_web: ^0.5.4+2
   # geoflutterfire: ^3.0.3
   geoflutterfire2: ^2.3.15
   # geolocator: ^8.0.3
   geocoding: ^2.0.2
   location:
-    ^4.4.0
+    ^5.0.3
 
     #payment
   flutter_paytabs_bridge: ^2.2.7
@@ -112,8 +111,8 @@ dependencies:
 
   cache_manager: ^1.0.0+4
   web_browser: ^0.7.4
-  flutter_local_notifications: ^14.0.0+1
-  uuid: ^3.0.5
+  flutter_local_notifications: ^16.2.0
+  uuid: ^3.0.7
 
   badges: ^3.1.1
   responsive_builder: ^0.7.0
@@ -122,7 +121,7 @@ dependencies:
   responsive_framework: ^1.0.0
   #flutter_native_splash: ^2.2.7
   url_launcher: ^6.1.5
-  flutter_widget_from_html_core: ^0.10.0
+  flutter_widget_from_html_core: ^0.14.9
 
   universal_html: ^2.0.8
   qr_flutter: ^4.0.0
@@ -147,7 +146,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.1
+  flutter_lints: ^3.0.1
 
   #flutter_native_splash:
   # color: "#ffffff"

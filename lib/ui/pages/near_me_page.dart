@@ -3,9 +3,7 @@ import 'dart:async';
 import 'package:cache_manager/cache_manager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/helpers/change_notifiiers.dart';
-import 'package:clowdstores/ui/pages/StoerViews/peowfileView.dart';
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -255,7 +253,7 @@ class _NearMeState extends State<NearMe> {
                                         router.chanageRandomString(
                                             value.docs[index]['userId']);
                                         router.routeSates();
-                                        context.go("/ProfileView");
+                                        context.push("/ProfileView");
 
                                         // showDialog(
                                         //   context: context,

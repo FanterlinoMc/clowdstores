@@ -47,7 +47,7 @@ class TextProRow extends StatelessWidget {
                       children: [
                         Icon(Icons.favorite_outline_outlined,
                             size: 24, color: Colors.red),
-                        Text("favorite", style: subTextStyle),
+                        Text("favorite", style: rowTextStyle),
                       ],
                     ),
                   ),
@@ -85,7 +85,7 @@ class TextProRow extends StatelessWidget {
                             size: 24, color: Colors.indigo),
                         Text(
                           "Review",
-                          style: subTextStyle,
+                          style: rowTextStyle,
                         ),
                       ],
                     ),
@@ -133,7 +133,7 @@ class TextProRow extends StatelessWidget {
                           size: 24,
                           color: Colors.orange,
                         ),
-                        Text("Location", style: subTextStyle),
+                        Text("Location", style: rowTextStyle),
                       ],
                     ),
                   ),
@@ -161,7 +161,7 @@ class TextProRow extends StatelessWidget {
                       children: [
                         Icon(Icons.message_outlined,
                             size: 24, color: Colors.blue),
-                        Text("Chats", style: subTextStyle),
+                        Text("Chats", style: rowTextStyle),
                       ],
                     ),
                   ),
