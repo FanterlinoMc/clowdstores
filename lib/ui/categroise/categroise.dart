@@ -13,9 +13,9 @@ import '../../helpers/streams_providers.dart';
 class Categories extends StatelessWidget {
   // final String cateName;
   const Categories({
-    Key? key,
+    super.key,
     //  required this.cateName,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

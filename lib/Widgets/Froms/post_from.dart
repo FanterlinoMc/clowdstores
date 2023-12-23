@@ -14,7 +14,7 @@ import '../text_filed.dart';
 class AddPost extends StatefulWidget {
   final dynamic storeInfo;
   final dynamic postImage;
-  const AddPost({Key? key, this.storeInfo, this.postImage}) : super(key: key);
+  const AddPost({super.key, this.storeInfo, this.postImage});
 
   @override
   State<AddPost> createState() => _ProductState();

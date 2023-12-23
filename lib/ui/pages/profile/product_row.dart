@@ -13,9 +13,9 @@ class ProductRow extends StatelessWidget {
   final String? productProfile;
   const ProductRow({
     this.userProduct,
-    Key? key,
+    super.key,
     this.productProfile,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

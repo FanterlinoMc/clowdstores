@@ -15,7 +15,7 @@ class MyTextfiled extends StatefulWidget {
   final double? width;
   final String Function(String?)? validator;
   const MyTextfiled({
-    Key? key,
+    super.key,
     required this.labelText,
     required this.hintText,
     this.saved,
@@ -27,7 +27,7 @@ class MyTextfiled extends StatefulWidget {
     this.width,
     this.validator,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   State<MyTextfiled> createState() => _MyTextfiledState();

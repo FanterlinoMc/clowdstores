@@ -10,8 +10,8 @@ import '../../../Data/fire_store_streams.dart';
 
 class ProductRowView extends StatelessWidget {
   const ProductRowView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

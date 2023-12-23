@@ -11,7 +11,7 @@ import '../../helpers/streams_providers.dart';
 
 class ChatList extends StatelessWidget {
   final dynamic senderInfo;
-  const ChatList({Key? key, this.senderInfo}) : super(key: key);
+  const ChatList({super.key, this.senderInfo});
 
   @override
   Widget build(BuildContext context) {

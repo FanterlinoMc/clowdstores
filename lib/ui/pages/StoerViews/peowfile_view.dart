@@ -19,9 +19,9 @@ class ProfileView extends StatelessWidget {
   final String? storeIdProfile;
 
   const ProfileView({
-    Key? key,
+    super.key,
     this.storeIdProfile,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

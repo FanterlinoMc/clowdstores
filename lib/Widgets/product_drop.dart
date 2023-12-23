@@ -9,10 +9,10 @@ import '../helpers/streams_providers.dart';
 class ProDrop extends StatefulWidget {
   final String pro;
   const ProDrop({
-    Key? key,
+    super.key,
     this.pro = "Selcet",
     //  required this.storeId,
-  }) : super(key: key);
+  });
 
   @override
   State<ProDrop> createState() => _ProDropState();

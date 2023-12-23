@@ -14,7 +14,7 @@ import '../pages/profile/profile_page.dart';
 import '../store/orders.dart';
 
 class WebProfile extends StatelessWidget {
-  const WebProfile({Key? key}) : super(key: key);
+  const WebProfile({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -18,7 +18,7 @@ import '../../helpers/streams_providers.dart';
 import '../../providers/store_porvider.dart';
 
 class NearMe extends StatefulWidget {
-  const NearMe({Key? key}) : super(key: key);
+  const NearMe({super.key});
 
   @override
   _NearMeState createState() => _NearMeState();

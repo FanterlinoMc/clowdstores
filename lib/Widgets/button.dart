@@ -11,12 +11,11 @@ class CloudButton extends StatelessWidget {
   final Color? color;
 
   const CloudButton(
-      {Key? key,
+      {super.key,
       required this.name,
       required this.onPressed,
       this.elevation,
-      this.color})
-      : super(key: key);
+      this.color});
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -58,11 +57,11 @@ class CloudButtonTow extends StatelessWidget {
   final double? elevation;
 
   const CloudButtonTow({
-    Key? key,
+    super.key,
     required this.name,
     required this.onPressed,
     this.elevation,
-  }) : super(key: key);
+  });
   @override
   Widget build(BuildContext context) {
     return Padding(

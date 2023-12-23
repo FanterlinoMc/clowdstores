@@ -14,8 +14,8 @@ import '../../../helpers/streams_providers.dart';
 
 class ProductView extends StatelessWidget {
   const ProductView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   Widget build(BuildContext contex) {
     final size = MediaQuery.of(contex).size;

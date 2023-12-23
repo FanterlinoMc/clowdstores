@@ -9,10 +9,10 @@ import '../helpers/streams_providers.dart';
 class ProductSuggestonPro extends StatefulWidget {
   final String pro;
   const ProductSuggestonPro({
-    Key? key,
+    super.key,
     this.pro = "Selcet",
     //  required this.storeId,
-  }) : super(key: key);
+  });
 
   @override
   State<ProductSuggestonPro> createState() => _ProductSuggestonPro();

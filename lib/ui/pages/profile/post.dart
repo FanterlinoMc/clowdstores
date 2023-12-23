@@ -8,7 +8,7 @@ import '../../../Data/fire_store_streams.dart';
 import '../../../helpers/streams_providers.dart';
 
 class Post extends StatefulWidget {
-  const Post({Key? key}) : super(key: key);
+  const Post({super.key});
 
   @override
   State<Post> createState() => _PostState();

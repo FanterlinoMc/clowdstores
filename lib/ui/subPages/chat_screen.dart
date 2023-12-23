@@ -16,9 +16,9 @@ class ChatPage extends StatelessWidget {
   // final dynamic storeinfo;
 
   const ChatPage({
-    Key? key,
+    super.key,
     this.messages,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

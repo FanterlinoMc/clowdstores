@@ -9,7 +9,7 @@ import '../../helpers/streams_providers.dart';
 import 'home_page.dart';
 
 class ShoppingFeed extends StatelessWidget {
-  const ShoppingFeed({Key? key}) : super(key: key);
+  const ShoppingFeed({super.key});
   //  SizedBox(
   //                 width: size.width,
   //                 height: ResponsiveValue(context,

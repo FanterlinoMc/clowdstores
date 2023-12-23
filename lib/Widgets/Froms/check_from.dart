@@ -2,7 +2,7 @@ import 'package:clowdstores/Widgets/text_filed.dart';
 import 'package:flutter/material.dart';
 
 class CheckFrom extends StatefulWidget {
-  const CheckFrom({Key? key}) : super(key: key);
+  const CheckFrom({super.key});
 
   @override
   State<CheckFrom> createState() => _CheckFromState();

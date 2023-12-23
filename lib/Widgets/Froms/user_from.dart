@@ -8,8 +8,8 @@ import '../../helpers/change_notifiiers.dart';
 
 class UserLogIn extends StatefulWidget {
   const UserLogIn({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   State<UserLogIn> createState() => _UserLogInState();
 }

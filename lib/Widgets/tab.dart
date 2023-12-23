@@ -10,7 +10,7 @@ import '../ui/pages/near_me_page.dart';
 import '../ui/pages/search_page.dart';
 
 class MyTab extends StatefulWidget {
-  const MyTab({Key? key}) : super(key: key);
+  const MyTab({super.key});
 
   @override
   _MyTabState createState() => _MyTabState();

@@ -14,8 +14,8 @@ import '../../../Widgets/Froms/check_from.dart';
 
 class CheckOut extends StatelessWidget {
   const CheckOut({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -96,6 +96,7 @@ class CheckOut extends StatelessWidget {
                                   getproduct.changeDropOff(true);
                                   getproduct.setDlivery();
                                   context.push('/');
+                                  //TODO debug
                                 },
                               ),
                             ],

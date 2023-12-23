@@ -17,7 +17,7 @@ import '../../helpers/streams_providers.dart';
 
 class AddProduct extends StatefulWidget {
   final dynamic storeInfo;
-  const AddProduct({Key? key, this.storeInfo}) : super(key: key);
+  const AddProduct({super.key, this.storeInfo});
 
   @override
   State<AddProduct> createState() => _ProductState();
@@ -135,7 +135,7 @@ class _ProductState extends State<AddProduct> {
                                     Container(
                                       height: 20,
                                     ),
-                                    const ProductUplaodPage(),
+                                     ProductUplaodPage(),
                                     CloudButton(
                                       color: validators.qunantiyy
                                           ? Colors.blueGrey

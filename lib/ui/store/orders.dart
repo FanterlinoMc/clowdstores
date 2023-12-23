@@ -11,7 +11,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import '../../helpers/streams_providers.dart';
 
 class OrderPage extends StatelessWidget {
-  const OrderPage({Key? key}) : super(key: key);
+  const OrderPage({super.key});
 
   @override
   Widget build(BuildContext context) {

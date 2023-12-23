@@ -10,8 +10,8 @@ import '../text_filed.dart';
 
 class ProductType extends StatefulWidget {
   const ProductType({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<ProductType> createState() => _ProductTypeState();

@@ -9,8 +9,8 @@ import '../../helpers/change_notifiiers.dart';
 
 class HomeCard extends ConsumerWidget {
   const HomeCard({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

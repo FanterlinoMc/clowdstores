@@ -11,7 +11,7 @@ import '../pages/StoerViews/stores.dart';
 import '../store/products/product_suggestion.dart';
 
 class ShoppingFeedWeb extends StatelessWidget {
-  const ShoppingFeedWeb({Key? key}) : super(key: key);
+  const ShoppingFeedWeb({super.key});
 
   @override
   Widget build(BuildContext context) {

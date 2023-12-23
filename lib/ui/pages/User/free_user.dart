@@ -15,7 +15,7 @@ import '../../../helpers/streams_providers.dart';
 import '../welcome_page.dart';
 
 class UserProfile extends StatelessWidget {
-  const UserProfile({Key? key}) : super(key: key);
+  const UserProfile({super.key});
 
   @override
   Widget build(BuildContext context) {

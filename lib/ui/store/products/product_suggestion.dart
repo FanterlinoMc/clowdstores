@@ -12,8 +12,8 @@ import '../../../helpers/streams_providers.dart';
 
 class ProductSuggestion extends StatefulWidget {
   const ProductSuggestion({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   State<ProductSuggestion> createState() => _ProductSuggestionState();
 }
