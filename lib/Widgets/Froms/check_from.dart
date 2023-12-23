@@ -19,8 +19,8 @@ class _CheckFromState extends State<CheckFrom> {
       children: <Widget>[
         MyTextfiled(
             labelText: "addrees", hintText: 'Addrees', controller: addrees),
-        MyTextfiled(labelText: "name", hintText: 'name', controller: addrees),
-        MyTextfiled(labelText: "phone", hintText: 'phone', controller: addrees),
+        MyTextfiled(labelText: "name", hintText: 'name', controller: name ),
+        MyTextfiled(labelText: "phone", hintText: 'phone', controller: phone  ),
       ],
     );
   }
