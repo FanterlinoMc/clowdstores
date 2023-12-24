@@ -21,10 +21,10 @@ class AddBusiness extends StatefulWidget {
   final StoreModel? storeModel;
   final DocumentSnapshot? storeInfo;
   const AddBusiness({
-    Key? key,
+    super.key,
     this.storeModel,
     this.storeInfo,
-  }) : super(key: key);
+  });
 
   @override
   State<AddBusiness> createState() => _AddBusinessState();

@@ -9,7 +9,7 @@ import '../../Widgets/text-styles.dart';
 
 class DashBrod extends StatelessWidget {
   final dynamic storeInfo;
-  DashBrod({Key? key, this.storeInfo}) : super(key: key);
+  DashBrod({super.key, this.storeInfo});
 
   final googleUser = SignInWithGoogle();
 

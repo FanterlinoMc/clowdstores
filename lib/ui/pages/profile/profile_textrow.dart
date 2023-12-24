@@ -11,7 +11,7 @@ import '../../../helpers/change_notifiiers.dart';
 // ignore: must_be_immutable
 class TextProRow extends StatelessWidget {
   late dynamic searchInfo;
-  TextProRow({Key? key, this.searchInfo}) : super(key: key);
+  TextProRow({super.key, this.searchInfo});
 
   @override
   Widget build(BuildContext context) {

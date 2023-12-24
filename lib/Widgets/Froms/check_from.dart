@@ -2,7 +2,7 @@ import 'package:clowdstores/Widgets/text_filed.dart';
 import 'package:flutter/material.dart';
 
 class CheckFrom extends StatefulWidget {
-  const CheckFrom({Key? key}) : super(key: key);
+  const CheckFrom({super.key});
 
   @override
   State<CheckFrom> createState() => _CheckFromState();
@@ -19,8 +19,8 @@ class _CheckFromState extends State<CheckFrom> {
       children: <Widget>[
         MyTextfiled(
             labelText: "addrees", hintText: 'Addrees', controller: addrees),
-        MyTextfiled(labelText: "name", hintText: 'name', controller: addrees),
-        MyTextfiled(labelText: "phone", hintText: 'phone', controller: addrees),
+        MyTextfiled(labelText: "name", hintText: 'name', controller: name ),
+        MyTextfiled(labelText: "phone", hintText: 'phone', controller: phone  ),
       ],
     );
   }

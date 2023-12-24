@@ -11,9 +11,9 @@ class InfoCloumn extends StatelessWidget {
   final DocumentSnapshot? storeInfo;
 
   const InfoCloumn({
-    Key? key,
+    super.key,
     this.storeInfo,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

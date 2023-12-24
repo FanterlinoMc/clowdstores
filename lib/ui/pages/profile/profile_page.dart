@@ -22,8 +22,8 @@ import 'profile_textrow.dart';
 
 class Profile extends StatefulWidget {
   const Profile({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<Profile> createState() => _ProfileState();

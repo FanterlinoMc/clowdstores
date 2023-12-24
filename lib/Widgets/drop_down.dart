@@ -8,7 +8,7 @@ import '../helpers/streams_providers.dart';
 import 'text-styles.dart';
 
 class DropDown extends StatefulWidget {
-  const DropDown({Key? key}) : super(key: key);
+  const DropDown({super.key});
 
   @override
   _DropDownState createState() => _DropDownState();
@@ -86,9 +86,9 @@ class _DropDownState extends State<DropDown> {
 class MapListOption extends StatefulWidget {
   // final Function onPrees;
   const MapListOption({
-    Key? key,
+    super.key,
     //  this.onPrees,
-  }) : super(key: key);
+  });
 
   @override
   _MapListOption createState() => _MapListOption();

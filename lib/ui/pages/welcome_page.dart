@@ -12,7 +12,7 @@ import '../../helpers/responive.dart';
 // import 'package:provider/provider.dart';
 
 class OpeningView extends StatelessWidget {
-  const OpeningView({Key? key}) : super(key: key);
+  const OpeningView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -10,7 +10,7 @@ import 'package:clowdstores/helpers/change_notifiiers.dart';
 import 'text-styles.dart';
 
 class ComingSoon extends StatelessWidget {
-  const ComingSoon({Key? key}) : super(key: key);
+  const ComingSoon({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +31,9 @@ class ComingSoon extends StatelessWidget {
 class Exption extends StatelessWidget {
   final String erorr;
   const Exption({
-    Key? key,
+    super.key,
     required this.erorr,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +54,9 @@ class Exption extends StatelessWidget {
 class UserNumber extends StatefulWidget {
   final String storeId;
   const UserNumber({
-    Key? key,
+    super.key,
     required this.storeId,
-  }) : super(key: key);
+  });
 
   @override
   State<UserNumber> createState() => _UserNumberState();
@@ -115,9 +115,9 @@ class _UserNumberState extends State<UserNumber> {
 class PostOption extends StatefulWidget {
   final String storeId;
   const PostOption({
-    Key? key,
+    super.key,
     required this.storeId,
-  }) : super(key: key);
+  });
 
   @override
   State<PostOption> createState() => _PostOptionState();
@@ -172,7 +172,7 @@ class _PostOptionState extends State<PostOption> {
 
 class ClowdSliverAppBar extends StatelessWidget {
   late final Widget? title;
-  ClowdSliverAppBar({Key? key, this.title}) : super(key: key);
+  ClowdSliverAppBar({super.key, this.title});
   final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
       GlobalKey<ScaffoldMessengerState>();
 

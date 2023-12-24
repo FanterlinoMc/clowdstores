@@ -11,7 +11,7 @@ import '../ui/pages/search_page.dart';
 import 'text-styles.dart';
 
 class MyTab extends StatefulWidget {
-  const MyTab({Key? key}) : super(key: key);
+  const MyTab({super.key});
 
   @override
   _MyTabState createState() => _MyTabState();

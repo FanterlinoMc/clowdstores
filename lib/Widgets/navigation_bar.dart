@@ -13,8 +13,8 @@ import 'text-styles.dart';
 
 class NaviBar extends StatefulWidget {
   const NaviBar({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _NaviBarState createState() => _NaviBarState();

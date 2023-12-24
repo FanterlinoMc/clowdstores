@@ -12,9 +12,9 @@ import '../../helpers/streams_providers.dart';
 class ReviewPage extends StatelessWidget {
   final dynamic storeInfo;
   ReviewPage({
-    Key? key,
+    super.key,
     required this.storeInfo,
-  }) : super(key: key);
+  });
 
   final TextEditingController _name = TextEditingController();
 

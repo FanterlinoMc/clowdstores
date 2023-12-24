@@ -16,7 +16,7 @@ import 'package:flutter_paytabs_bridge/PaymentSdkConfigurationDetails.dart';
 import 'package:flutter_paytabs_bridge/flutter_paytabs_bridge.dart';
 
 class Pay extends StatefulWidget {
-  const Pay({Key? key}) : super(key: key);
+  const Pay({super.key});
 
   @override
   _PayState createState() => _PayState();

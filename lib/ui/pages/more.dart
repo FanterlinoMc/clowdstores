@@ -6,7 +6,7 @@ import '../../Widgets/coming_soon.dart';
 import '../../helpers/change_notifiiers.dart';
 
 class More extends StatelessWidget {
-  const More({Key? key}) : super(key: key);
+  const More({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +35,8 @@ class More extends StatelessWidget {
 
 class MoreColumn extends StatelessWidget {
   const MoreColumn({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

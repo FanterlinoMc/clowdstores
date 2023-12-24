@@ -14,7 +14,7 @@ import '../../helpers/streams_providers.dart';
 
 class EditProduct extends StatefulWidget {
   final dynamic updateProduct;
-  const EditProduct({Key? key, this.updateProduct}) : super(key: key);
+  const EditProduct({super.key, this.updateProduct});
 
   @override
   State<EditProduct> createState() => _EditProductState();
@@ -131,7 +131,7 @@ class _EditProductState extends State<EditProduct> {
                                 ),
                                 const ProDrop(),
                                 Container(height: 20),
-                                const ProductUplaodPage(),
+                                 ProductUplaodPage(),
                                 // CloudButton(
                                 //   name: "Pick an Image",
                                 //   onPressed: () {

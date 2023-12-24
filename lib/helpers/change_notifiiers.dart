@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../Data/firestore_service.dart';
 import '../Data/sign_In_google.dart';
 import '../providers/deep_link.dart';
+import '../providers/delivery_provider.dart';
 import '../providers/fcm.dart';
 import '../providers/messages_pro.dart';
 import '../providers/order.dart';
@@ -48,3 +49,5 @@ final signIn =
     ChangeNotifierProvider<SignInWithGoogle>((ref) => SignInWithGoogle());
 final postNotifire = ChangeNotifierProvider<ShoppingFeedProvider>(
     (ref) => ShoppingFeedProvider());
+final  getProductDellivery  = ChangeNotifierProvider<Delivery>(
+    (ref) => Delivery());

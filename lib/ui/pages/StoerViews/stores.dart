@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,8 +14,8 @@ import '../../../helpers/streams_providers.dart';
 
 class Stores extends StatelessWidget {
   const Stores({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   Widget build(BuildContext contex) {
     // final size = MediaQuery.of(contex).size;
