@@ -14,6 +14,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../Data/fire_store_streams.dart';
 import '../../Widgets/drop_down.dart';
+import '../../Widgets/text-styles.dart';
 import '../../helpers/streams_providers.dart';
 import '../../providers/store_porvider.dart';
 

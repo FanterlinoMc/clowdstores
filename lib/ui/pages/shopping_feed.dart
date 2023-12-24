@@ -4,6 +4,7 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../Widgets/text-styles.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../../helpers/streams_providers.dart';
 import 'home_page.dart';

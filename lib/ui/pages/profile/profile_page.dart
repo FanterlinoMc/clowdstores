@@ -12,6 +12,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/button.dart';
 import '../../../Widgets/coming_soon.dart';
+import '../../../Widgets/text-styles.dart';
 import '../../../helpers/change_notifiiers.dart';
 import '../../../helpers/streams_providers.dart';
 import '../../../providers/deep_link.dart';

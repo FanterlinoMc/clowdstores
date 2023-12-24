@@ -11,6 +11,7 @@ import '../../Data/fire_store_streams.dart';
 import '../../helpers/upload_phtoto.dart';
 import '../button.dart';
 import '../product_drop.dart';
+import '../text-styles.dart';
 import '../text_filed.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../../helpers/streams_providers.dart';

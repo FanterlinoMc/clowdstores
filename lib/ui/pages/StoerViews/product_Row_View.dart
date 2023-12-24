@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../Data/fire_store_streams.dart';
+import '../../../Widgets/text-styles.dart';
 
 class ProductRowView extends StatelessWidget {
   const ProductRowView({

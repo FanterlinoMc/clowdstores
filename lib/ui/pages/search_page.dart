@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../Data/fire_store_streams.dart';
+import '../../Widgets/text-styles.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../store/products/product_suggestion.dart';
 

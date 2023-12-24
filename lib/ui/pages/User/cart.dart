@@ -7,6 +7,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../Data/fire_store_streams.dart';
+import '../../../Widgets/sizeBox.dart';
+import '../../../Widgets/text-styles.dart';
 import '../../../helpers/responive.dart';
 import '../../../helpers/streams_providers.dart';
 
@@ -23,19 +25,7 @@ class CartPage extends StatelessWidget {
         body: getCartPro.when(
             data: (QuerySnapshot value) {
               return Center(
-                child: SizedBox(
-                  width: ResponsiveValue(context,
-                      defaultValue: 1000.0,
-                      conditionalValues: [
-                        Condition.smallerThan(
-                          name: TABLET,
-                          value: tW,
-                        ),
-                        Condition.smallerThan(
-                          name: DESKTOP,
-                          value: mW,
-                        ),
-                      ]).value,
+                child: WebSizeBox(
                   child: CustomScrollView(slivers: <Widget>[
                     const SliverAppBar(
                       title: Text(
@@ -66,22 +56,15 @@ class CartPage extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(0.0),
+                                      ImageSizeBox(
                                         child: ExtendedImage.network(
                                           value.docs[index]
                                                   ["productPhotoUrl"] ??
                                               "No Info",
                                           shape: BoxShape.rectangle,
                                           fit: BoxFit.cover,
-                                          //      color: Colors.white12,
-
                                           borderRadius:
                                               BorderRadius.circular(10),
-                                          //  scale: 1,
-                                          height: 220,
-                                          width: 190,
-
                                           enableMemoryCache: true,
                                         ),
                                       ),

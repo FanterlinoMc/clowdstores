@@ -9,14 +9,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/Froms/check_from.dart';
+import '../../../Widgets/text-styles.dart';
 
 class CheckOut extends StatelessWidget {
   const CheckOut({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+
+    //todo fix the size of the product Image
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -27,6 +30,7 @@ class CheckOut extends StatelessWidget {
                 return Consumer(
                   builder: (context, ref, child) {
                     final checkOut = ref.watch(getCheckOut);
+                    final getProduct = ref.read(getCheckOut);
                     return checkOut.when(
                         data: (QuerySnapshot value) {
                           return Column(
@@ -56,7 +60,9 @@ class CheckOut extends StatelessWidget {
                               const CheckFrom(),
                               CloudButton(
                                 name: "CheckOut",
-                                onPressed: () {},
+                                onPressed: () {
+                                  // getP
+                                },
                               ),
                             ],
                           );

@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:clowdstores/Widgets/sizeBox.dart';
+import 'package:clowdstores/Widgets/text-styles.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -14,11 +16,10 @@ import '../../../helpers/streams_providers.dart';
 
 class ProductView extends StatelessWidget {
   const ProductView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   Widget build(BuildContext contex) {
-    final size = MediaQuery.of(contex).size;
     return Scaffold(body: Consumer(
       builder: ((context, ref, child) {
         final router = ref.read(cacheState);
@@ -83,16 +84,16 @@ class ProductView extends StatelessWidget {
                                       elevation: 5,
                                       child: Column(
                                         children: [
-                                          ExtendedImage.network(
-                                            value.docs[index]["photoUrl"] ??
-                                                "No Info",
-                                            shape: BoxShape.rectangle,
-                                            fit: BoxFit.cover,
-                                            height: size.height / 3.8,
-                                            width: size.width / 2,
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            enableMemoryCache: true,
+                                          ImageSizeBox(
+                                            child: ExtendedImage.network(
+                                              value.docs[index]["photoUrl"] ??
+                                                  "No Info",
+                                              shape: BoxShape.rectangle,
+                                              fit: BoxFit.cover,
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              enableMemoryCache: true,
+                                            ),
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),

@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../Widgets/text-styles.dart';
 import '../../helpers/streams_providers.dart';
 
 class OrderPage extends StatelessWidget {

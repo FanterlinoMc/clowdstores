@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../helpers/streams_providers.dart';
+import 'text-styles.dart';
 
 class ProductSuggestonPro extends StatefulWidget {
   final String pro;

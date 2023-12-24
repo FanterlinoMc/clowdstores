@@ -13,6 +13,7 @@ import '../../Data/sign_In_google.dart';
 import '../../helpers/upload_phtoto.dart';
 import '../button.dart';
 import '../drop_down.dart';
+import '../text-styles.dart';
 import '../text_filed.dart';
 import '../../helpers/change_notifiiers.dart';
 

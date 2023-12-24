@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../Data/fire_store_streams.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../button.dart';
+import '../text-styles.dart';
 import '../text_filed.dart';
 
 class ProductType extends StatefulWidget {

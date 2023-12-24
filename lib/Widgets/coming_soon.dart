@@ -7,6 +7,8 @@ import 'package:clowdstores/Widgets/button.dart';
 import 'package:clowdstores/Widgets/text_filed.dart';
 import 'package:clowdstores/helpers/change_notifiiers.dart';
 
+import 'text-styles.dart';
+
 class ComingSoon extends StatelessWidget {
   const ComingSoon({Key? key}) : super(key: key);
 

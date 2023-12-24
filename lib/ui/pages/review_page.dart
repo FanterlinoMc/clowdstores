@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../Data/fire_store_streams.dart';
+import '../../Widgets/text-styles.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../../helpers/streams_providers.dart';
 

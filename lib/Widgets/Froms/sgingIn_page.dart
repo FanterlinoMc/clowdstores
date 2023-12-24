@@ -7,9 +7,10 @@ import 'package:responsive_framework/responsive_framework.dart';
 import '../../Data/fire_store_streams.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../../helpers/responive.dart';
+import '../text-styles.dart';
 
 class SgingInPage extends StatefulWidget {
-  const SgingInPage({Key? key}) : super(key: key);
+  const SgingInPage({super.key});
 
   @override
   State<SgingInPage> createState() => _SgingInPageState();
@@ -21,7 +22,7 @@ class _SgingInPageState extends State<SgingInPage> {
     //final user = SignInWithGoogle();
 
     Size size = MediaQuery.of(context).size;
-
+//TODO fix the  sign in functionality signn in in the first instance
     return Scaffold(
       backgroundColor: appBarColor,
       body: Consumer(builder: (context, ref, child) {

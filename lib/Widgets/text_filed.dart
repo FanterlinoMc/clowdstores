@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Data/fire_store_streams.dart';
+import 'text-styles.dart';
 
 class MyTextfiled extends StatefulWidget {
   final String labelText;

@@ -3,6 +3,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 import '../Data/fire_store_streams.dart';
 import '../helpers/responive.dart';
+import 'text-styles.dart';
 
 class CloudButton extends StatelessWidget {
   final String name;

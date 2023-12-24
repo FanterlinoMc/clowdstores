@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:clowdstores/Widgets/sizeBox.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/button.dart';
 import '../../../Widgets/coming_soon.dart';
+import '../../../Widgets/text-styles.dart';
 import '../../../helpers/change_notifiiers.dart';
 import '../../../helpers/responive.dart';
 import '../../../helpers/streams_providers.dart';
@@ -85,11 +87,13 @@ class DetaliPage extends StatelessWidget {
                                     elevation: 5,
                                     child: Row(
                                       children: [
-                                        ExtendedImage.network(
-                                          value.docs[index]["storephotoUrl"],
-                                          fit: BoxFit.fitHeight,
-                                          height: 60,
-                                          width: 60,
+                                        ImageSizeBox(
+                                          child: ExtendedImage.network(
+                                            value.docs[index]["storephotoUrl"],
+                                            fit: BoxFit.fitHeight,
+                                            height: 60,
+                                            width: 60,
+                                          ),
                                         ),
                                         Text(value.docs[index]["storeName"],
                                             style: textStyle),

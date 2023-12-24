@@ -1,8 +1,9 @@
 import 'dart:async';
-import 'package:clowdstores/Data/fire_store_streams.dart';
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
+
+import '../Widgets/text-styles.dart';
 
 class MyCustomSplashScreen extends StatefulWidget {
   const MyCustomSplashScreen({super.key});

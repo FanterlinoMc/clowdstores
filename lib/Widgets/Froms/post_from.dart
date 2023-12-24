@@ -9,6 +9,7 @@ import '../../Data/fire_store_streams.dart';
 import '../../helpers/upload_phtoto.dart';
 import '../button.dart';
 import '../coming_soon.dart';
+import '../text-styles.dart';
 import '../text_filed.dart';
 
 class AddPost extends StatefulWidget {

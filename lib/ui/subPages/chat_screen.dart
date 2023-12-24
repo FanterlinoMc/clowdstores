@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../Data/fire_store_streams.dart';
 import '../../Widgets/button.dart';
+import '../../Widgets/text-styles.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../../helpers/streams_providers.dart';
 

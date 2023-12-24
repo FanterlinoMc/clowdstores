@@ -10,6 +10,7 @@ import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../Data/sign_In_google.dart';
+import '../../../Widgets/text-styles.dart';
 import '../../../helpers/responive.dart';
 import '../../../helpers/streams_providers.dart';
 import '../welcome_page.dart';

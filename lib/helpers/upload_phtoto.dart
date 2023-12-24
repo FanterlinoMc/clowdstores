@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:clowdstores/Data/fire_store_streams.dart';
 import 'package:clowdstores/Widgets/button.dart';
 import 'package:clowdstores/helpers/change_notifiiers.dart';
 import 'package:extended_image/extended_image.dart';
@@ -12,8 +11,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:simple_progress_indicators/simple_progress_indicators.dart';
 
+import '../Widgets/text-styles.dart';
+
 class ProductUplaodPage extends StatefulWidget {
-  const ProductUplaodPage({Key? key}) : super(key: key);
+  const ProductUplaodPage({super.key});
 
   @override
   _ProductUplaodPageState createState() => _ProductUplaodPageState();
@@ -116,7 +117,7 @@ class _ProductUplaodPageState extends State<ProductUplaodPage> {
 //?StoreUplaodPage//////////////////////////////////////////////////////////
 
 class StoreUplaodPage extends StatefulWidget {
-  const StoreUplaodPage({Key? key}) : super(key: key);
+  const StoreUplaodPage({super.key});
 
   @override
   _StoreUplaodPageState createState() => _StoreUplaodPageState();
@@ -226,7 +227,7 @@ class _StoreUplaodPageState extends State<StoreUplaodPage> {
 
 class PostUplaodPage extends StatefulWidget {
   final dynamic postImage;
-  const PostUplaodPage({Key? key, this.postImage}) : super(key: key);
+  const PostUplaodPage({super.key, this.postImage});
 
   @override
   _PostUplaodPageState createState() => _PostUplaodPageState();
@@ -341,7 +342,7 @@ class _PostUplaodPageState extends State<PostUplaodPage> {
 }
 
 class UploadVudeo extends StatefulWidget {
-  const UploadVudeo({Key? key}) : super(key: key);
+  const UploadVudeo({super.key});
 
   @override
   _UploadVudeoState createState() => _UploadVudeoState();
@@ -352,7 +353,6 @@ class _UploadVudeoState extends State<UploadVudeo> {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
-      final post = ref.read(postNotifire);
       final cacheRoute = ref.read(cacheState);
       return Column(
         children: [

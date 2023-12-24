@@ -9,6 +9,8 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../Data/fire_store_streams.dart';
+import '../../../Widgets/sizeBox.dart';
+import '../../../Widgets/text-styles.dart';
 import '../../../helpers/change_notifiiers.dart';
 import '../../../helpers/streams_providers.dart';
 import '../profile/post.dart';
@@ -19,9 +21,9 @@ class ProfileView extends StatelessWidget {
   final String? storeIdProfile;
 
   const ProfileView({
-    Key? key,
+    super.key,
     this.storeIdProfile,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,15 +41,7 @@ class ProfileView extends StatelessWidget {
               data: (QuerySnapshot value) {
                 return AnimationLimiter(
                   child: Center(
-                    child: SizedBox(
-                      width: ResponsiveValue(context,
-                          defaultValue: 700.0,
-                          conditionalValues: [
-                            Condition.smallerThan(
-                              name: DESKTOP,
-                              value: size.width,
-                            ),
-                          ]).value,
+                    child: WebSizeBox(
                       child: CustomScrollView(
                         physics: const NeverScrollableScrollPhysics(),
                         slivers: [
@@ -72,36 +66,16 @@ class ProfileView extends StatelessWidget {
                                         //  delay: Duration(seconds: 1),
                                         child: Column(
                                           children: [
-                                            ExtendedImage.network(
-                                              value.docs[index]["photoUrl"],
-                                              shape: BoxShape.rectangle,
-                                              fit: BoxFit.fitWidth,
-                                              borderRadius: kIsWeb
-                                                  ? BorderRadius.circular(10)
-                                                  : BorderRadius.circular(0),
-                                              height: ResponsiveValue(context,
-                                                  defaultValue: 400.0,
-                                                  conditionalValues: [
-                                                    Condition.smallerThan(
-                                                      name: DESKTOP,
-                                                      value: 250.0,
-                                                    ),
-                                                  ]).value,
-                                              width: ResponsiveValue(
-                                                context,
-                                                defaultValue: 400.0,
-                                                conditionalValues: [
-                                                  Condition.smallerThan(
-                                                    name: TABLET,
-                                                    value: tW,
-                                                  ),
-                                                  Condition.smallerThan(
-                                                    name: DESKTOP,
-                                                    value: mW,
-                                                  ),
-                                                ],
-                                              ).value,
-                                              enableMemoryCache: true,
+                                            ImageSizeBox(
+                                              child: ExtendedImage.network(
+                                                value.docs[index]["photoUrl"],
+                                                shape: BoxShape.rectangle,
+                                                fit: BoxFit.fitWidth,
+                                                borderRadius: kIsWeb
+                                                    ? BorderRadius.circular(10)
+                                                    : BorderRadius.circular(0),
+                                                enableMemoryCache: true,
+                                              ),
                                             ),
                                             const SizedBox(
                                               height: 10,

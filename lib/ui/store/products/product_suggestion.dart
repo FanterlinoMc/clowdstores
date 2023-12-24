@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:clowdstores/Widgets/sizeBox.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,12 +9,13 @@ import 'package:go_router/go_router.dart';
 import '../../../../helpers/change_notifiiers.dart';
 import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/productdropdown.dart';
+import '../../../Widgets/text-styles.dart';
 import '../../../helpers/streams_providers.dart';
 
 class ProductSuggestion extends StatefulWidget {
   const ProductSuggestion({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   State<ProductSuggestion> createState() => _ProductSuggestionState();
 }
@@ -80,7 +82,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                   delay: const Duration(milliseconds: 200),
                                   child: FadeInAnimation(
                                     delay: const Duration(milliseconds: 100),
-                                    child: SizedBox(
+                                    child: ImageSizeBox(
                                       child: Card(
                                         color: Colors.white,
                                         shadowColor: Colors.blueGrey,
@@ -96,8 +98,6 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                               fit: BoxFit.cover,
                                               borderRadius:
                                                   BorderRadius.circular(10),
-                                              height: size.height / 3.7,
-                                              width: size.width / 2,
                                               enableMemoryCache: true,
                                             ),
                                             Padding(

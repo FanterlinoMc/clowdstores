@@ -5,6 +5,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import '../Data/fire_store_streams.dart';
 import '../helpers/change_notifiiers.dart';
 import '../helpers/streams_providers.dart';
+import 'text-styles.dart';
 
 class DropDown extends StatefulWidget {
   const DropDown({Key? key}) : super(key: key);

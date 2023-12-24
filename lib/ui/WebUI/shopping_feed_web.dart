@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../Widgets/text-styles.dart';
 import '../../helpers/streams_providers.dart';
 import '../pages/StoerViews/stores.dart';
 import '../store/products/product_suggestion.dart';

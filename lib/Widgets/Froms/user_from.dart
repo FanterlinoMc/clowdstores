@@ -5,6 +5,7 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../helpers/change_notifiiers.dart';
+import '../text-styles.dart';
 
 class UserLogIn extends StatefulWidget {
   const UserLogIn({

@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../Data/fire_store_streams.dart';
 import '../../Data/sign_In_google.dart';
 import '../../Widgets/button.dart';
+import '../../Widgets/text-styles.dart';
 
 class DashBrod extends StatelessWidget {
   final dynamic storeInfo;
