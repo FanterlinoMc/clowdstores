@@ -12,8 +12,8 @@ class ImageSizeBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height / 4,
-      width: size.width / 4,
+      height: size.height / 2,
+      width: size.width / 2,
       child: child,
     );
   }
@@ -31,8 +31,21 @@ class WebSizeBox extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SizedBox(
       height: size.height,
-      width: size.width / 3,
+      width: size.width / 2,
       child: child,
+    );
+  }
+}
+
+class SmallSizedBox extends StatelessWidget {
+  const SmallSizedBox({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return SizedBox(
+      height: size.height / 10,
+      width: size.width / 10,
     );
   }
 }
