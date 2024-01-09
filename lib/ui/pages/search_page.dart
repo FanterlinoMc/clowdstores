@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../Data/fire_store_streams.dart';
+import '../../Widgets/sizeBox.dart';
 import '../../Widgets/text-styles.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../store/products/product_suggestion.dart';
@@ -95,15 +96,9 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       body: _product == null
           ? ListView(
-              children: [
-                SizedBox(
-                  width: 150,
-                  height: ResponsiveValue(context,
-                      defaultValue: 370.0,
-                      conditionalValues: [
-                        Condition.smallerThan(name: TABLET, value: 440.0),
-                      ]).value,
-                  child: const ProductSuggestion(),
+              children: const [
+                ListBox(
+                  child: ProductSuggestion(),
                 ),
               ],
             )

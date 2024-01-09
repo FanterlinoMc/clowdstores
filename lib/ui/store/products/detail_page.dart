@@ -17,8 +17,8 @@ import '../../../helpers/streams_providers.dart';
 
 class DetaliPage extends StatelessWidget {
   const DetaliPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class DetaliPage extends StatelessWidget {
                           ExtendedImage.network(
                             value.docs[index]["photoUrl"],
                             shape: BoxShape.rectangle,
-                            fit: BoxFit.fitWidth,
+                            fit: BoxFit.cover,
                             height: size.height / 3,
                             //  width: 270,
                             enableMemoryCache: true,
@@ -87,13 +87,11 @@ class DetaliPage extends StatelessWidget {
                                     elevation: 5,
                                     child: Row(
                                       children: [
-                                        ImageSizeBox(
-                                          child: ExtendedImage.network(
-                                            value.docs[index]["storephotoUrl"],
-                                            fit: BoxFit.fitHeight,
-                                            height: 60,
-                                            width: 60,
-                                          ),
+                                        ExtendedImage.network(
+                                          value.docs[index]["storephotoUrl"],
+                                          fit: BoxFit.fitHeight,
+                                          height: 60,
+                                          width: 60,
                                         ),
                                         Text(value.docs[index]["storeName"],
                                             style: textStyle),

@@ -54,7 +54,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                       padding: const EdgeInsets.all(15.0),
                       child: SizedBox(
                         width: size.width,
-                        height: 80,
+                        height: 60,
                         child: const ProductSuggestonPro(),
                       ),
                     ),
@@ -91,14 +91,16 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            ExtendedImage.network(
-                                              value.docs[index]["photoUrl"] ??
-                                                  "No Info",
-                                              shape: BoxShape.rectangle,
-                                              fit: BoxFit.cover,
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              enableMemoryCache: true,
+                                            ImageSizeBox(
+                                              child: ExtendedImage.network(
+                                                value.docs[index]["photoUrl"] ??
+                                                    "No Info",
+                                                shape: BoxShape.rectangle,
+                                                fit: BoxFit.cover,
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                enableMemoryCache: true,
+                                              ),
                                             ),
                                             Padding(
                                               padding:

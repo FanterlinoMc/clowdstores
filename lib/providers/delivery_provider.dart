@@ -13,8 +13,8 @@ class Delivery with ChangeNotifier {
   late String _city;
   late String _store;
   late String _description;
-  late double _price;
-  dynamic _photoUrl;
+  late String _price;
+  late dynamic _photoUrl;
   late String _storephotoUrl;
   late String _productType;
   late String _storeId;
@@ -30,8 +30,8 @@ class Delivery with ChangeNotifier {
   late double _userLgn;
 
   ///?Order
-  late bool _pickUp;
-  late bool _dropOff;
+  late bool _pickUp = false;
+  late bool _dropOff = false;
   late String _orderStatus;
   late String _orderId;
   // late String _orderId
@@ -41,7 +41,7 @@ class Delivery with ChangeNotifier {
   String get city => _city;
   String get store => _store;
   String get description => _description;
-  double get price => _price;
+  String get price => _price;
   String get photoUrl => _photoUrl;
   String get storephotoUrl => _storephotoUrl;
   String get productType => _productType;
@@ -80,7 +80,7 @@ class Delivery with ChangeNotifier {
     _description = value;
   }
 
-  changePrice(double value) {
+  changePrice(String value) {
     _price = value;
   }
 

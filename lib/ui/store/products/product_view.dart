@@ -19,7 +19,8 @@ class ProductView extends StatelessWidget {
     super.key,
   });
   @override
-  Widget build(BuildContext contex) {
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(body: Consumer(
       builder: ((context, ref, child) {
         final router = ref.read(cacheState);
@@ -46,8 +47,8 @@ class ProductView extends StatelessWidget {
                       ),
                     ),
                     SliverGrid(
-                      gridDelegate: const ResponsiveGridDelegate(
-                          crossAxisExtent: 200,
+                      gridDelegate: ResponsiveGridDelegate(
+                          crossAxisExtent: size.width / 2,
                           childAspectRatio: 0.6,
                           //   mainAxisSpacing: 0.1,
                           crossAxisSpacing: 0),

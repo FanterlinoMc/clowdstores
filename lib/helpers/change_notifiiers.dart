@@ -49,5 +49,4 @@ final signIn =
     ChangeNotifierProvider<SignInWithGoogle>((ref) => SignInWithGoogle());
 final postNotifire = ChangeNotifierProvider<ShoppingFeedProvider>(
     (ref) => ShoppingFeedProvider());
-final  getProductDellivery  = ChangeNotifierProvider<Delivery>(
-    (ref) => Delivery());
+final getDellivery = ChangeNotifierProvider<Delivery>((ref) => Delivery());

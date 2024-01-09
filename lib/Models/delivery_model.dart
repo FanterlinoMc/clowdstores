@@ -6,7 +6,7 @@ class DeliveryModel {
   final String city;
   final String store;
   final String description;
-  final double price;
+  final String price;
   final String photoUrl;
   final String storephotoUrl;
   final String productType;
