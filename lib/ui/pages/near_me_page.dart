@@ -315,8 +315,8 @@ class _NearMeState extends State<NearMe> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: FloatingActionButton.extended(
-                      //   hoverColor: Colors.white,
-                      backgroundColor: appBarColor,
+                      backgroundColor: Colors.white,
+
                       onPressed: () async {
                         liveLocaion.getLocationPro();
                         CameraPosition userLocation = CameraPosition(

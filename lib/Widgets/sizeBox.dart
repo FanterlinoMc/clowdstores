@@ -12,7 +12,7 @@ class ImageSizeBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height / 4.6,
+      height: size.height / 4,
       width: size.width / 2,
       child: child,
     );
@@ -50,8 +50,8 @@ class ListBox extends StatelessWidget {
     return SizedBox(
       // height: size.height / 2.3,
       // width: size.width / 3,
-      height: size.height / 10,
-      width: size.width / 10,
+      height: size.height / 2.3,
+      width: size.width / 3,
 
       // height: size.height / 2.3,
       // width: size.width / 3,

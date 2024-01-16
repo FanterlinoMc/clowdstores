@@ -38,7 +38,7 @@ class _ProductSuggestonPro extends State<ProductSuggestonPro> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          padding: const EdgeInsets.symmetric(horizontal: 8 ),
                           child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: appBarColor,

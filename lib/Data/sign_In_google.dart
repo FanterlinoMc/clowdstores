@@ -36,6 +36,7 @@ class SignInWithGoogle extends ChangeNotifier {
     return FirebaseAuth.instance.signInWithCredential(credential);
   }
 
+
   Future<void> signOut() async {
     _auth.signOut();
   }
