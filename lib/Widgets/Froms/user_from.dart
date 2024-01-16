@@ -75,12 +75,9 @@ class _UserLogInState extends State<UserLogIn> {
                   onPressed: () async {
                     //  user.changeStoreToken();
 
-                    userSignIn.signInWithGoogle();
+                    await userSignIn.signInWithGoogle();
 
-                    changeUserNotifer.saveChanageUser();
-
-                    isUser.saveUser();
-                    context.replace("/");
+                    //  context.replace("/");
                     // : const CircularProgressIndicator();
                   },
                 ),

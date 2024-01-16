@@ -67,7 +67,7 @@ class OpeningView extends StatelessWidget {
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height / 7.5),
                 Container(
-                  width: MediaQuery.of(context).size.width / 3.1,
+                  width: MediaQuery.of(context).size.width / 2.9,
                   height: 44,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
@@ -76,6 +76,7 @@ class OpeningView extends StatelessWidget {
                     onPressed: () {
                       changeUserNotifer.chageUser(false);
                       changeUserNotifer.saveChanageUser();
+                      saveUser.saveUser();
                       context.go('/');
                     },
                     child: const Text(
@@ -103,9 +104,7 @@ class OpeningView extends StatelessWidget {
                       changeUserNotifer.chageUser(true);
                       changeUserNotifer.saveChanageUser();
                       saveUser.saveUser();
-                      context.go(
-                        '/',
-                      );
+                      context.go('/');
                     },
                     child: const Text(
                       "Customer",
