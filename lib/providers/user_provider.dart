@@ -6,19 +6,18 @@ import '../Data/fire_store_streams.dart';
 
 class UserPro extends ChangeNotifier {
   final bool _isUser = false;
-  late String? userId;
+  // late String? userId;
   late String? userName;
   late String? photoUrl;
 
   /* getters
    */
   bool get isUser => _isUser;
-  
 
   saveUser() {
     var newUser = UserModel(
       //    isUser: _isUser!,
-      uid: uid,
+      userId: uid,
       email: fUserE,
       userName: fUserN,
       photoUrl: fUserP,

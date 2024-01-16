@@ -48,8 +48,11 @@ class ListBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
+<<<<<<< HEAD
       // height: size.height / 2.3,
       // width: size.width / 3,
+=======
+>>>>>>> ec441a28e13d7ebea4cb3af74d066f04819eabcc
       height: size.height / 2.3,
       width: size.width / 3,
 
