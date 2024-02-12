@@ -60,7 +60,7 @@ class OrderModel {
 ///? CartModel
 class CartModel {
   final String productName;
-  final double productPrice;
+  final String productPrice;
   final String productPhotoUrl;
   final String storeId;
   final String cartId;

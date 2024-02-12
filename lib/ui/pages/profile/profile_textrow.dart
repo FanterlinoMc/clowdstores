@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/text-styles.dart';
 import '../../../helpers/change_notifiiers.dart';
 
@@ -24,15 +23,6 @@ class TextProRow extends StatelessWidget {
           children: [
             Expanded(
               child: Card(
-                shape: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.red,
-                    //  width: .5,
-                  ),
-                ),
-                shadowColor: Colors.black87,
-                elevation: 5,
-                color: Colors.white,
                 child: InkWell(
                   onTap: () {
                     showDialog(
@@ -57,15 +47,6 @@ class TextProRow extends StatelessWidget {
             ),
             Expanded(
               child: Card(
-                shape: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.indigo,
-                    // width: 2.5,
-                  ),
-                ),
-                shadowColor: Colors.black87,
-                elevation: 5,
-                color: Colors.white,
                 child: InkWell(
                   onTap: () {
                     router.chanageRandomString(
@@ -96,15 +77,6 @@ class TextProRow extends StatelessWidget {
             ),
             Expanded(
               child: Card(
-                shape: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.orange,
-                    // width: 2.5,
-                  ),
-                ),
-                shadowColor: Colors.black87,
-                elevation: 5,
-                color: Colors.white,
                 child: InkWell(
                   onTap: () {
                     router.chanageLat(
@@ -143,14 +115,6 @@ class TextProRow extends StatelessWidget {
             ),
             Expanded(
               child: Card(
-                shape: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                  color: Colors.blue,
-                  // width: 2.5,
-                )),
-                shadowColor: Colors.black87,
-                elevation: 5,
-                color: Colors.white,
                 child: InkWell(
                   onTap: () {
                     context.push("/ChatList");

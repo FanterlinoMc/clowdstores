@@ -3,16 +3,14 @@ import "package:cloud_firestore/cloud_firestore.dart";
 // import 'package:provider/provider.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
 
-final String? uid = auth.currentUser?.uid;
-final String? fUserP = auth.currentUser?.photoURL;
-final String? fUserN = auth.currentUser?.displayName;
-final String? fUserE = auth.currentUser?.email;
-final String? fUserPhone = auth.currentUser?.phoneNumber;
+String? uid = auth.currentUser?.uid;
+String? fUserP = auth.currentUser!.photoURL;
+String? fUserN = auth.currentUser!.displayName;
+String? fUserE = auth.currentUser!.email;
+String? fUserPhone = auth.currentUser!.phoneNumber;
 FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
 class CloudStreams {

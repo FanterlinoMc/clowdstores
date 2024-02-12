@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/text-styles.dart';
 import '../../../helpers/responive.dart';
 

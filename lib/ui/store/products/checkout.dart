@@ -8,7 +8,6 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/Froms/check_from.dart';
 import '../../../Widgets/text-styles.dart';
 import '../../../helpers/change_notifiiers.dart';

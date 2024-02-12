@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../Data/fire_store_streams.dart';
 import '../../helpers/upload_phtoto.dart';
 import '../button.dart';
 import '../product_drop.dart';
@@ -136,7 +135,7 @@ class _ProductState extends State<AddProduct> {
                                     Container(
                                       height: 20,
                                     ),
-                                     ProductUplaodPage(),
+                                    const ProductUplaodPage(),
                                     CloudButton(
                                       color: validators.qunantiyy
                                           ? Colors.blueGrey

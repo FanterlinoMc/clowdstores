@@ -7,8 +7,8 @@ import '../Data/fire_store_streams.dart';
 class UserPro extends ChangeNotifier {
   final bool _isUser = false;
   // late String? userId;
-  late String? userName;
-  late String? photoUrl;
+  late String userName;
+  late String photoUrl;
 
   /* getters
    */
@@ -17,10 +17,10 @@ class UserPro extends ChangeNotifier {
   saveUser() {
     var newUser = UserModel(
       //    isUser: _isUser!,
-      userId: uid,
-      email: fUserE,
-      userName: fUserN,
-      photoUrl: fUserP,
+      userId: uid!,
+      email: fUserE!,
+      userName: fUserN!,
+      photoUrl: fUserP!,
     );
     firestoreService.saveUser(newUser);
   }
@@ -41,7 +41,7 @@ class ChangeUserPro extends ChangeNotifier {
     return _isUser = value;
   }
 
-  saveChanageUser() {
+  saveChanageUser() async {
     var newUser = ChangeUseModel(
       isUser: _isUser!,
       userId: uid,
@@ -49,6 +49,7 @@ class ChangeUserPro extends ChangeNotifier {
       // userName: fUserN!,
       // photoUrl: fUserP!,
     );
+
     firestoreService.changeUser(newUser);
   }
 }

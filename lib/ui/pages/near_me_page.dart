@@ -12,7 +12,6 @@ import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../Data/fire_store_streams.dart';
 import '../../Widgets/drop_down.dart';
 import '../../Widgets/text-styles.dart';
 import '../../helpers/streams_providers.dart';
@@ -49,8 +48,11 @@ class _NearMeState extends State<NearMe> {
   BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
   void addMarker() {
     BitmapDescriptor.fromAssetImage(
-            const ImageConfiguration(size: Size(30, 30)),
-            "assets/clowdstores.ico")
+            const ImageConfiguration(
+              devicePixelRatio: CropAspectRatios.ratio1_1,
+              size: Size(5, 5),
+            ),
+            "assets/icon-192.png")
         .then((icon) {
       setState(() {
         markerIcon = icon;
@@ -106,23 +108,13 @@ class _NearMeState extends State<NearMe> {
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.symmetric(vertical: 0),
             hintText: 'Search Products...',
-            hintStyle: const TextStyle(
-              color: appBarColor,
-            ),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: appBarColor),
-            ),
-            border: const OutlineInputBorder(
-              borderSide: BorderSide(color: appBarColor),
-            ),
+            hintStyle: const TextStyle(),
             prefixIcon: (const Icon(
               Icons.search_outlined,
-              color: appBarColor,
             )),
             suffixIcon: IconButton(
               icon: const Icon(
                 Icons.clear,
-                color: appBarColor,
               ),
               onPressed: () {
                 clearSearch();
@@ -167,7 +159,7 @@ class _NearMeState extends State<NearMe> {
                 onTap: () {
                   router.chanageRandomString(value.docs[index]['userId']);
                   router.routeSates();
-                  context.go("/ProfileView");
+                  context.push("/ProfileView");
 
                   // showDialog(
                   //   context: context,
@@ -251,10 +243,10 @@ class _NearMeState extends State<NearMe> {
                                           CameraUpdate.newCameraPosition(
                                               storeLocation),
                                         );
-                                        router.chanageRandomString(
-                                            value.docs[index]['userId']);
-                                        router.routeSates();
-                                        context.push("/ProfileView");
+                                        // router.chanageRandomString(
+                                        //     value.docs[index]['userId']);
+                                        // router.routeSates();
+                                        // context.push("/ProfileView");
 
                                         // showDialog(
                                         //   context: context,
@@ -360,7 +352,7 @@ class _NearMeState extends State<NearMe> {
             target: LatLng(29.9712422, 31.2740701),
             tilt: 20,
             bearing: 20,
-            zoom: 14.4746,
+            zoom: 16.4746,
           ),
           zoomControlsEnabled: false,
           zoomGesturesEnabled: true,

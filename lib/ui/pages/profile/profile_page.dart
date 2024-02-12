@@ -9,14 +9,12 @@ import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/button.dart';
 import '../../../Widgets/coming_soon.dart';
 import '../../../Widgets/text-styles.dart';
 import '../../../helpers/change_notifiiers.dart';
 import '../../../helpers/streams_providers.dart';
 import '../../../providers/deep_link.dart';
-import 'post.dart';
 import 'product_row.dart';
 import 'profile_textrow.dart';
 
@@ -104,7 +102,7 @@ class _ProfileState extends State<Profile> {
                                         const SizedBox(height: 13),
                                         TextProRow(
                                             searchInfo: value.docs[index]),
-                                        const SizedBox(height: 6),
+                                        const SizedBox(height: 10),
                                         const ProductRow(),
                                         Padding(
                                           padding: const EdgeInsets.all(10.0),
@@ -185,8 +183,7 @@ class _ProfileState extends State<Profile> {
                                                   : FloatingActionButton
                                                       .extended(
                                                       //   hoverColor: Colors.white,
-                                                      backgroundColor:
-                                                          appBarColor,
+
                                                       onPressed: () {
                                                         clowdlink.changeUserId(
                                                           value.docs[index]
@@ -212,7 +209,7 @@ class _ProfileState extends State<Profile> {
                                                           Icons.share_sharp),
                                                       //  icon: const Icon(Icons.location_on_outlined),
                                                     ),
-                                              const Post(),
+                                              //const Post(),
                                             ],
                                           ),
                                         ),

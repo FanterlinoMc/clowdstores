@@ -1,3 +1,4 @@
+import 'package:clowdstores/Widgets/text-styles.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
     // final userStore = UserStore();
     return MaterialApp.router(
       scrollBehavior: MyCustomScrollBehavior(),
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: appBarColor),
       //routeInformationProvider: router.routeInformationProvider,
       routerConfig: clowdRouter,
       //  routerDelegate: clowdRouter.routerDelegate,

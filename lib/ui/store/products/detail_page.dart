@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:clowdstores/Widgets/sizeBox.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/button.dart';
 import '../../../Widgets/coming_soon.dart';
 import '../../../Widgets/text-styles.dart';
@@ -104,7 +102,7 @@ class DetaliPage extends StatelessWidget {
                                   ? const SizedBox()
                                   : FloatingActionButton.extended(
                                       //   hoverColor: Colors.white,
-                                      backgroundColor: appBarColor,
+                                      // backgroundColor: appBarColor,
                                       onPressed: () {
                                         clowdlink.changeDescription(
                                             value.docs[index]["description"]);
@@ -123,7 +121,7 @@ class DetaliPage extends StatelessWidget {
                                       },
                                       label: const Icon(
                                         Icons.share_sharp,
-                                        color: Colors.white,
+                                        //color: Colors.white,
                                       ),
                                       //  icon: const Icon(Icons.location_on_outlined),
                                     )
@@ -170,8 +168,11 @@ class DetaliPage extends StatelessWidget {
                                   onPressed: () {
                                     cart.chnageProductName(
                                         value.docs[index]["name"]);
-                                    cart.chnageProductPrice(
-                                        value.docs[index]["price"]);
+                                    cart
+                                        .chnageProductPrice(value.docs[index]
+                                                ["price"]
+                                            .toString())
+                                        .toString();
 
                                     cart.chnageProductproductPhotoUrl(
                                         value.docs[index]["photoUrl"]);

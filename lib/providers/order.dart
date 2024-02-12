@@ -84,7 +84,7 @@ class OrderProvider extends ChangeNotifier {
 class CartProvider extends ChangeNotifier {
   final uuid = const Uuid();
   late String _productName;
-  late double _productPrice;
+  late String _productPrice;
   late String _productPhotoUrl;
   late String _storeId;
   late String _cartId;
@@ -96,7 +96,7 @@ class CartProvider extends ChangeNotifier {
   ///? getters
 
   String get productName => _productName;
-  double get productPrice => _productPrice;
+  String get productPrice => _productPrice;
   String get productPhotoUrl => _productPhotoUrl;
   String get storeId => _storeId;
   String get cartId => _cartId;
@@ -111,7 +111,7 @@ class CartProvider extends ChangeNotifier {
     _productName = (value);
   }
 
-  chnageProductPrice(double value) {
+  chnageProductPrice(String value) {
     _productPrice = (value);
   }
 

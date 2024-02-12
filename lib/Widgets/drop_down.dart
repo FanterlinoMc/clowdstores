@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
-import '../Data/fire_store_streams.dart';
 import '../helpers/change_notifiiers.dart';
 import '../helpers/streams_providers.dart';
 import 'text-styles.dart';
@@ -125,32 +124,20 @@ class _MapListOption extends State<MapListOption> {
                 scrollDirection: Axis.horizontal,
                 itemCount: _categoirseList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return AnimationConfiguration.staggeredList(
-                    position: index,
-                    child: SlideAnimation(
-                      horizontalOffset: 50.0,
-                      delay: const Duration(milliseconds: 200),
-                      child: ScaleAnimation(
-                        delay: const Duration(milliseconds: 100),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                                backgroundColor: appBarColor,
-                                foregroundColor: Colors.white),
+                  return Card(
+                    child: AnimationConfiguration.staggeredList(
+                      position: index,
+                      child: SlideAnimation(
+                        horizontalOffset: 50.0,
+                        delay: const Duration(milliseconds: 200),
+                        child: ScaleAnimation(
+                          delay: const Duration(milliseconds: 100),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
                             child: Text(
                               _categoirseList[index],
                               style: const TextStyle(fontSize: 17),
                             ),
-                            onPressed: () {
-                              router.chanageRandomMap(
-                                _categoirseList[index],
-                              );
-                              router.routeSates();
-                              return ref.refresh(storeMap);
-                              //  WriteCache.setString(key: "randomMap");
-                              // widget.onPrees;
-                            },
                           ),
                         ),
                       ),

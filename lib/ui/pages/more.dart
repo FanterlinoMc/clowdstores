@@ -47,9 +47,9 @@ class MoreColumn extends StatelessWidget {
         children: [
           Card(
             // shadowColor: Colors.blueGrey,
-            shape: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.brown),
-            ),
+            // shape: const OutlineInputBorder(
+            //   borderSide: BorderSide(color: Colors.brown),
+            // ),
             child: ListTile(
               leading: const Icon(
                 Icons.local_activity_outlined,
@@ -72,8 +72,8 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red)),
+            // shape: const OutlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.red)),
             child: ListTile(
               leading: const Icon(
                 Icons.music_note,
@@ -93,8 +93,8 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.purple)),
+            // shape: const OutlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.purple)),
             // shadowColor: Colors.purple,
             // shape: OutlineInputBorder(),
             child: ListTile(
@@ -116,8 +116,8 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.black)),
+            // shape: const OutlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.black)),
             child: ListTile(
               leading: const Icon(
                 Icons.local_movies_outlined,
@@ -137,8 +137,8 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue)),
+            // shape: const OutlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.blue)),
             child: ListTile(
               leading: const Icon(
                 Icons.event,
@@ -158,8 +158,8 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.orange)),
+            // shape: const OutlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.orange)),
             child: ListTile(
               leading: const Icon(
                 Icons.restaurant_menu_outlined,
@@ -179,8 +179,8 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.green)),
+            // shape: const OutlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.green)),
             child: ListTile(
               leading: const Icon(
                 Icons.checkroom_sharp,
@@ -202,8 +202,8 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blueGrey)),
+            // shape: const OutlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.blueGrey)),
             child: ListTile(
               leading: const Icon(
                 Icons.local_hospital_outlined,
@@ -223,8 +223,8 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.cyanAccent)),
+            // shape: const OutlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.cyanAccent)),
             child: ListTile(
               leading: const Icon(
                 Icons.home_repair_service_outlined,
@@ -244,8 +244,8 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.teal)),
+            // shape: const OutlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.teal)),
             child: ListTile(
               leading: const Icon(
                 Icons.hotel_outlined,
@@ -265,8 +265,8 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.yellow)),
+            // shape: const OutlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.yellow)),
             child: ListTile(
               leading: const Icon(
                 Icons.local_cafe_outlined,
@@ -286,9 +286,9 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.tealAccent),
-            ),
+            // shape: const OutlineInputBorder(
+            //   borderSide: BorderSide(color: Colors.tealAccent),
+            // ),
             child: ListTile(
               leading: const Icon(
                 Icons.pets_outlined,
@@ -308,8 +308,8 @@ class MoreColumn extends StatelessWidget {
             ),
           ),
           Card(
-            shape: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.indigoAccent)),
+            // shape: const OutlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.indigoAccent)),
             child: ListTile(
               leading: const Icon(
                 Icons.phone_android_sharp,

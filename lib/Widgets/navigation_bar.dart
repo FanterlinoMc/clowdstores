@@ -4,12 +4,12 @@ import 'package:clowdstores/ui/pages/shopping_feed.dart';
 
 import 'package:flutter/material.dart';
 
-import '../Data/fire_store_streams.dart';
 import '../providers/deep_link.dart';
 import '../ui/pages/more.dart';
 import '../ui/pages/near_me_page.dart';
 import '../ui/pages/search_page.dart';
 import 'text-styles.dart';
+import 'users.dart';
 
 class NaviBar extends StatefulWidget {
   const NaviBar({
@@ -29,7 +29,7 @@ class _NaviBarState extends State<NaviBar> {
 
   int _selectedPage = 2;
   List<Widget> pageView = [
-    const WebProfile(),
+    const ProfileState(),
     const SearchScreen(),
     const ShoppingFeed(),
     const NearMe(),
@@ -66,8 +66,7 @@ class _NaviBarState extends State<NaviBar> {
                 title: const Text("Near Me"),
                 activeColor: appBarColor),
             BottomNavyBarItem(
-                icon: const Icon(Icons.menu_outlined,
-                    color: appBarColor, size: 25),
+                icon: const Icon(Icons.menu_outlined, size: 25),
                 title: const Text("More"),
                 activeColor: appBarColor),
           ],

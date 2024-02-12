@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:clowdstores/Data/fire_store_streams.dart';
 import 'package:clowdstores/Widgets/coming_soon.dart';
 
 import 'package:extended_image/extended_image.dart';
@@ -38,11 +37,8 @@ class UserProfile extends StatelessWidget {
                 ),
                 onPressed: () {
                   googleUser.signOut();
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const OpeningView()),
-                  );
+                  context.go("/");
+                  return ref.refresh(authStateStraem);
                 });
             if (value.exists) {
               return CustomScrollView(slivers: [
@@ -215,7 +211,7 @@ class UserProfile extends StatelessWidget {
                                       height: 30,
                                       child: InkWell(
                                         onTap: () {
-                                          context.go("/CartPage");
+                                          context.push("/CartPage");
                                         },
                                         child: const Row(
                                           mainAxisAlignment:

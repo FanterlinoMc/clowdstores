@@ -4,7 +4,6 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../Data/fire_store_streams.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../../helpers/responive.dart';
 import '../text-styles.dart';
@@ -21,7 +20,6 @@ class _SgingInPageState extends State<SgingInPage> {
   Widget build(BuildContext context) {
     //final user = SignInWithGoogle();
 
-    Size size = MediaQuery.of(context).size;
 //TODO fix the  sign in functionality signn in in the first instance
     return Scaffold(
       backgroundColor: appBarColor,
@@ -80,7 +78,7 @@ class _SgingInPageState extends State<SgingInPage> {
                   //  user.changeStoreToken();
                   userSignIn.signInWithGoogle();
 
-                  context.go('/OpeningView');
+                  context.push('/OpeningView');
                 },
               ),
               TextButton(

@@ -1,13 +1,11 @@
 import 'dart:convert';
 
-import '../Data/fire_store_streams.dart';
-
 class UserModel {
   // final bool isUser;
-  final String? userName;
-  final String? userId;
-  final String? email;
-  final String? photoUrl;
+  final String userName;
+  final String userId;
+  final String email;
+  final String photoUrl;
 
   UserModel({
     //required this.isUser,

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/text-styles.dart';
 
 class ProductRowView extends StatelessWidget {
@@ -34,15 +33,7 @@ class ProductRowView extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Card(
-                      shape: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: appBarColor,
-                          // width: 2.5,
-                        ),
-                      ),
-                      shadowColor: Colors.black87,
-                      elevation: 5,
-                      color: appBarColor,
+                      // color: appBarColor,
                       child: InkWell(
                         onTap: () async {
                           router.chanageRouterId(val.docs[0]["storeId"]);
@@ -56,24 +47,16 @@ class ProductRowView extends StatelessWidget {
                         },
                         child: Center(
                           child: Text(
-                              val.docs[0]["productType0"] ??
-                                  "No Product To Show yet",
-                              style: rowStyle),
+                            val.docs[0]["productType0"] ??
+                                "No Product To Show yet",
+                          ),
                         ),
                       ),
                     ),
                   ),
                   Expanded(
                     child: Card(
-                      shape: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: appBarColor,
-                          // width: 2.5,
-                        ),
-                      ),
-                      shadowColor: Colors.black87,
-                      elevation: 5,
-                      color: appBarColor,
+                      // color: appBarColor,
                       child: InkWell(
                         onTap: () async {
                           router.chanageRouterId(val.docs[0]["storeId"]);
@@ -87,24 +70,16 @@ class ProductRowView extends StatelessWidget {
                         },
                         child: Center(
                           child: Text(
-                              val.docs[0]["productType1"] ??
-                                  "No Product To Show yet",
-                              style: rowStyle),
+                            val.docs[0]["productType1"] ??
+                                "No Product To Show yet",
+                          ),
                         ),
                       ),
                     ),
                   ),
                   Expanded(
                     child: Card(
-                      shape: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: appBarColor,
-                          // width: 2.5,
-                        ),
-                      ),
-                      shadowColor: Colors.black87,
-                      elevation: 5,
-                      color: appBarColor,
+                      // color: appBarColor,
                       child: InkWell(
                         onTap: () async {
                           router.chanageRouterId(val.docs[0]["storeId"]);
@@ -118,9 +93,9 @@ class ProductRowView extends StatelessWidget {
                         },
                         child: Center(
                           child: Text(
-                              val.docs[0]["productType2"] ??
-                                  "No Product To Show yet",
-                              style: rowStyle),
+                            val.docs[0]["productType2"] ??
+                                "No Product To Show yet",
+                          ),
                         ),
                       ),
                     ),

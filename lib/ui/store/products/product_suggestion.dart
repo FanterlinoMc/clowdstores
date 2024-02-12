@@ -7,7 +7,6 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../helpers/change_notifiiers.dart';
-import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/productdropdown.dart';
 import '../../../Widgets/text-styles.dart';
 import '../../../helpers/streams_providers.dart';
@@ -39,7 +38,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
                       width: size.width,
-                      height: 30,
+                      height: 50,
                       child: const ProductSuggestonPro(),
                     ),
                   ),
@@ -51,13 +50,10 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
                         width: size.width,
-
-
                         height: 50,
-
                         child: const ProductSuggestonPro(),
                       ),
                     ),
@@ -87,8 +83,8 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                     delay: const Duration(milliseconds: 100),
                                     child: ImageSizeBox(
                                       child: Card(
-                                        color: Colors.white,
-                                        shadowColor: Colors.blueGrey,
+                                        // color: Colors.white,
+                                        // shadowColor: Colors.blueGrey,
                                         elevation: 5,
                                         child: Column(
                                           crossAxisAlignment:

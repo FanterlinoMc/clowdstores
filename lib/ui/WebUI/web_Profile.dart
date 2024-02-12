@@ -63,7 +63,8 @@ class WebProfile extends StatelessWidget {
           body: Center(child: CircularProgressIndicator()),
         );
       }, error: (stack, erorr) {
-        return const Text("");
+        return Center(
+            child: const Text("Someting went wrong with the sign in"));
       });
     });
   }

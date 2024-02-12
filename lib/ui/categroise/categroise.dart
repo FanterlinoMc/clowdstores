@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../Data/fire_store_streams.dart';
 import '../../Widgets/text-styles.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../../helpers/streams_providers.dart';
@@ -53,10 +52,11 @@ class Categories extends StatelessWidget {
                         ),
                       ),
                       SliverGrid(
-                        gridDelegate: const ResponsiveGridDelegate(
-                            crossAxisExtent: 220,
-                            childAspectRatio: 0.6,
-                            crossAxisSpacing: 1),
+                        gridDelegate: ResponsiveGridDelegate(
+                            crossAxisExtent: size.width / 2,
+                            childAspectRatio: 0.5,
+                            //   mainAxisSpacing: 0.1,
+                            crossAxisSpacing: 0),
                         delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {
                             return InkWell(
@@ -70,7 +70,7 @@ class Categories extends StatelessWidget {
                               },
                               child: Padding(
                                 padding: const EdgeInsets.only(
-                                    right: 0, left: 13, top: 5, bottom: 5),
+                                    right: 0, left: 5, top: 5, bottom: 0),
                                 child: Card(
                                   shadowColor: Colors.blueGrey,
                                   elevation: 5,
@@ -85,18 +85,17 @@ class Categories extends StatelessWidget {
                                             "No Info",
                                         shape: BoxShape.rectangle,
                                         fit: BoxFit.cover,
-                                        height: 190,
+                                        height: 260,
                                         width: 210,
                                         borderRadius: BorderRadius.circular(10),
                                         enableMemoryCache: true,
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                      Center(
                                         child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          // mainAxisAlignment:
+                                          //     MainAxisAlignment.start,
+                                          // crossAxisAlignment:
+                                          //     CrossAxisAlignment.center,
                                           children: [
                                             const Text("business Name",
                                                 style: subTextStyle),
@@ -108,11 +107,11 @@ class Categories extends StatelessWidget {
                                                 style: subTextStyle),
                                             Text(value.docs[index]["city"],
                                                 style: textStyle),
-                                            const Text("category",
-                                                style: subTextStyle),
-                                            Text(
-                                                value.docs[index]["categories"],
-                                                style: textStyle),
+                                            // const Text("category",
+                                            //     style: subTextStyle),
+                                            // Text(
+                                            //     value.docs[index]["categories"],
+                                            //     style: textStyle),
                                           ],
                                         ),
                                       ),

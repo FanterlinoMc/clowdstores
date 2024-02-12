@@ -1,19 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:clowdstores/helpers/responive.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../Data/fire_store_streams.dart';
-import '../../../Widgets/sizeBox.dart';
 import '../../../Widgets/text-styles.dart';
 import '../../../helpers/change_notifiiers.dart';
 import '../../../helpers/streams_providers.dart';
-import '../profile/post.dart';
 import 'product_Row_View.dart';
 import 'product_TextView.dart';
 
@@ -82,6 +77,7 @@ class ProfileView extends StatelessWidget {
                                           ),
                                           TextProRowView(
                                               searchInfo: value.docs[index]),
+                                          const SizedBox(height: 10),
                                           const ProductRowView(),
                                           const SizedBox(
                                             height: 10,
@@ -139,8 +135,7 @@ class ProfileView extends StatelessWidget {
                                                               FloatingActionButton
                                                                   .extended(
                                                             //   hoverColor: Colors.white,
-                                                            backgroundColor:
-                                                                appBarColor,
+
                                                             onPressed: () {
                                                               clowdlink
                                                                   .changeUserId(
@@ -171,14 +166,12 @@ class ProfileView extends StatelessWidget {
                                                             },
                                                             label: const Icon(
                                                               Icons.share_sharp,
-                                                              color:
-                                                                  Colors.white,
                                                             ),
                                                             //  icon: const Icon(Icons.location_on_outlined),
                                                           ),
                                                         ),
                                                       ),
-                                                const Post()
+                                                //const Post()
                                               ],
                                             ),
                                           ),

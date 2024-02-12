@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../Data/fire_store_streams.dart';
 import '../helpers/responive.dart';
 import 'text-styles.dart';
 
@@ -22,32 +21,18 @@ class CloudButton extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height:
-            ResponsiveValue(context, defaultValue: 50.0, conditionalValues: [
-          Condition.smallerThan(name: TABLET, value: bottonH),
-        ]).value,
-        width:
-            ResponsiveValue(context, defaultValue: 200.0, conditionalValues: [
-          Condition.smallerThan(name: TABLET, value: size.width / 2.5),
-        ]).value,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          color: color ?? appBarColor,
-        ),
-        child: MaterialButton(
-          splashColor: Colors.white,
-          elevation: elevation,
-          onPressed: onPressed,
-          child: Text(
-            name,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18.0,
-            ),
+
+      child: ElevatedButton(
+        onPressed: onPressed,
+        child: Text(
+          name,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 18.0,
           ),
         ),
       ),
+      //  ),
     );
   }
 }
@@ -82,11 +67,11 @@ class CloudButtonTow extends StatelessWidget {
         ]).value,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color: appBarColor,
+          // color: appBarColor,
         ),
-        child: MaterialButton(
-            splashColor: Colors.white,
-            elevation: elevation,
+        child: ElevatedButton(
+            // splashColor: Colors.white,
+            // elevation: elevation,
             onPressed: onPressed,
             child: name),
       ),

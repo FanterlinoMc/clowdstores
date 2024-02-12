@@ -166,7 +166,7 @@ class FirestoreService {
 //* Users Collection
 
   Future saveUser(UserModel userModel) async {
-    final String? userId = userModel.userId;
+    final String userId = await userModel.userId;
     return _db.collection("User").doc(userId).set(userModel.toMap());
   }
 

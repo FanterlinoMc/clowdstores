@@ -1,6 +1,5 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:clowdstores/Data/fire_store_streams.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -73,7 +72,7 @@ class OpeningView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10.0),
                       color: Colors.white),
                   child: MaterialButton(
-                    onPressed: () {
+                    onPressed: () async {
                       changeUserNotifer.chageUser(false);
                       changeUserNotifer.saveChanageUser();
                       saveUser.saveUser();

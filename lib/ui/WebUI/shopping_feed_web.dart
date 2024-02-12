@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:clowdstores/Data/fire_store_streams.dart';
 import 'package:clowdstores/ui/pages/shopping_feed.dart';
 
 import 'package:flutter/material.dart';

@@ -1,6 +1,6 @@
 import 'package:cache_manager/cache_manager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:clowdstores/Data/fire_store_streams.dart';
+import 'package:clowdstores/Widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -38,13 +38,13 @@ class _ProductSuggestonPro extends State<ProductSuggestonPro> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8 ),
-                          child: OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                                backgroundColor: appBarColor,
-                                foregroundColor: Colors.white),
-                            child: Text(value.docs[index]["productType0"],
-                                style: textStyle),
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: CloudButton(
+                            // style: OutlinedButton.styleFrom(
+                            //     backgroundColor: appBarColor,
+                            //     foregroundColor: Colors.white),
+                            name: value.docs[index]["productType0"],
+                            //    style: textStyle),
                             onPressed: () {
                               WriteCache.setString(
                                 key: "proType",
@@ -57,14 +57,8 @@ class _ProductSuggestonPro extends State<ProductSuggestonPro> {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                                backgroundColor: appBarColor,
-                                foregroundColor: Colors.white),
-                            child: Text(
-                              value.docs[index]["productType1"],
-                              style: textStyle,
-                            ),
+                          child: CloudButton(
+                            name: value.docs[index]["productType1"],
                             onPressed: () {
                               WriteCache.setString(
                                 key: "proType",
@@ -76,12 +70,8 @@ class _ProductSuggestonPro extends State<ProductSuggestonPro> {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                                backgroundColor: appBarColor,
-                                foregroundColor: Colors.white),
-                            child: Text(value.docs[index]["productType2"],
-                                style: textStyle),
+                          child: CloudButton(
+                            name: value.docs[index]["productType2"],
                             onPressed: () {
                               WriteCache.setString(
                                 key: "proType",
