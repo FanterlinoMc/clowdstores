@@ -47,7 +47,8 @@ class ProductView extends StatelessWidget {
                     ),
                     SliverGrid(
                       gridDelegate: ResponsiveGridDelegate(
-                          crossAxisExtent: size.width / 2,
+                          crossAxisExtent:
+                              kIsWeb ? size.width / 6.2 : size.width / 2,
                           childAspectRatio: 0.6,
                           //   mainAxisSpacing: 0.1,
                           crossAxisSpacing: 0),
@@ -89,7 +90,7 @@ class ProductView extends StatelessWidget {
                                               value.docs[index]["photoUrl"] ??
                                                   "No Info",
                                               shape: BoxShape.rectangle,
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.contain,
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                               enableMemoryCache: true,

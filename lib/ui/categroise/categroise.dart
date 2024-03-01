@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/Widgets/coming_soon.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -53,7 +54,8 @@ class Categories extends StatelessWidget {
                       ),
                       SliverGrid(
                         gridDelegate: ResponsiveGridDelegate(
-                            crossAxisExtent: size.width / 2,
+                            crossAxisExtent:
+                                kIsWeb ? size.width / 6 : size.width / 2,
                             childAspectRatio: 0.5,
                             //   mainAxisSpacing: 0.1,
                             crossAxisSpacing: 0),
@@ -68,55 +70,32 @@ class Categories extends StatelessWidget {
                                   '/ProfileView',
                                 );
                               },
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 0, left: 5, top: 5, bottom: 0),
-                                child: Card(
-                                  shadowColor: Colors.blueGrey,
-                                  elevation: 5,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      ExtendedImage.network(
-                                        value.docs[index]["photoUrl"] ??
-                                            "No Info",
-                                        shape: BoxShape.rectangle,
-                                        fit: BoxFit.cover,
-                                        height: 260,
-                                        width: 210,
-                                        borderRadius: BorderRadius.circular(10),
-                                        enableMemoryCache: true,
-                                      ),
-                                      Center(
-                                        child: Column(
-                                          // mainAxisAlignment:
-                                          //     MainAxisAlignment.start,
-                                          // crossAxisAlignment:
-                                          //     CrossAxisAlignment.center,
-                                          children: [
-                                            const Text("business Name",
-                                                style: subTextStyle),
-                                            Text(
-                                                value.docs[index]
-                                                    ["businessName"],
-                                                style: textStyle),
-                                            const Text("city",
-                                                style: subTextStyle),
-                                            Text(value.docs[index]["city"],
-                                                style: textStyle),
-                                            // const Text("category",
-                                            //     style: subTextStyle),
-                                            // Text(
-                                            //     value.docs[index]["categories"],
-                                            //     style: textStyle),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                              child: Card(
+                                shadowColor: Colors.blueGrey,
+                                elevation: 5,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    ExtendedImage.network(
+                                      value.docs[index]["photoUrl"] ??
+                                          "No Info",
+                                      shape: BoxShape.rectangle,
+                                      fit: BoxFit.cover,
+                                      height: 270,
+                                      width: 210,
+                                      borderRadius: BorderRadius.circular(10),
+                                      enableMemoryCache: true,
+                                    ),
+                                    const Text("business Name",
+                                        style: subTextStyle),
+                                    Text(value.docs[index]["businessName"],
+                                        style: textStyle),
+                                    const Text("city", style: subTextStyle),
+                                    Text(value.docs[index]["city"],
+                                        style: textStyle),
+                                  ],
                                 ),
                               ),
                             );

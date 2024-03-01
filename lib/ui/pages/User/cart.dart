@@ -30,7 +30,8 @@ class CartPage extends StatelessWidget {
                 ClowdSliverAppBar(),
                 SliverGrid(
                   gridDelegate: ResponsiveGridDelegate(
-                      crossAxisExtent: size.width / 2,
+                      crossAxisExtent:
+                          kIsWeb ? size.width / 6.2 : size.width / 2,
                       childAspectRatio: 0.3,
                       //   mainAxisSpacing: 0.1,
                       crossAxisSpacing: 0),

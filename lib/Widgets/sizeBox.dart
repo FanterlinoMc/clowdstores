@@ -1,4 +1,5 @@
 //TODO // all the size should be the same size
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ImageSizeBox extends StatelessWidget {
@@ -12,8 +13,8 @@ class ImageSizeBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height / 4,
-      width: size.width / 2,
+      height: kIsWeb ? size.height / 4 : size.height / 2,
+      width: kIsWeb ? size.width / 6 : size.width / 2,
       child: child,
     );
   }
@@ -48,8 +49,8 @@ class ListBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height / 2.3,
-      width: size.width / 3,
+      height: kIsWeb ? size.height / 2 : size.height / 2.3,
+      width: kIsWeb ? size.width / 5 : size.width / 3,
 
       // height: size.height / 2.3,
       // width: size.width / 3,

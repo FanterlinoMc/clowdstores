@@ -6,7 +6,7 @@ const appBarColor = //Colors.blueGrey;
 const size = MediaQuery;
 const subTextStyle = TextStyle(fontSize: 16, color: Colors.black);
 const textStyle = TextStyle(
-  fontSize: kIsWeb ? 25 : 18,
+  fontSize: kIsWeb ? 22 : 18,
   fontFamily: "Roboto",
 );
 const rowStyle =

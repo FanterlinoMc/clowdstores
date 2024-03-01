@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,7 +18,7 @@ class Stores extends StatelessWidget {
   });
   @override
   Widget build(BuildContext contex) {
-    // final size = MediaQuery.of(contex).size;
+    final size = MediaQuery.of(contex).size;
     return Consumer(
       builder: ((context, ref, child) {
         final router = ref.read(cacheState);
@@ -34,8 +35,8 @@ class Stores extends StatelessWidget {
                 child: CustomScrollView(
                   slivers: <Widget>[
                     SliverGrid(
-                      gridDelegate: const ResponsiveGridDelegate(
-                          crossAxisExtent: 210,
+                      gridDelegate:  ResponsiveGridDelegate(
+                          crossAxisExtent:   kIsWeb ? size.width / 6.2 : size.width / 2,
                           childAspectRatio: 0.6,
                           //   mainAxisSpacing: 0.1,
                           crossAxisSpacing: 0),

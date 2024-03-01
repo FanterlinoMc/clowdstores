@@ -95,7 +95,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                                 value.docs[index]["photoUrl"] ??
                                                     "No Info",
                                                 shape: BoxShape.rectangle,
-                                                fit: BoxFit.cover,
+                                                fit: BoxFit.contain,
                                                 borderRadius:
                                                     BorderRadius.circular(10),
                                                 enableMemoryCache: true,
