@@ -56,85 +56,71 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                     decoration: BoxDecoration(
                         color: appBarColor,
                         borderRadius: BorderRadius.circular(0)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(6),
-                          child: TabBar(
-                            unselectedLabelColor: Colors.white,
-                            labelColor: Colors.black,
-                            indicatorColor: Colors.white,
-                            indicatorWeight: 2,
-                            indicator: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            controller: tabController,
-                            tabs: [
-                              Text(
-                                "Me",
-                                style: TextStyle(
-                                    fontSize: ResponsiveValue(
-                                  context,
-                                  defaultValue: 13.0,
-                                  conditionalValues: [
-                                    Condition.smallerThan(
-                                        name: DESKTOP, value: 10.0)
-                                  ],
-                                ).value),
-                              ),
-                              Text(
-                                "Search",
-                                style: TextStyle(
-                                    fontSize: ResponsiveValue(
-                                  context,
-                                  defaultValue: 13.0,
-                                  conditionalValues: [
-                                    Condition.smallerThan(
-                                        name: DESKTOP, value: 10.0)
-                                  ],
-                                ).value),
-                              ),
-                              Text(
-                                "Shopping",
-                                style: TextStyle(
-                                    fontSize: ResponsiveValue(
-                                  context,
-                                  defaultValue: 13.0,
-                                  conditionalValues: [
-                                    Condition.smallerThan(
-                                        name: DESKTOP, value: 10.0)
-                                  ],
-                                ).value),
-                              ),
-                              Text(
-                                "NearMe",
-                                style: TextStyle(
-                                    fontSize: ResponsiveValue(
-                                  context,
-                                  defaultValue: 13.0,
-                                  conditionalValues: [
-                                    Condition.smallerThan(
-                                        name: DESKTOP, value: 10.0)
-                                  ],
-                                ).value),
-                              ),
-                              Text(
-                                "More",
-                                style: TextStyle(
-                                    fontSize: ResponsiveValue(
-                                  context,
-                                  defaultValue: 13.0,
-                                  conditionalValues: [
-                                    Condition.smallerThan(
-                                        name: DESKTOP, value: 10.0)
-                                  ],
-                                ).value),
-                              ),
+                    child: TabBar(
+                      unselectedLabelColor: Colors.white,
+                      labelColor: Colors.black,
+                      indicatorColor: Colors.white,
+                      indicatorWeight: 2,
+                      indicator: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      controller: tabController,
+                      tabs: [
+                        Text(
+                          "Me",
+                          style: TextStyle(
+                              fontSize: ResponsiveValue(
+                            context,
+                            defaultValue: 13.0,
+                            conditionalValues: [
+                              Condition.smallerThan(name: DESKTOP, value: 10.0)
                             ],
-                          ),
+                          ).value),
+                        ),
+                        Text(
+                          "Search",
+                          style: TextStyle(
+                              fontSize: ResponsiveValue(
+                            context,
+                            defaultValue: 13.0,
+                            conditionalValues: [
+                              Condition.smallerThan(name: DESKTOP, value: 10.0)
+                            ],
+                          ).value),
+                        ),
+                        Text(
+                          "Shopping",
+                          style: TextStyle(
+                              fontSize: ResponsiveValue(
+                            context,
+                            defaultValue: 13.0,
+                            conditionalValues: [
+                              Condition.smallerThan(name: DESKTOP, value: 10.0)
+                            ],
+                          ).value),
+                        ),
+                        Text(
+                          "NearMe",
+                          style: TextStyle(
+                              fontSize: ResponsiveValue(
+                            context,
+                            defaultValue: 13.0,
+                            conditionalValues: [
+                              Condition.smallerThan(name: DESKTOP, value: 10.0)
+                            ],
+                          ).value),
+                        ),
+                        Text(
+                          "More",
+                          style: TextStyle(
+                              fontSize: ResponsiveValue(
+                            context,
+                            defaultValue: 13.0,
+                            conditionalValues: [
+                              Condition.smallerThan(name: DESKTOP, value: 10.0)
+                            ],
+                          ).value),
                         ),
                       ],
                     ),

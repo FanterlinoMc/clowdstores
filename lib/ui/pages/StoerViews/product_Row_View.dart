@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../Widgets/text-styles.dart';
+
 
 class ProductRowView extends StatelessWidget {
   const ProductRowView({

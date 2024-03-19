@@ -53,11 +53,11 @@ class OpeningView extends StatelessWidget {
                     SizedBox(height: 10.0),
                     Text(
                       "Grow you're Buisness with our",
-                      style: TextStyle(fontSize: 22, color: Colors.white),
+                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                     SizedBox(height: 10.0),
                     Text(" unfind Paltform That's Quick and Easy To Use",
-                        style: TextStyle(fontSize: 18, color: Colors.white)),
+                        style: TextStyle(fontSize: 16, color: Colors.white)),
                   ],
                 ),
               ),

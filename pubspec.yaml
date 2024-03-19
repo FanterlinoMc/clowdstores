@@ -39,6 +39,14 @@ dependencies:
 
   cloud_firestore: ^4.5.1
   firebase_messaging: ^14.4.0
+  #///
+  #firebase_core: ^2.27.1
+  #firebase_auth: ^4.17.9
+  #firebase_storage: ^11.1.0
+  #firebase_dynamic_links: ^5.1.0
+
+  #cloud_firestore: ^4.15.9
+  #firebase_messaging: ^14.4.0
   #flutterfire_ui: ^0.4.1+2
   # cloud_firestore_odm: ^1.0.0-dev.17
   http:
@@ -57,10 +65,12 @@ dependencies:
   image: ^4.0.15
   file_picker: ^5.2.5
   #image_compression: ^1.0.3
+
   image_cropper: ^5.0.0
   #image_compression_flutter: ^1.0.2
-  flutter_image_compress: ^2.0.1
+  flutter_image_compress: ^2.1.0
   image_picker: ^1.0.5
+  extended_image: ^8.2.0
   #video_player: ^2.7.0
   #video_compress: ^3.1.2
   #flutter_meedu_videoplayer: ^4.2.24
@@ -71,11 +81,9 @@ dependencies:
   # appinio_video_player: ^1.2.1
   # video_editor: ^3.0.0
 
-  extended_image:
-    ^8.0.1
-    #file_picker: ^3.0.3
-    #/////////////////////////////////////
-    #state mangement dependencies
+  #file_picker: ^3.0.3
+  #/////////////////////////////////////
+  #state mangement dependencies
 
   flutter_riverpod: ^2.3.7
   #provider: ^6.0.2
@@ -118,7 +126,7 @@ dependencies:
   responsive_builder: ^0.7.0
   flutter_staggered_animations: ^1.1.1
 
-  responsive_framework: ^1.0.0
+  responsive_framework: ^1.4.0
   #flutter_native_splash: ^2.2.7
   url_launcher: ^6.1.5
   flutter_widget_from_html_core: ^0.14.9

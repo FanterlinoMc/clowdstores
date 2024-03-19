@@ -27,8 +27,8 @@ class WebProfile extends StatelessWidget {
             visible: true,
             replacement:
                 value["isStoreOwner"] ? const UserProfile() : const Profile(),
-            hiddenConditions: [
-              Condition.smallerThan(name: DESKTOP, value: 100)
+            hiddenConditions: const [
+              Condition.smallerThan(name: DESKTOP, )
             ],
             child: ResponsiveRowColumn(
                 layout: ResponsiveRowColumnType.ROW,
@@ -63,8 +63,8 @@ class WebProfile extends StatelessWidget {
           body: Center(child: CircularProgressIndicator()),
         );
       }, error: (stack, erorr) {
-        return Center(
-            child: const Text("Someting went wrong with the sign in"));
+        return const Center(
+            child: Text("Someting went wrong with the sign in"));
       });
     });
   }

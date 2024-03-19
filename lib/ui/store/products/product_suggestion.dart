@@ -38,7 +38,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
                       width: size.width,
-                      height: 50,
+                      height: 40,
                       child: const ProductSuggestonPro(),
                     ),
                   ),
@@ -53,7 +53,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                       padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
                         width: size.width,
-                        height: 50,
+                        height: 40,
                         child: const ProductSuggestonPro(),
                       ),
                     ),
@@ -81,7 +81,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                   delay: const Duration(milliseconds: 200),
                                   child: FadeInAnimation(
                                     delay: const Duration(milliseconds: 100),
-                                    child: ImageSizeBox(
+                                    child: ListBox(
                                       child: Card(
                                         // color: Colors.white,
                                         // shadowColor: Colors.blueGrey,

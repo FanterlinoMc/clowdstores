@@ -30,8 +30,10 @@ class ShoppingFeedWeb extends StatelessWidget {
               return ResponsiveVisibility(
                 visible: true,
                 replacement: const ShoppingFeed(),
-                hiddenConditions: [
-                  Condition.smallerThan(name: DESKTOP, value: 100)
+                hiddenConditions: const [
+                  Condition.smallerThan(
+                    name: DESKTOP,
+                  )
                 ],
                 child: ResponsiveRowColumn(
                     rowCrossAxisAlignment: CrossAxisAlignment.start,
@@ -42,10 +44,11 @@ class ShoppingFeedWeb extends StatelessWidget {
                         child: SizedBox(
                           width: size.width,
                           height: ResponsiveValue(context,
-                              defaultValue: 370.0,
+                              defaultValue: 320.0,
                               conditionalValues: [
-                                Condition.smallerThan(
-                                    name: TABLET, value: 360.0),
+                                const Condition.smallerThan(
+                                  name: TABLET,
+                                ),
                               ]).value,
                           child: const ProductSuggestion(),
                         ),
@@ -64,7 +67,7 @@ class ShoppingFeedWeb extends StatelessWidget {
                           height: ResponsiveValue(context,
                               defaultValue: 350.0,
                               conditionalValues: [
-                                Condition.smallerThan(
+                                const Condition.smallerThan(
                                     name: TABLET, value: 300.0),
                               ]).value,
                           child: const Stores(),

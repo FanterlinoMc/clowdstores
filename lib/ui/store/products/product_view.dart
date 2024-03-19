@@ -47,7 +47,7 @@ class ProductView extends StatelessWidget {
                     ),
                     SliverGrid(
                       gridDelegate: ResponsiveGridDelegate(
-                          crossAxisExtent: size.width / 2,
+                          crossAxisExtent: 2,
                           childAspectRatio: 0.6,
                           //   mainAxisSpacing: 0.1,
                           crossAxisSpacing: 0),
