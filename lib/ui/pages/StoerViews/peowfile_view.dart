@@ -87,99 +87,98 @@ class ProfileView extends StatelessWidget {
                                             const SizedBox(
                                               height: 10,
                                             ),
-                                            Row(
-                                              children: [
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    const Text(
-                                                      "About",
-                                                      style: TextStyle(
-                                                          fontSize: 30),
-                                                    ),
-                                                    const SizedBox(height: 5),
-                                                    const SizedBox(height: 5),
-                                                    Text(
-                                                        value.docs[index]
-                                                            ["categories"],
-                                                        style: textStyle),
-                                                    const SizedBox(height: 5),
-                                                    Text(
-                                                        value.docs[index]
-                                                            ["city"],
-                                                        style: textStyle),
-                                                    const SizedBox(height: 5),
-                                                    InkWell(
-                                                      focusColor: Colors.blue,
-                                                      child: Text(
-                                                        value.docs[index]
-                                                            ["webAddress"],
-                                                        style: const TextStyle(
-                                                            fontSize: 16),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Row(
+                                                children: [
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      const Text("About",
+                                                          style: TextStyle(
+                                                              fontSize: 20)),
+                                                      const SizedBox(height: 5),
+                                                      const SizedBox(height: 5),
+                                                      Text(
+                                                          value.docs[index]
+                                                              ["categories"],
+                                                          style: textStyle),
+                                                      const SizedBox(height: 5),
+                                                      Text(
+                                                          value.docs[index]
+                                                              ["city"],
+                                                          style: textStyle),
+                                                      const SizedBox(height: 5),
+                                                      InkWell(
+                                                        focusColor: Colors.blue,
+                                                        child: Text(
+                                                            value.docs[index]
+                                                                ["webAddress"],
+                                                            style: textStyle),
+                                                        onTap: () {
+                                                          launchUrl(Uri(
+                                                            scheme: "https",
+                                                            host: value
+                                                                    .docs[index]
+                                                                ["webAddress"],
+                                                          ));
+                                                        },
                                                       ),
-                                                      onTap: () {
-                                                        launchUrl(Uri(
-                                                          scheme: "https",
-                                                          host: value
-                                                                  .docs[index]
-                                                              ["webAddress"],
-                                                        ));
-                                                      },
-                                                    ),
-                                                    const SizedBox(height: 5),
-                                                    kIsWeb
-                                                        ? const SizedBox
-                                                            .shrink()
-                                                        : Align(
-                                                            alignment: Alignment
-                                                                .bottomRight,
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .all(8.0),
-                                                              child:
-                                                                  FloatingActionButton
-                                                                      .extended(
-                                                                //   hoverColor: Colors.white,
+                                                      const SizedBox(height: 5),
+                                                      kIsWeb
+                                                          ? const SizedBox
+                                                              .shrink()
+                                                          : Align(
+                                                              alignment: Alignment
+                                                                  .bottomRight,
+                                                              child: Padding(
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                        .all(
+                                                                        8.0),
+                                                                child:
+                                                                    FloatingActionButton
+                                                                        .extended(
+                                                                  //   hoverColor: Colors.white,
 
-                                                                onPressed: () {
-                                                                  clowdlink.changeUserId(
-                                                                      value.docs[
-                                                                              index]
-                                                                          [
-                                                                          "userId"]);
-                                                                  clowdlink.changeDescription(
-                                                                      value.docs[
-                                                                              index]
-                                                                          [
-                                                                          "categories"]);
-                                                                  clowdlink.changeImage(
-                                                                      value.docs[
-                                                                              index]
-                                                                          [
-                                                                          "photoUrl"]);
-                                                                  clowdlink.changeTitle(
-                                                                      value.docs[
-                                                                              index]
-                                                                          [
-                                                                          "businessName"]);
-                                                                  clowdlink
-                                                                      .createStoreLink();
-                                                                },
-                                                                label:
-                                                                    const Icon(
-                                                                  Icons
-                                                                      .share_sharp,
+                                                                  onPressed:
+                                                                      () {
+                                                                    clowdlink.changeUserId(
+                                                                        value.docs[index]
+                                                                            [
+                                                                            "userId"]);
+                                                                    clowdlink.changeDescription(
+                                                                        value.docs[index]
+                                                                            [
+                                                                            "categories"]);
+                                                                    clowdlink.changeImage(
+                                                                        value.docs[index]
+                                                                            [
+                                                                            "photoUrl"]);
+                                                                    clowdlink.changeTitle(
+                                                                        value.docs[index]
+                                                                            [
+                                                                            "businessName"]);
+                                                                    clowdlink
+                                                                        .createStoreLink();
+                                                                  },
+                                                                  label:
+                                                                      const Icon(
+                                                                    Icons
+                                                                        .share_sharp,
+                                                                  ),
+                                                                  //  icon: const Icon(Icons.location_on_outlined),
                                                                 ),
-                                                                //  icon: const Icon(Icons.location_on_outlined),
                                                               ),
                                                             ),
-                                                          ),
-                                                    //const Post()
-                                                  ],
-                                                ),
-                                              ],
+                                                      //const Post()
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),

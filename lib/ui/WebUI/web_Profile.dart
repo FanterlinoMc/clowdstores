@@ -28,7 +28,9 @@ class WebProfile extends StatelessWidget {
             replacement:
                 value["isStoreOwner"] ? const UserProfile() : const Profile(),
             hiddenConditions: const [
-              Condition.smallerThan(name: DESKTOP, )
+              Condition.smallerThan(
+                name: DESKTOP,
+              )
             ],
             child: ResponsiveRowColumn(
                 layout: ResponsiveRowColumnType.ROW,

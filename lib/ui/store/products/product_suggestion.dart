@@ -38,7 +38,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
                       width: size.width,
-                      height: 40,
+                      height: 50,
                       child: const ProductSuggestonPro(),
                     ),
                   ),
@@ -53,7 +53,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                       padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
                         width: size.width,
-                        height: 40,
+                        height: 50,
                         child: const ProductSuggestonPro(),
                       ),
                     ),

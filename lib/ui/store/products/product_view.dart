@@ -39,7 +39,7 @@ class ProductView extends StatelessWidget {
                       leading: kIsWeb
                           ? SizedBox.shrink()
                           : BackButton(color: appBarColor),
-                      backgroundColor: kIsWeb ? Colors.white : appBarColor,
+                      backgroundColor: kIsWeb ? appBarColor : Colors.white,
                       title: Text(
                         "Product",
                         style: TextStyle(color: appBarColor),
@@ -47,9 +47,23 @@ class ProductView extends StatelessWidget {
                     ),
                     SliverGrid(
                       gridDelegate: ResponsiveGridDelegate(
-                          crossAxisExtent: 2,
-                          childAspectRatio: 0.6,
-                          //   mainAxisSpacing: 0.1,
+                          crossAxisExtent: ResponsiveValue(context,
+                              defaultValue: size.width / 8,
+                              conditionalValues: [
+                                Condition.smallerThan(
+                                  name: TABLET,
+                                  value: size.width / 2,
+                                ),
+                              ]).value,
+                          //  kIsWeb ? size.width / 2 : size.width / 2,
+                          childAspectRatio: ResponsiveValue(context,
+                              defaultValue: size.aspectRatio / 3,
+                              conditionalValues: [
+                                Condition.smallerThan(
+                                  name: TABLET,
+                                  value: size.aspectRatio / 0.7,
+                                ),
+                              ]).value,
                           crossAxisSpacing: 0),
                       delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
@@ -84,7 +98,7 @@ class ProductView extends StatelessWidget {
                                       elevation: 5,
                                       child: Column(
                                         children: [
-                                          ImageSizeBox(
+                                          WebImageBox(
                                             child: ExtendedImage.network(
                                               value.docs[index]["photoUrl"] ??
                                                   "No Info",

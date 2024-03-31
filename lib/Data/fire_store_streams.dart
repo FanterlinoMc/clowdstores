@@ -133,14 +133,14 @@ class CloudStreams {
         .snapshots();
   }
 
-  Stream<QuerySnapshot<Map<String, dynamic>>> storeMapCat() async* {
-    String? randomMap = await ReadCache.getString(key: "randomMap");
-    yield* FirebaseFirestore.instance
-        .collection('Stores')
-        .where("categories", isEqualTo: randomMap)
-        //  .where("businessName", isEqualTo: randomMap)
-        .snapshots();
-  }
+  // Stream<QuerySnapshot<Map<String, dynamic>>> storeMapCat() async* {
+    // String? randomMap = await ReadCache.getString(key: "randomMap");
+    // yield* FirebaseFirestore.instance
+        // .collection('Stores')
+        // .where("categories", isEqualTo: randomMap)
+         //.where("businessName", isEqualTo: randomMap)
+        // .snapshots();
+  // }
 
   Stream<DocumentSnapshot<Map<String, dynamic>>> getUsers() {
     return FirebaseFirestore.instance.collection('User').doc(uid).snapshots();

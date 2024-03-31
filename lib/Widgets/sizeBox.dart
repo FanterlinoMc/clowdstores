@@ -15,11 +15,11 @@ class ImageSizeBox extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SizedBox(
       height: ResponsiveValue(context,
-          defaultValue: size.height / 3.5,
+          defaultValue: size.height / 3.8,
           conditionalValues: [
             Condition.smallerThan(
               name: TABLET,
-              value: size.height / 3.7,
+              value: size.height / 3.5,
             ),
           ]).value,
       width: ResponsiveValue(context,
@@ -28,6 +28,38 @@ class ImageSizeBox extends StatelessWidget {
             Condition.smallerThan(
               name: TABLET,
               value: size.height / 2.3,
+            ),
+          ]).value,
+      child: child,
+    );
+  }
+}
+
+class WebImageBox extends StatelessWidget {
+  final Widget child;
+  const WebImageBox({
+    super.key,
+    required this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return SizedBox(
+      height: ResponsiveValue(context,
+          defaultValue: size.height / 4,
+          conditionalValues: [
+            Condition.smallerThan(
+              name: TABLET,
+              value: size.height / 4.2,
+            ),
+          ]).value,
+      width: ResponsiveValue(context,
+          defaultValue: size.height / 3,
+          conditionalValues: [
+            Condition.smallerThan(
+              name: TABLET,
+              value: size.width / 2.0,
             ),
           ]).value,
       child: child,
@@ -78,7 +110,7 @@ class ListBox extends StatelessWidget {
           conditionalValues: [
             Condition.smallerThan(
               name: TABLET,
-              value: size.height / 2.0,
+              value: size.height / 2.2,
             ),
           ]).value,
 
@@ -98,7 +130,7 @@ class ListBox extends StatelessWidget {
   }
 }
 
-  
+
 
 
 //  height: ResponsiveValue(context,

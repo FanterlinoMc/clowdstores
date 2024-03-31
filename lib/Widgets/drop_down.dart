@@ -133,10 +133,16 @@ class _MapListOption extends State<MapListOption> {
                         child: ScaleAnimation(
                           delay: const Duration(milliseconds: 100),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
-                            child: Text(
-                              _categoirseList[index],
-                              style: const TextStyle(fontSize: 17),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 4),
+                            child: InkWell(
+                              onTap: () {
+                                router.chanageRandomMap(_categoirseList[index]);
+                              },
+                              child: Text(
+                                _categoirseList[index],
+                                style: const TextStyle(fontSize: 17),
+                              ),
                             ),
                           ),
                         ),

@@ -90,7 +90,7 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                           ).value),
                         ),
                         Text(
-                          "Shopping",
+                          "Feed",
                           style: TextStyle(
                               fontSize: ResponsiveValue(
                             context,

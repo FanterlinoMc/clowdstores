@@ -39,11 +39,11 @@ final getStore = StreamProvider.autoDispose<QuerySnapshot>((ref) {
   final streams = ref.watch(getStreams);
   return streams.getStore();
 });
-final storeMapCat = StreamProvider.autoDispose<QuerySnapshot>((ref) {
-  final streams = ref.watch(getStreams);
-  return streams.storeMapCat();
-});
-
+// final storeMapCat = StreamProvider.autoDispose<QuerySnapshot>((ref) {
+  // final streams = ref.watch(getStreams);
+  // return streams.storeMapCat();
+// });
+//
 final getUsers =
     StreamProvider.autoDispose<DocumentSnapshot<Map<String, dynamic>>>((ref) {
   final streams = ref.watch(getStreams);
