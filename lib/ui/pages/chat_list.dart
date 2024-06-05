@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/Widgets/coming_soon.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -44,7 +43,7 @@ class ChatList extends StatelessWidget {
                         route.chanageIsMe(value.docs[index]["isMe"]);
                         route.chanageUserId(value.docs[index]["userId"]);
                         route.routeSates();
-                        context.go(
+                        context.push(
                           "/ChatPage",
                         );
                       },
