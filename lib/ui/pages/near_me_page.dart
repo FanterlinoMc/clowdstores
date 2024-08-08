@@ -4,11 +4,9 @@ import 'package:cache_manager/cache_manager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/helpers/change_notifiiers.dart';
 import 'package:extended_image/extended_image.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -49,8 +47,8 @@ class _NearMeState extends State<NearMe> {
   void addMarker() {
     BitmapDescriptor.fromAssetImage(
             const ImageConfiguration(
-              devicePixelRatio: CropAspectRatios.ratio1_1,
-              size: Size(5, 5),
+              devicePixelRatio: CropAspectRatios.original,
+              size: Size(50, 50),
             ),
             "assets/icon-192.png")
         .then((icon) {
@@ -215,7 +213,7 @@ class _NearMeState extends State<NearMe> {
                                 padding: const EdgeInsets.all(8.0),
                                 child: SizedBox(
                                   height: 170,
-                                  width: 200,
+                                  width: 250,
                                   child: Container(
                                     decoration: BoxDecoration(
                                         color: Colors.white,
@@ -274,7 +272,7 @@ class _NearMeState extends State<NearMe> {
                                         height: ResponsiveValue(context,
                                             defaultValue: 60.0,
                                             conditionalValues: [
-                                              Condition.smallerThan(
+                                              const Condition.smallerThan(
                                                 name: DESKTOP,
                                                 value: 30.0,
                                               ),
@@ -283,7 +281,7 @@ class _NearMeState extends State<NearMe> {
                                           context,
                                           defaultValue: 60.0,
                                           conditionalValues: [
-                                            Condition.smallerThan(
+                                            const Condition.smallerThan(
                                               name: DESKTOP,
                                               value: 30.0,
                                             ),

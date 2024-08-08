@@ -22,7 +22,7 @@ class DetaliPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(body: Consumer(builder: (context, ref, child) {
-      final order = ref.read(orderNotifer);
+    //  final order = ref.read(orderNotifer);
       final cart = ref.read(cartNotifer);
       final getProductD = ref.watch(getProductDetail);
       final router = ref.read(cacheState);
@@ -35,14 +35,16 @@ class DetaliPage extends StatelessWidget {
                 width: ResponsiveValue(context,
                     defaultValue: 800.0,
                     conditionalValues: [
-                      Condition.smallerThan(
+                      const Condition.smallerThan(
                         name: DESKTOP,
                         value: tW,
                       ),
                     ]).value,
                 child: CustomScrollView(
                   slivers: <Widget>[
-                    ClowdSliverAppBar(),
+                    ClowdSliverAppBar(
+                      title: const Text("Product Details"),
+                    ),
                     SliverList(
                         delegate: SliverChildBuilderDelegate(
                             (BuildContext context, int index) {
@@ -82,7 +84,7 @@ class DetaliPage extends StatelessWidget {
                                           const BorderSide(color: Colors.white),
                                     ),
                                     shadowColor: Colors.blueGrey,
-                                    elevation: 5,
+                                    elevation: 2,
                                     child: Row(
                                       children: [
                                         ExtendedImage.network(
@@ -130,7 +132,7 @@ class DetaliPage extends StatelessWidget {
                           ),
                           Card(
                             shadowColor: Colors.blueGrey,
-                            elevation: 5,
+                            elevation: 2,
                             child: Padding(
                               padding: const EdgeInsets.all(15.0),
                               child: Column(

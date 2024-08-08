@@ -29,8 +29,8 @@ final isUserNotifer = ChangeNotifierProvider<UserPro>((ref) => UserPro());
 final isChangeUserNotifer =
     ChangeNotifierProvider<ChangeUserPro>((ref) => ChangeUserPro());
 
-final orderNotifer =
-    ChangeNotifierProvider<OrderProvider>((ref) => OrderProvider());
+// final orderNotifer =
+    // ChangeNotifierProvider<OrderProvider>((ref) => OrderProvider());
 
 final cartNotifer =
     ChangeNotifierProvider<CartProvider>((ref) => CartProvider());

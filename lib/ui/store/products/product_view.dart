@@ -2,14 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/Widgets/sizeBox.dart';
 import 'package:clowdstores/Widgets/text-styles.dart';
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../../Widgets/coming_soon.dart';
 import '../../../helpers/change_notifiiers.dart';
 import '../../../helpers/streams_providers.dart';
 
@@ -35,14 +34,9 @@ class ProductView extends StatelessWidget {
               return AnimationLimiter(
                 child: CustomScrollView(
                   slivers: <Widget>[
-                    const SliverAppBar(
-                      leading: kIsWeb
-                          ? SizedBox.shrink()
-                          : BackButton(color: appBarColor),
-                      backgroundColor: kIsWeb ? appBarColor : Colors.white,
-                      title: Text(
+                    ClowdSliverAppBar(
+                      title: const Text(
                         "Product",
-                        style: TextStyle(color: appBarColor),
                       ),
                     ),
                     SliverGrid(
@@ -95,7 +89,7 @@ class ProductView extends StatelessWidget {
                                     padding: const EdgeInsets.all(8.0),
                                     child: Card(
                                       shadowColor: Colors.blueGrey,
-                                      elevation: 5,
+                                      elevation: 2,
                                       child: Column(
                                         children: [
                                           WebImageBox(

@@ -4,7 +4,6 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import '../helpers/change_notifiiers.dart';
 import '../helpers/streams_providers.dart';
-import 'text-styles.dart';
 
 class DropDown extends StatefulWidget {
   const DropDown({super.key});
@@ -137,7 +136,10 @@ class _MapListOption extends State<MapListOption> {
                                 horizontal: 8, vertical: 4),
                             child: InkWell(
                               onTap: () {
+                                ref.refresh(storeMap).isRefreshing;
                                 router.chanageRandomMap(_categoirseList[index]);
+                                router.routeSates();
+                                //context.push("/Categories");
                               },
                               child: Text(
                                 _categoirseList[index],

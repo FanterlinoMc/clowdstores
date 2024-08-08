@@ -1,5 +1,4 @@
 //TODO // all the size should be the same size
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -105,14 +104,7 @@ class ListBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: ResponsiveValue(context,
-          defaultValue: size.height / 4.3,
-          conditionalValues: [
-            Condition.smallerThan(
-              name: TABLET,
-              value: size.height / 2.2,
-            ),
-          ]).value,
+      height: size.height / 2.1,
 
       width: ResponsiveValue(context,
           defaultValue: size.height / 4.3,

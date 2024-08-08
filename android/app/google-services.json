@@ -14,13 +14,24 @@
       },
       "oauth_client": [
         {
-          "client_id": "700843547150-94ri8qpqr7i9qhnpp75q0ep8uj6nnqot.apps.googleusercontent.com",
+          "client_id": "700843547150-up7t2tdj53qn1t13bi0b8i0u2ok1bmju.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.believers.clowdstores",
+            "certificate_hash": "de7fdaf96ce4a21f9a27d29a5ecd1d54eec5dbaf"
+          }
+        },
+        {
+          "client_id": "700843547150-7clm1qkndetett21a5sqllira944s6kc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
           "current_key": "AIzaSyDTLiCeVsVbobxHyU7HIhSeZF-G_6vg_5M"
+        },
+        {
+          "current_key": "AIzaSyDGm1EWpnQrIAr0imvsptn323ExoSo2pvo"
         }
       ],
       "services": {
@@ -29,6 +40,52 @@
             {
               "client_id": "700843547150-7clm1qkndetett21a5sqllira944s6kc.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "700843547150-26djnn36jg7ahn21m1su54s65jsm3ee7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.believerz.cloudDelivery"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700843547150:android:7cd8fba0fb93e2ccbe7a5f",
+        "android_client_info": {
+          "package_name": "com.believerz.cloud_delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700843547150-7clm1qkndetett21a5sqllira944s6kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTLiCeVsVbobxHyU7HIhSeZF-G_6vg_5M"
+        },
+        {
+          "current_key": "AIzaSyDGm1EWpnQrIAr0imvsptn323ExoSo2pvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700843547150-7clm1qkndetett21a5sqllira944s6kc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "700843547150-26djnn36jg7ahn21m1su54s65jsm3ee7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.believerz.cloudDelivery"
+              }
             }
           ]
         }

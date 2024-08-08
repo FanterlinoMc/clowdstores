@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../Widgets/text-styles.dart';
@@ -103,7 +103,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
                 duration: const Duration(milliseconds: 1000),
                 opacity: _textOpacity,
                 child: Text(
-                  "Clowd Stores",
+                  "Cloud Storez",
                   style: TextStyle(
                     color: Colors.white,
                     //  fontWeight: FontWeight,

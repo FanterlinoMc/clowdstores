@@ -5,17 +5,22 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../Widgets/Froms/add_business_from.dart';
 import '../Widgets/Froms/edit_product.dart';
+import '../Widgets/Froms/product.dart';
 import '../Widgets/Froms/product_type.dart';
+import '../Widgets/Froms/sgingIn_page.dart';
+import '../Widgets/Froms/user_from.dart';
 import '../Widgets/navigation_bar.dart';
 import '../Widgets/tab.dart';
 import '../ui/categroise/categroise.dart';
+import '../ui/pages/StoerViews/peowfile_view.dart';
 import '../ui/pages/User/cart.dart';
 import '../ui/pages/User/free_user.dart';
+import '../ui/pages/User/orders.dart';
 import '../ui/pages/chat_list.dart';
 import '../ui/pages/more.dart';
 import '../ui/pages/near_me_page.dart';
-import '../ui/pages/StoerViews/peowfile_view.dart';
 import '../ui/pages/profile/profile_page.dart';
 import '../ui/pages/review_page.dart';
 import '../ui/pages/search_page.dart';
@@ -24,10 +29,6 @@ import '../ui/store/orders.dart';
 import '../ui/store/products/checkout.dart';
 import '../ui/store/products/detail_page.dart';
 import '../ui/store/products/product_view.dart';
-import '../Widgets/Froms/add_business_from.dart';
-import '../Widgets/Froms/product.dart';
-import '../Widgets/Froms/sgingIn_page.dart';
-import '../Widgets/Froms/user_from.dart';
 import '../ui/subPages/chat_screen.dart';
 import 'privacy _policy .dart';
 import 'splash_screen.dart';
@@ -650,8 +651,8 @@ final GoRouter clowdRouter = GoRouter(
       },
     ),
     GoRoute(
-      path: '/WebProfile',
-      name: "WebProfile",
+      path: '/AddPost',
+      name: "AddPost",
       pageBuilder: (context, state) {
         return CustomTransitionPage(
           key: state.pageKey,
@@ -695,28 +696,28 @@ final GoRouter clowdRouter = GoRouter(
         );
       },
     ),
-    // GoRoute(
-    //   path: '/CheckOut',
-    //   name: "CheckOut",
-    //   pageBuilder: (context, state) {
-    //     return CustomTransitionPage(
-    //       key: state.pageKey,
-    //       // transitionDuration: Duration(milliseconds: 100),
-    //       child: const AddPost(),
-    //       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-    //         // Change the opacity of the screen using a Curve based on the the animation's
-    //         // value
-    //         return ScaleTransition(
-    //           alignment: Alignment.bottomCenter,
-    //           scale: animation,
-    //           child: FadeTransition(
-    //             opacity: animation,
-    //             child: child,
-    //           ),
-    //         );
-    //       },
-    //     );
-    //   },
-    // ),
+    GoRoute(
+      path: '/UserOrders',
+      name: "UserOrders",
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          key: state.pageKey,
+          // transitionDuration: Duration(milliseconds: 100),
+          child: const UserOrders(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            // Change the opacity of the screen using a Curve based on the the animation's
+            // value
+            return ScaleTransition(
+              alignment: Alignment.bottomCenter,
+              scale: animation,
+              child: FadeTransition(
+                opacity: animation,
+                child: child,
+              ),
+            );
+          },
+        );
+      },
+    ),
   ],
 );

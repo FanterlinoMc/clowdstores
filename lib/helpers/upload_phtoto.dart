@@ -97,6 +97,7 @@ class _ProductUplaodPageState extends State<ProductUplaodPage> {
                       if (progress == 100) {
                         event.ref.getDownloadURL().then(
                             (downloadUrl) => product.uploadPhoto(downloadUrl));
+                            progress =0.0;
                       }
 
                       //  print(progress);
@@ -280,7 +281,7 @@ class _PostUplaodPageState extends State<PostUplaodPage> {
                         event.ref.getDownloadURL().then((downloadUrl) {
                           post.changePostImage(downloadUrl);
                           cacheRoute.chanagePhotoUrl(downloadUrl);
-                          ExtendedImage.network(downloadUrl);
+                          progress = 0;
                         });
                       }
 
@@ -321,7 +322,10 @@ class _PostUplaodPageState extends State<PostUplaodPage> {
                       if (progress == 100) {
                         event.ref.getDownloadURL().then((downloadUrl) {
                           post.changePostImage(downloadUrl);
-                          postImage = downloadUrl;
+                            postImage = downloadUrl;
+                        }).then((onValue) {
+
+                          progress = 0.0;
                         });
                       }
 

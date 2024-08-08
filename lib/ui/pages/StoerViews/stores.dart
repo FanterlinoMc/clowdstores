@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:go_router/go_router.dart';
@@ -72,7 +71,7 @@ class Stores extends StatelessWidget {
                                       width: 160,
                                       child: Card(
                                         shadowColor: Colors.blueGrey,
-                                        elevation: 5,
+                                        elevation: 2,
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,

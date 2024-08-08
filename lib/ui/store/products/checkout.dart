@@ -4,18 +4,28 @@ import 'package:clowdstores/Widgets/coming_soon.dart';
 import 'package:clowdstores/Widgets/sizeBox.dart';
 import 'package:clowdstores/helpers/streams_providers.dart';
 import 'package:extended_image/extended_image.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../../Widgets/Froms/check_from.dart';
 import '../../../Widgets/text-styles.dart';
+import '../../../Widgets/text_filed.dart';
 import '../../../helpers/change_notifiiers.dart';
 
-class CheckOut extends StatelessWidget {
+class CheckOut extends StatefulWidget {
   const CheckOut({
     super.key,
   });
+
+  @override
+  State<CheckOut> createState() => _CheckOutState();
+}
+
+final TextEditingController address = TextEditingController();
+final TextEditingController phone = TextEditingController();
+final TextEditingController name = TextEditingController();
+
+class _CheckOutState extends State<CheckOut> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -32,6 +42,7 @@ class CheckOut extends StatelessWidget {
                   builder: (context, ref, child) {
                     final checkOut = ref.watch(getCheckOut);
                     final getDelivery = ref.read(getDellivery);
+                    final route = ref.read(cacheState);
                     return checkOut.when(
                         data: (QuerySnapshot value) {
                           return Column(
@@ -58,7 +69,18 @@ class CheckOut extends StatelessWidget {
                                 padding: EdgeInsets.all(8.0),
                                 child: Text("Add your shipping information"),
                               ),
-                              const CheckFrom(),
+                              MyTextfiled(
+                                  labelText: "address",
+                                  hintText: 'address',
+                                  controller: address),
+                              MyTextfiled(
+                                  labelText: "name",
+                                  hintText: 'name',
+                                  controller: name),
+                              MyTextfiled(
+                                  labelText: "phone",
+                                  hintText: 'phone',
+                                  controller: phone),
                               CloudButton(
                                 name: "CheckOut",
                                 onPressed: () {
@@ -81,7 +103,7 @@ class CheckOut extends StatelessWidget {
                                   getDelivery.changeName(
                                     value.docs[index]["name"],
                                   );
-                                  getDelivery.changeOrderId("order");
+
                                   getDelivery.changePrice(
                                     value.docs[index]["price"].toString(),
                                   );
@@ -100,17 +122,24 @@ class CheckOut extends StatelessWidget {
                                   getDelivery.changeStorephotoUrl(
                                     value.docs[index]["storephotoUrl"],
                                   );
-                                  getDelivery.changeUserAddrees("userAddrees");
+                                  getDelivery.changeUseraddress(address.text);
                                   getDelivery.changeUserLat(232323);
                                   getDelivery.changeUserLgn(121233);
-                                  getDelivery.changeUserName("Wain");
-                                  getDelivery.changeUserPhone("Wain");
+                                  getDelivery.changeUserName(name.text);
+                                  getDelivery.changeUserPhone(phone.text);
                                   getDelivery.changeDropOff(false);
                                   getDelivery.changePickUp(false);
                                   getDelivery.changeOrderStatus("false");
-                                  getDelivery
-                                      .changeOrderId("afadfsdfjsdflsdfj");
+
                                   getDelivery.setDlivery();
+                                  getDelivery.setStoreOrders(
+                                    storesId: value.docs[index]["storeId"],
+                                  );
+                                  name.clear();
+                                  phone.clear();
+                                  address.clear();
+
+                                  context.pushReplacement("/UserOrders");
                                 },
                               ),
                             ],

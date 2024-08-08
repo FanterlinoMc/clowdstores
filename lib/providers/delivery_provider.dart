@@ -25,7 +25,7 @@ class Delivery with ChangeNotifier {
   ///?User
   late String _userName;
   late String _userPhone;
-  late String _userAddrees;
+  late String _useraddress;
   late double _userLat;
   late double _userLgn;
 
@@ -53,7 +53,7 @@ class Delivery with ChangeNotifier {
   ///?User
   String get userName => _userName;
   String get userPhone => _userPhone;
-  String get userAddrees => _userAddrees;
+  String get useraddress => _useraddress;
   double get userLat => _userLat;
   double get userLgn => _userLgn;
 
@@ -122,8 +122,8 @@ class Delivery with ChangeNotifier {
     _userPhone = value;
   }
 
-  changeUserAddrees(String value) {
-    _userAddrees = value;
+  changeUseraddress(String value) {
+    _useraddress = value;
   }
 
   changeUserLat(double value) {
@@ -147,11 +147,11 @@ class Delivery with ChangeNotifier {
     _orderStatus = value;
   }
 
-  changeOrderId(String value) {
-    _orderId = value;
-  }
+  // changeOrderId(String value) {
+  // _orderId = value;
+  // }
 
-  setDlivery() {
+  setDlivery({String? storesId}) {
     var setDelivery = DeliveryModel(
       name: name,
       city: city,
@@ -167,7 +167,7 @@ class Delivery with ChangeNotifier {
       longitude: longitude,
       userName: userName,
       userPhone: userPhone,
-      userAddrees: userAddrees,
+      useraddress: useraddress,
       userLat: userLat,
       userLgn: userLgn,
       pickUp: pickUp,
@@ -176,5 +176,36 @@ class Delivery with ChangeNotifier {
       orderId: uuid.v4(),
     );
     firestoreService.setDelivery(setDelivery);
+    //  firestoreService.storeOrders(setDelivery,storesId!);
+    firestoreService.userOrders(setDelivery);
+  }
+
+  setStoreOrders({String? storesId}) {
+    var setDelivery = DeliveryModel(
+      name: name,
+      city: city,
+      store: store,
+      description: description,
+      price: price,
+      photoUrl: photoUrl,
+      storephotoUrl: storephotoUrl,
+      productType: productType,
+      storeId: storeId,
+      productId: productId,
+      latitude: latitude,
+      longitude: longitude,
+      userName: userName,
+      userPhone: userPhone,
+      useraddress: useraddress,
+      userLat: userLat,
+      userLgn: userLgn,
+      pickUp: pickUp,
+      dropOff: dropOff,
+      orderStatus: orderStatus,
+      orderId: uuid.v4(),
+    );
+    // firestoreService.setDelivery(setDelivery);
+    firestoreService.storeOrders(setDelivery, storesId!);
+    // firestoreService.userOrders(setDelivery);
   }
 }

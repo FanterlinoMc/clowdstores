@@ -134,23 +134,33 @@ class CloudStreams {
   }
 
   // Stream<QuerySnapshot<Map<String, dynamic>>> storeMapCat() async* {
-    // String? randomMap = await ReadCache.getString(key: "randomMap");
-    // yield* FirebaseFirestore.instance
-        // .collection('Stores')
-        // .where("categories", isEqualTo: randomMap)
-         //.where("businessName", isEqualTo: randomMap)
-        // .snapshots();
+  // String? randomMap = await ReadCache.getString(key: "randomMap");
+  // yield* FirebaseFirestore.instance
+  // .collection('Stores')
+  // .where("categories", isEqualTo: randomMap)
+  //.where("businessName", isEqualTo: randomMap)
+  // .snapshots();
   // }
 
   Stream<DocumentSnapshot<Map<String, dynamic>>> getUsers() {
     return FirebaseFirestore.instance.collection('User').doc(uid).snapshots();
   }
 
-  Stream<QuerySnapshot<Map<String, dynamic>>> getOrders() async* {
+  Stream<QuerySnapshot<Map<String, dynamic>>> getUserOrders() async* {
     yield* FirebaseFirestore.instance
-        .collection("Order")
+        .collection("UserOrder")
         .doc(uid)
-        .collection("Order")
+        .collection("UserOrder")
+        .snapshots();
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> getStoreOrders() async* {
+    String? randomString = await ReadCache.getString(key: "randomString");
+    yield* FirebaseFirestore.instance
+        .collection("StoreOrder")
+        .doc(uid)
+        .collection("StoreOrder")
+        .where("orderStatus", isEqualTo: randomString)
         .snapshots();
   }
 

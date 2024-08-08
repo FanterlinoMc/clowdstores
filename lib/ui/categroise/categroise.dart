@@ -33,99 +33,87 @@ class Categories extends StatelessWidget {
                 );
               } else {
                 return Center(
-                  child: SizedBox(
-                    width: ResponsiveValue(context,
-                        defaultValue: 1000.0,
-                        conditionalValues: [
-                          Condition.smallerThan(
-                            name: DESKTOP,
-                            value: size.width,
-                          ),
-                        ]).value,
-                    child: CustomScrollView(slivers: <Widget>[
-                      ClowdSliverAppBar(
-                        title: Text(
-                          value.docs[0]["categories"],
-                          style: const TextStyle(
-                            color: appBarColor,
-                          ),
+                  child: CustomScrollView(slivers: <Widget>[
+                    ClowdSliverAppBar(
+                      title: Text(
+                        value.docs[0]["categories"],
+                        style: const TextStyle(
+                          color: Colors.black,
                         ),
                       ),
-                      SliverGrid(
-                        gridDelegate: ResponsiveGridDelegate(
-                            crossAxisExtent: size.width / 2,
-                            childAspectRatio: 0.5,
-                            //   mainAxisSpacing: 0.1,
-                            crossAxisSpacing: 0),
-                        delegate: SliverChildBuilderDelegate(
-                          (BuildContext context, int index) {
-                            return InkWell(
-                              onTap: () {
-                                router.chanageRandomString(
-                                    value.docs[index]["userId"]);
-                                router.routeSates();
-                                context.push(
-                                  '/ProfileView',
-                                );
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 0, left: 5, top: 5, bottom: 0),
-                                child: Card(
-                                  shadowColor: Colors.blueGrey,
-                                  elevation: 5,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      ExtendedImage.network(
-                                        value.docs[index]["photoUrl"] ??
-                                            "No Info",
-                                        shape: BoxShape.rectangle,
-                                        fit: BoxFit.cover,
-                                        height: 260,
-                                        width: 210,
-                                        borderRadius: BorderRadius.circular(10),
-                                        enableMemoryCache: true,
-                                      ),
-                                      Center(
-                                        child: Column(
-                                          // mainAxisAlignment:
-                                          //     MainAxisAlignment.start,
-                                          // crossAxisAlignment:
-                                          //     CrossAxisAlignment.center,
-                                          children: [
-                                            const Text("business Name",
-                                                style: subTextStyle),
-                                            Text(
-                                                value.docs[index]
-                                                    ["businessName"],
-                                                style: textStyle),
-                                            const Text("city",
-                                                style: subTextStyle),
-                                            Text(value.docs[index]["city"],
-                                                style: textStyle),
-                                            // const Text("category",
-                                            //     style: subTextStyle),
-                                            // Text(
-                                            //     value.docs[index]["categories"],
-                                            //     style: textStyle),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                    ),
+                    SliverGrid(
+                      gridDelegate: ResponsiveGridDelegate(
+                          crossAxisExtent: ResponsiveValue(context,
+                              defaultValue: size.width / 7,
+                              conditionalValues: [
+                                Condition.smallerThan(
+                                  name: TABLET,
+                                  value: size.width / 2,
                                 ),
+                              ]).value,
+                          childAspectRatio: 0.5,
+                          //   mainAxisSpacing: 0.1,
+                          crossAxisSpacing: 0),
+                      delegate: SliverChildBuilderDelegate(
+                        (BuildContext context, int index) {
+                          return InkWell(
+                            onTap: () {
+                              router.chanageRandomString(
+                                  value.docs[index]["userId"]);
+                              router.routeSates();
+                              context.push(
+                                '/ProfileView',
+                              );
+                            },
+                            child: Card(
+                              shadowColor: Colors.blueGrey,
+                              elevation: 2,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  ExtendedImage.network(
+                                    value.docs[index]["photoUrl"] ?? "No Info",
+                                    shape: BoxShape.rectangle,
+                                    fit: BoxFit.cover,
+                                    height: 260,
+                                    width: 210,
+                                    borderRadius: BorderRadius.circular(10),
+                                    enableMemoryCache: true,
+                                  ),
+                                  Center(
+                                    child: Column(
+                                      // mainAxisAlignment:
+                                      //     MainAxisAlignment.start,
+                                      // crossAxisAlignment:
+                                      //     CrossAxisAlignment.center,
+                                      children: [
+                                        const Text("business Name",
+                                            style: subTextStyle),
+                                        Text(value.docs[index]["businessName"],
+                                            style: textStyle),
+                                        const Text("city", style: subTextStyle),
+                                        Text(value.docs[index]["city"],
+                                            style: textStyle),
+                                        // const Text("category",
+                                        //     style: subTextStyle),
+                                        // Text(
+                                        //     value.docs[index]["categories"],
+                                        //     style: textStyle),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                            );
-                          },
-                          childCount: value.docs.length,
-                        ),
+                            ),
+                          );
+                        },
+                        childCount: value.docs.length,
                       ),
-                    ]),
-                  ),
+                    ),
+                  ]),
                 );
               }
               return null;

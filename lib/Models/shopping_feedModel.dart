@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class ShoppingFeedModel {
   // final String postTitle;
   final postImage;
@@ -10,7 +12,7 @@ class ShoppingFeedModel {
   final String storeName;
   final String postId;
   final String userpostId;
-  // final String videoUrl;
+    final Timestamp onCreated;
   ShoppingFeedModel({
     required this.stroreProfile,
     // required this.likePost,
@@ -20,7 +22,7 @@ class ShoppingFeedModel {
     required this.postContent,
     required this.postCategory,
     required this.userpostId,
-    // required this.videoUrl,
+    required this.onCreated,
   });
 
   Map<String, dynamic> toMap() {
@@ -33,7 +35,7 @@ class ShoppingFeedModel {
       // // 'likePost': likePost,
       'postId': postId,
       'userpostId': userpostId,
-      // // 'videoUrl': videoUrl,
+      'onCreated': onCreated,
     };
   }
 
@@ -48,7 +50,7 @@ class ShoppingFeedModel {
       // // likePost: map['likePost'] ?? '',
       postId: map['postId'] ?? '',
       userpostId: map['userpostId'] ?? '',
-      // // videoUrl: map['videoUrl'] ?? '',
+      onCreated: map['onCreated'] ?? '',
     );
   }
 

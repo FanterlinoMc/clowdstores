@@ -1,12 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../Widgets/order_status_button.dart';
 import '../../Widgets/text-styles.dart';
 import '../../helpers/streams_providers.dart';
 
@@ -15,133 +14,141 @@ class OrderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Consumer(builder: (context, ref, child) {
-      final getOrder = ref.watch(getOrders);
+      final getOrder = ref.watch(getStoreOrders);
       return Scaffold(
+        appBar: AppBar(
+          backgroundColor: appBarColor,
+        ),
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: true,
         body: getOrder.when(
             data: (QuerySnapshot value) {
-              if (value.docs.isEmpty) {
-                const Center(child: Text("No Orders Yet"));
-              } else {
-                return AnimationLimiter(
-                  child: CustomScrollView(slivers: <Widget>[
-                    const SliverAppBar(
-                      centerTitle: true,
-                      leading:
-                          kIsWeb ? SizedBox() : BackButton(color: appBarColor),
-                      backgroundColor: kIsWeb ? Colors.white : appBarColor,
-                      title: Text(
-                        "Order's",
-                        style: TextStyle(
-                          fontSize: 26,
-                          color: kIsWeb ? appBarColor : Colors.white,
-                        ),
+              return SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 80),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        width: size.width,
+                        height: 60,
+                        child: const OrderStatusButton(),
                       ),
-                    ),
-                    SliverGrid(
-                      gridDelegate: const ResponsiveGridDelegate(
-                          crossAxisExtent: 220,
-                          childAspectRatio: 0.5,
-                          crossAxisSpacing: 0),
-                      delegate: SliverChildBuilderDelegate(
-                        (BuildContext context, int index) {
-                          return AnimationConfiguration.staggeredGrid(
-                            columnCount: value.docs.length,
-                            position: index,
-                            child: SlideAnimation(
-                              delay: const Duration(milliseconds: 300),
-                              verticalOffset: 50.0,
-                              child: FadeInAnimation(
-                                delay: const Duration(milliseconds: 200),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: Card(
-                                    shadowColor: Colors.blueGrey,
-                                    elevation: 10,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        ExtendedImage.network(
-                                          value.docs[index]
-                                                  ["productPhotoUrl"] ??
-                                              "No Info",
-                                          shape: BoxShape.rectangle,
-                                          fit: BoxFit.cover,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          height: 220,
-                                          width: 200,
-                                          enableMemoryCache: true,
+                      SizedBox(
+                        width: size.width,
+                        height: size.height,
+                        child: AnimationLimiter(
+                          child: CustomScrollView(slivers: <Widget>[
+                            SliverGrid(
+                              gridDelegate: ResponsiveGridDelegate(
+                                  crossAxisExtent: ResponsiveValue(context,
+                                      defaultValue: size.width / 8,
+                                      conditionalValues: [
+                                        Condition.smallerThan(
+                                          name: TABLET,
+                                          value: size.width / 2,
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              const Text(
-                                                "Name",
-                                                style: subTextStyle,
-                                              ),
-                                              Text(
+                                      ]).value,
+                                  //  kIsWeb ? size.width / 2 : size.width / 2,
+                                  childAspectRatio: ResponsiveValue(context,
+                                      defaultValue: size.aspectRatio / 3,
+                                      conditionalValues: [
+                                        Condition.smallerThan(
+                                          name: TABLET,
+                                          value: size.aspectRatio / 0.9,
+                                        ),
+                                      ]).value,
+                                  crossAxisSpacing: 0),
+                              delegate: SliverChildBuilderDelegate(
+                                (BuildContext context, int index) {
+                                  return AnimationConfiguration.staggeredGrid(
+                                    columnCount: value.docs.length,
+                                    position: index,
+                                    child: SlideAnimation(
+                                      delay: const Duration(milliseconds: 300),
+                                      verticalOffset: 50.0,
+                                      child: FadeInAnimation(
+                                        delay:
+                                            const Duration(milliseconds: 200),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(6.0),
+                                          child: Card(
+                                            shadowColor: Colors.blueGrey,
+                                            elevation: 2,
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                ExtendedImage.network(
                                                   value.docs[index]
-                                                      ["productName"],
-                                                  style: textStyle),
-                                              const Text(
-                                                "price",
-                                                style: subTextStyle,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                      value.docs[index]
-                                                              ["productPrice"]
-                                                          .toString(),
-                                                      style: textStyle),
-                                                  const Text("EGP",
-                                                      style: textStyle)
-                                                ],
-                                              ),
-                                              const Text(
-                                                "Ordre name",
-                                                style: subTextStyle,
-                                              ),
-                                              Text(
-                                                  value.docs[index]["userName"],
-                                                  style: textStyle),
-                                              const Text(
-                                                "Customer Number",
-                                                style: subTextStyle,
-                                              ),
-                                              Text(
-                                                  value.docs[index]
-                                                      ["userNumber"],
-                                                  style: textStyle),
-                                            ],
+                                                          ["photoUrl"] ??
+                                                      "No Info",
+                                                  shape: BoxShape.rectangle,
+                                                  fit: BoxFit.cover,
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  height: 220,
+                                                  width: 200,
+                                                  enableMemoryCache: true,
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                          value.docs[index]
+                                                              ["name"],
+                                                          style: textStyle),
+                                                      Row(
+                                                        children: [
+                                                          Text(
+                                                              value.docs[index]
+                                                                      ["price"]
+                                                                  .toString(),
+                                                              style: textStyle),
+                                                          const Text("EGP",
+                                                              style: textStyle)
+                                                        ],
+                                                      ),
+                                                      Text(
+                                                          value.docs[index]
+                                                              ["userName"],
+                                                          style: textStyle),
+                                                      Text(
+                                                          value.docs[index]
+                                                              ["userPhone"],
+                                                          style: textStyle),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                  ),
-                                ),
+                                  );
+                                },
+                                childCount: value.docs.length,
                               ),
                             ),
-                          );
-                        },
-                        childCount: value.docs.length,
+                          ]),
+                        ),
                       ),
-                    ),
-                  ]),
-                );
-              }
-              return null;
+                    ],
+                  ),
+                ),
+              );
             },
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (value, stack) {

@@ -18,7 +18,7 @@ class DeliveryModel {
   ///?User
   final String userName;
   final String userPhone;
-  final String userAddrees;
+  final String useraddress;
   final double userLat;
   final double userLgn;
 
@@ -42,7 +42,7 @@ class DeliveryModel {
     required this.longitude,
     required this.userName,
     required this.userPhone,
-    required this.userAddrees,
+    required this.useraddress,
     required this.userLat,
     required this.userLgn,
     required this.pickUp,
@@ -68,7 +68,7 @@ class DeliveryModel {
       'longitude': longitude,
       'userName': userName,
       'userPhone': userPhone,
-      'userAdrees': userAddrees,
+      'userAdrees': useraddress,
       'userLat': userLat,
       'userLgn': userLgn,
       'pickUp': pickUp,
@@ -94,7 +94,7 @@ class DeliveryModel {
       longitude: map['longitude']?.toDouble() ?? 0.0,
       userName: map['userName'] ?? '',
       userPhone: map['userPhone'] ?? '',
-      userAddrees: map['userAddrees'] ?? '',
+      useraddress: map['useraddress'] ?? '',
       userLat: map['userLat']?.toDouble() ?? 0.0,
       userLgn: map['userLgn']?.toDouble() ?? 0.0,
       pickUp: map['pickUp'] ?? false,

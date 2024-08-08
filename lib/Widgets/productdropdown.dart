@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../helpers/streams_providers.dart';
-import 'text-styles.dart';
 
 class ProductSuggestonPro extends StatefulWidget {
   final String pro;
@@ -37,49 +36,40 @@ class _ProductSuggestonPro extends State<ProductSuggestonPro> {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: CloudButton(
-                            // style: OutlinedButton.styleFrom(
-                            //     backgroundColor: appBarColor,
-                            //     foregroundColor: Colors.white),
-                            name: value.docs[index]["productType0"],
-                            //    style: textStyle),
-                            onPressed: () {
-                              WriteCache.setString(
-                                key: "proType",
-                                value: value.docs[index]["productType0"],
-                              );
-                              return ref.refresh(getRandomProduct);
-                              //html.window.location.reload();
-                            },
-                          ),
+                        CloudButton(
+                          // style: OutlinedButton.styleFrom(
+                          //     backgroundColor: appBarColor,
+                          //     foregroundColor: Colors.white),
+                          name: value.docs[index]["productType0"],
+                          //    style: textStyle),
+                          onPressed: () {
+                            WriteCache.setString(
+                              key: "proType",
+                              value: value.docs[index]["productType0"],
+                            );
+                            return ref.refresh(getRandomProduct);
+                            //html.window.location.reload();
+                          },
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: CloudButton(
-                            name: value.docs[index]["productType1"],
-                            onPressed: () {
-                              WriteCache.setString(
-                                key: "proType",
-                                value: value.docs[index]["productType1"],
-                              );
-                              return ref.refresh(getRandomProduct);
-                            },
-                          ),
+                        CloudButton(
+                          name: value.docs[index]["productType1"],
+                          onPressed: () {
+                            WriteCache.setString(
+                              key: "proType",
+                              value: value.docs[index]["productType1"],
+                            );
+                            return ref.refresh(getRandomProduct);
+                          },
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: CloudButton(
-                            name: value.docs[index]["productType2"],
-                            onPressed: () {
-                              WriteCache.setString(
-                                key: "proType",
-                                value: value.docs[index]["productType2"],
-                              );
-                              return ref.refresh(getRandomProduct);
-                            },
-                          ),
+                        CloudButton(
+                          name: value.docs[index]["productType2"],
+                          onPressed: () {
+                            WriteCache.setString(
+                              key: "proType",
+                              value: value.docs[index]["productType2"],
+                            );
+                            return ref.refresh(getRandomProduct);
+                          },
                         ),
                       ],
                     );

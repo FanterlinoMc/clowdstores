@@ -53,7 +53,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                       padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
                         width: size.width,
-                        height: 50,
+                        height: 55,
                         child: const ProductSuggestonPro(),
                       ),
                     ),
@@ -85,7 +85,7 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                       child: Card(
                                         // color: Colors.white,
                                         // shadowColor: Colors.blueGrey,
-                                        elevation: 5,
+                                        elevation: 2,
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,

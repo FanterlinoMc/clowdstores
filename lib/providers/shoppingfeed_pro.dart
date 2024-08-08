@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
@@ -16,7 +17,7 @@ class ShoppingFeedProvider with ChangeNotifier {
   // late double _likePost;
   late String _postId;
   late String _userpostId;
-  // late String _videoUrl;
+  late String _onCreated;
 
   // String get postTitle => _postTitle;
   String get postImage => _postImage;
@@ -27,7 +28,7 @@ class ShoppingFeedProvider with ChangeNotifier {
   // double get likePost => _likePost;
   String get postId => _postId;
   String get userpostId => _userpostId;
-  // String get videoUrl => _videoUrl;
+  String get onCreated => _onCreated;
 
   changePostImage(String value) {
     _postImage = value;
@@ -59,7 +60,7 @@ class ShoppingFeedProvider with ChangeNotifier {
 
   void savePost() {
     var savePost = ShoppingFeedModel(
-      // videoUrl: _videoUrl,
+      onCreated: Timestamp.now(),
       postId: postuid.v4(),
       userpostId: uid!,
       postImage: postImage,

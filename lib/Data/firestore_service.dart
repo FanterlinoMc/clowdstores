@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:clowdstores/Models/user.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../Models/delivery_model.dart';
@@ -18,12 +16,24 @@ class FirestoreService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   FirebaseAuth auth = FirebaseAuth.instance;
 
-  Future storeOrders(OrderModel orderModel, String storeId) async {
+  Future storeOrders(DeliveryModel orderModel, String storeId) async {
     var id = orderModel.orderId;
     return await _db
-        .collection("Order")
+        .collection("StoreOrder")
         .doc(storeId)
-        .collection("Order")
+        .collection("StoreOrder")
+        .doc(id)
+        .set(orderModel.toMap());
+  }
+
+  Future userOrders(
+    DeliveryModel orderModel,
+  ) async {
+    var id = orderModel.orderId;
+    return await _db
+        .collection("UserOrder")
+        .doc(uid)
+        .collection("UserOrder")
         .doc(id)
         .set(orderModel.toMap());
   }
@@ -166,7 +176,7 @@ class FirestoreService {
 //* Users Collection
 
   Future saveUser(UserModel userModel) async {
-    final String userId = await userModel.userId;
+    final String userId = userModel.userId;
     return _db.collection("User").doc(userId).set(userModel.toMap());
   }
 

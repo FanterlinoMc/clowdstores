@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../Data/sign_In_google.dart';
 import '../../Widgets/button.dart';
 import '../../Widgets/text-styles.dart';
+import '../../helpers/upload_phtoto.dart';
 
 class DashBrod extends StatelessWidget {
   final dynamic storeInfo;
@@ -66,7 +67,8 @@ class DashBrod extends StatelessWidget {
                   CloudButton(
                       name: "Post",
                       onPressed: () {
-                        context.push('/PostPage');
+                        const PostUplaodPage();
+                        //context.push('/AddPost');
                       }),
                 ],
               ),

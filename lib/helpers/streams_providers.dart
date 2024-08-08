@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/providers/store_porvider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../Data/fire_store_streams.dart';
@@ -40,8 +39,8 @@ final getStore = StreamProvider.autoDispose<QuerySnapshot>((ref) {
   return streams.getStore();
 });
 // final storeMapCat = StreamProvider.autoDispose<QuerySnapshot>((ref) {
-  // final streams = ref.watch(getStreams);
-  // return streams.storeMapCat();
+// final streams = ref.watch(getStreams);
+// return streams.storeMapCat();
 // });
 //
 final getUsers =
@@ -84,10 +83,15 @@ final productRowView =
   return streams.productRowView();
 });
 
-final getOrders =
+final getUserOrders =
     StreamProvider.autoDispose<QuerySnapshot<Map<String, dynamic>>>((ref) {
   final streams = ref.watch(getStreams);
-  return streams.getOrders();
+  return streams.getUserOrders();
+});
+final getStoreOrders =
+    StreamProvider.autoDispose<QuerySnapshot<Map<String, dynamic>>>((ref) {
+  final streams = ref.watch(getStreams);
+  return streams.getStoreOrders();
 });
 final getCategroise =
     StreamProvider.autoDispose<QuerySnapshot<Map<String, dynamic>>>((ref) {

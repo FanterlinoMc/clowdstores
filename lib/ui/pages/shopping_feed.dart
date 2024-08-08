@@ -129,11 +129,10 @@ class ShoppingFeed extends StatelessWidget {
                                                     // cart.saveCart();
                                                   },
                                                   icon: const Icon(
-                                                    Icons
-                                                        .add_shopping_cart_outlined,
+                                                    Icons.recommend_rounded,
                                                     size: 25,
                                                   )),
-                                              const Text("Add to Cart",
+                                              const Text("Reco",
                                                   style: subTextStyle),
                                             ],
                                           ),

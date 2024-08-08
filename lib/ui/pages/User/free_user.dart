@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/Widgets/coming_soon.dart';
-
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +45,7 @@ class UserProfile extends StatelessWidget {
                   leading: const SizedBox.shrink(),
                   backgroundColor: kIsWeb ? Colors.white : appBarColor,
                   floating: true,
-                  elevation: 0,
+                  elevation: 2,
                   stretch: true,
                   actions: <Widget>[
                     IconButton(
@@ -68,11 +67,11 @@ class UserProfile extends StatelessWidget {
                         width: ResponsiveValue(context,
                             defaultValue: 700.0,
                             conditionalValues: [
-                              Condition.smallerThan(
+                              const Condition.smallerThan(
                                 name: TABLET,
                                 value: tW,
                               ),
-                              Condition.smallerThan(
+                              const Condition.smallerThan(
                                 name: DESKTOP,
                                 value: mW,
                               ),
@@ -129,7 +128,7 @@ class UserProfile extends StatelessWidget {
                                       ),
                                     ),
                                     shadowColor: Colors.black87,
-                                    elevation: 5,
+                                    elevation: 2,
                                     color: Colors.white,
                                     child: InkWell(
                                       onTap: () {
@@ -167,7 +166,7 @@ class UserProfile extends StatelessWidget {
                                       ),
                                     ),
                                     shadowColor: Colors.black87,
-                                    elevation: 5,
+                                    elevation: 2,
                                     color: Colors.white,
                                     child: InkWell(
                                       onTap: () {
@@ -183,10 +182,10 @@ class UserProfile extends StatelessWidget {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            Icon(Icons.reviews_outlined,
+                                            Icon(Icons.outbound_sharp,
                                                 size: 15, color: Colors.indigo),
                                             Text(
-                                              "Review",
+                                              "Orders",
                                               style: TextStyle(fontSize: 15),
                                             ),
                                           ],
@@ -205,7 +204,7 @@ class UserProfile extends StatelessWidget {
                                       ),
                                     ),
                                     shadowColor: Colors.black87,
-                                    elevation: 5,
+                                    elevation: 2,
                                     color: Colors.white,
                                     child: SizedBox(
                                       height: 30,
@@ -240,7 +239,7 @@ class UserProfile extends StatelessWidget {
                                       // width: 2.5,
                                     )),
                                     shadowColor: Colors.black87,
-                                    elevation: 5,
+                                    elevation: 2,
                                     color: Colors.white,
                                     child: InkWell(
                                       onTap: () async {
