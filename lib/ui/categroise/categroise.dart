@@ -81,7 +81,6 @@ class Categories extends StatelessWidget {
                                     height: 260,
                                     width: 210,
                                     borderRadius: BorderRadius.circular(10),
-                                    enableMemoryCache: true,
                                   ),
                                   Center(
                                     child: Column(

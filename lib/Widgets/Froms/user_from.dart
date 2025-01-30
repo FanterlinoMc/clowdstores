@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sign_in_button/sign_in_button.dart';
 
 import '../../helpers/change_notifiiers.dart';
 import '../text-styles.dart';
@@ -69,7 +69,7 @@ class _UserLogInState extends State<UserLogIn> {
                   height: 20,
                 ),
                 SignInButton(
-                  Buttons.Google,
+                  Buttons.google,
                   text: "Sign up with Google",
                   onPressed: () async {
                     //  user.changeStoreToken();

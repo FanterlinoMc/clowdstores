@@ -1,7 +1,6 @@
 import 'package:cache_manager/cache_manager.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
-import 'package:share_plus/share_plus.dart';
 
 import '../ui/pages/StoerViews/peowfile_view.dart';
 import '../ui/store/products/detail_page.dart';
@@ -77,7 +76,7 @@ class ClowdLink with ChangeNotifier {
     final userLink = await dynamicLinks.buildShortLink(parameters);
     print(userLink.shortUrl);
     final link = userLink.shortUrl;
-    await Share.share("$link");
+    //  await Share.share("$link");
     return userLink.shortUrl.toString();
   }
 
@@ -104,7 +103,7 @@ class ClowdLink with ChangeNotifier {
     final userLink = await dynamicLinks.buildShortLink(parameters);
     print(userLink.shortUrl);
     final link = userLink.shortUrl;
-    await Share.share("$link");
+    //await Share.share("$link");
     return userLink.shortUrl.toString();
   }
 
@@ -115,7 +114,7 @@ class ClowdLink with ChangeNotifier {
 
       if (result.containsKey("userId")) {
         String userId = result["userId"];
-        // context.push("/Profile");
+        //  context.push("/Profile");
         WriteCache.setString(key: "randomString", value: userId);
         Navigator.push(
           context,

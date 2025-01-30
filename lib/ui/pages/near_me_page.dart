@@ -287,7 +287,6 @@ class _NearMeState extends State<NearMe> {
                                             ),
                                           ],
                                         ).value,
-                                        enableMemoryCache: true,
                                       ),
                                       subtitle: Text(
                                         value.docs[index]["categories"],

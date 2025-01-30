@@ -1,7 +1,6 @@
 import 'package:cache_manager/cache_manager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -22,6 +21,7 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? username;
     Widget messagesList(
       String message,
       bool isMe,
@@ -82,6 +82,7 @@ class ChatPage extends StatelessWidget {
                           return messagesList(
                             value.docs[index]["message"],
                             value.docs[index]['isMe'],
+
                             //widget.senderInfo!['photoUrl']
                             //  value.docs[index]["photoUrl"],
                           );
@@ -111,7 +112,11 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: kIsWeb ? Colors.white : appBarColor,
-          title: const Text(""),
+          leading: const SizedBox.shrink(),
+          title: Text(
+            messages,
+            style: const TextStyle(color: Colors.white),
+          ),
         ),
         body: Consumer(
           builder: (context, ref, child) {

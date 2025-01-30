@@ -66,7 +66,6 @@ class UserOrders extends StatelessWidget {
                                       shape: BoxShape.rectangle,
                                       fit: BoxFit.cover,
                                       borderRadius: BorderRadius.circular(10),
-                                      enableMemoryCache: true,
                                     ),
                                   ),
                                   Center(

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/ui/pages/shopping_feed.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -44,13 +43,13 @@ class ShoppingFeedWeb extends StatelessWidget {
                         child: SizedBox(
                           width: size.width,
                           height: ResponsiveValue(context,
-                              defaultValue: 320.0,
+                              defaultValue: 360.0,
                               conditionalValues: [
                                 const Condition.smallerThan(
                                   name: TABLET,
                                 ),
                               ]).value,
-                          child: const ProductSuggestion(),
+                          child: const Center(child: ProductSuggestion()),
                         ),
                       ),
                       const ResponsiveRowColumnItem(

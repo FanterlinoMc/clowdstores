@@ -49,8 +49,7 @@ class _MyTabState extends State<MyTab> with SingleTickerProviderStateMixin {
                 height: 60,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                    color: appBarColor,
-                    borderRadius: BorderRadius.circular(0)),
+                    color: appBarColor, borderRadius: BorderRadius.circular(0)),
                 child: TabBar(
                   unselectedLabelColor: Colors.white,
                   labelColor: Colors.black,

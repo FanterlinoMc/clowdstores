@@ -98,7 +98,6 @@ class _ProductSuggestionState extends State<ProductSuggestion> {
                                                 fit: BoxFit.cover,
                                                 borderRadius:
                                                     BorderRadius.circular(10),
-                                                enableMemoryCache: true,
                                               ),
                                             ),
                                             Padding(

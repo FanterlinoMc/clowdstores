@@ -22,7 +22,7 @@ class DetaliPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(body: Consumer(builder: (context, ref, child) {
-    //  final order = ref.read(orderNotifer);
+      //  final order = ref.read(orderNotifer);
       final cart = ref.read(cartNotifer);
       final getProductD = ref.watch(getProductDetail);
       final router = ref.read(cacheState);
@@ -43,7 +43,7 @@ class DetaliPage extends StatelessWidget {
                 child: CustomScrollView(
                   slivers: <Widget>[
                     ClowdSliverAppBar(
-                      title: const Text("Product Details"),
+                      title: const Text("Product Details", style: appBarTitle),
                     ),
                     SliverList(
                         delegate: SliverChildBuilderDelegate(
@@ -56,7 +56,6 @@ class DetaliPage extends StatelessWidget {
                             fit: BoxFit.cover,
                             height: size.height / 3,
                             //  width: 270,
-                            enableMemoryCache: true,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

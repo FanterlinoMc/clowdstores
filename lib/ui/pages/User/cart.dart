@@ -1,16 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clowdstores/Widgets/coming_soon.dart';
-
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../../Data/fire_store_streams.dart';
 import '../../../Widgets/sizeBox.dart';
 import '../../../Widgets/text-styles.dart';
-import '../../../helpers/responive.dart';
 import '../../../helpers/streams_providers.dart';
 
 class CartPage extends StatelessWidget {
@@ -53,7 +49,6 @@ class CartPage extends StatelessWidget {
                                       shape: BoxShape.rectangle,
                                       fit: BoxFit.cover,
                                       borderRadius: BorderRadius.circular(10),
-                                      enableMemoryCache: true,
                                     ),
                                   ),
                                   Center(

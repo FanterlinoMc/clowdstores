@@ -97,7 +97,6 @@ class _ProfileState extends State<Profile> {
                                                   value: size.width),
                                             ],
                                           ).value,
-                                          enableMemoryCache: true,
                                         ),
                                         const SizedBox(height: 13),
                                         TextProRow(

@@ -154,7 +154,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                     (snapshot.data.docs[index]["photoUrl"]),
                                     height: 100,
                                     width: 100,
-                                    enableMemoryCache: true,
                                     fit: BoxFit.contain,
                                     borderRadius: BorderRadius.circular(5),
                                   ),

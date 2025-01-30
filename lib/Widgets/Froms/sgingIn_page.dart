@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:sign_in_button/sign_in_button.dart';
 
 import '../../helpers/change_notifiiers.dart';
 import '../../helpers/responive.dart';
@@ -37,11 +37,11 @@ class _SgingInPageState extends State<SgingInPage> {
                 width: ResponsiveValue(context,
                     defaultValue: 400.0,
                     conditionalValues: [
-                      Condition.smallerThan(
+                      const Condition.smallerThan(
                         name: TABLET,
                         value: 400.0,
                       ),
-                      Condition.smallerThan(
+                      const Condition.smallerThan(
                         name: DESKTOP,
                         value: mW,
                       ),
@@ -71,14 +71,14 @@ class _SgingInPageState extends State<SgingInPage> {
                 ),
               ),
               SignInButton(
-                Buttons.Google,
+                Buttons.google,
                 text: "Sign up with Google",
                 shape: Border.all(color: appBarColor),
                 onPressed: () async {
                   //  user.changeStoreToken();
-                  userSignIn.signInWithGoogle();
+                   userSignIn.signInWithGoogle();
 
-                  context.push('/OpeningView');
+                await  context.push('/OpeningView');
                 },
               ),
               TextButton(

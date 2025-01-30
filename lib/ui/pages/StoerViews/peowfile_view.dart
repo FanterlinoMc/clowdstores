@@ -74,7 +74,6 @@ class ProfileView extends StatelessWidget {
                                                 borderRadius: kIsWeb
                                                     ? BorderRadius.circular(10)
                                                     : BorderRadius.circular(0),
-                                                enableMemoryCache: true,
                                               ),
                                             ),
                                             const SizedBox(

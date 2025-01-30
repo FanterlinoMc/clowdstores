@@ -85,7 +85,6 @@ class Stores extends StatelessWidget {
                                               width: 190,
                                               borderRadius:
                                                   BorderRadius.circular(10),
-                                              enableMemoryCache: true,
                                             ),
                                             Padding(
                                               padding:

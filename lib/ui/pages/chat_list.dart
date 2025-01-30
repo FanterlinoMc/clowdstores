@@ -43,9 +43,8 @@ class ChatList extends StatelessWidget {
                         route.chanageIsMe(value.docs[index]["isMe"]);
                         route.chanageUserId(value.docs[index]["userId"]);
                         route.routeSates();
-                        context.push(
-                          "/ChatPage",
-                        );
+                        context.push("/ChatPage",
+                            extra: value.docs[index]["name"]);
                       },
                       leading: CircleAvatar(
                         maxRadius: 20,

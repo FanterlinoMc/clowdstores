@@ -12,6 +12,7 @@ String? fUserN = auth.currentUser!.displayName;
 String? fUserE = auth.currentUser!.email;
 String? fUserPhone = auth.currentUser!.phoneNumber;
 FirebaseFirestore _firestore = FirebaseFirestore.instance;
+String? userName;
 
 class CloudStreams {
   //**User Streams */

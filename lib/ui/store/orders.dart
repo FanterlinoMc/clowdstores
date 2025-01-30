@@ -47,7 +47,7 @@ class OrderPage extends StatelessWidget {
                                       conditionalValues: [
                                         Condition.smallerThan(
                                           name: TABLET,
-                                          value: size.width / 2,
+                                          value: size.width / 1.8,
                                         ),
                                       ]).value,
                                   //  kIsWeb ? size.width / 2 : size.width / 2,
@@ -92,7 +92,6 @@ class OrderPage extends StatelessWidget {
                                                       BorderRadius.circular(10),
                                                   height: 220,
                                                   width: 200,
-                                                  enableMemoryCache: true,
                                                 ),
                                                 Padding(
                                                   padding:

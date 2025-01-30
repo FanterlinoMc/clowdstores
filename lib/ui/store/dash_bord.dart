@@ -28,6 +28,7 @@ class DashBrod extends StatelessWidget {
               icon: const Icon(Icons.logout_sharp),
               onPressed: () {
                 googleUser.signOut();
+
                 // context.refresh(authStateStraem);
                 context.go('/');
               },

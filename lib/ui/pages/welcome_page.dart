@@ -5,9 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../Data/fire_store_streams.dart';
 import '../../Widgets/text-styles.dart';
 import '../../helpers/change_notifiiers.dart';
 import '../../helpers/responive.dart';
+import '../../helpers/streams_providers.dart';
 // import 'package:provider/provider.dart';
 
 class OpeningView extends StatelessWidget {
@@ -28,11 +30,11 @@ class OpeningView extends StatelessWidget {
                 width: ResponsiveValue(context,
                     defaultValue: 400.0,
                     conditionalValues: [
-                      Condition.smallerThan(
+                      const Condition.smallerThan(
                         name: TABLET,
                         value: 400.0,
                       ),
-                      Condition.smallerThan(
+                      const Condition.smallerThan(
                         name: DESKTOP,
                         value: mW,
                       ),
@@ -75,7 +77,22 @@ class OpeningView extends StatelessWidget {
                     onPressed: () async {
                       changeUserNotifer.chageUser(false);
                       changeUserNotifer.saveChanageUser();
+                      changeUserNotifer.changeUserid(uid!);
+                      changeUserNotifer.saveChanageUser();
+                      saveUser.changeUserEmail(fUserE!);
+                      saveUser.changeUserId(uid!);
+                      saveUser.changeUserName(fUserN!);
+                      saveUser.changeUserPhotoUrl(fUserP!);
+                      print(
+                          "'''''''''''''''''''''''''uid'''''''''''''''''''''''''");
+                      print(uid);
+                      print(fUserN);
+                      print(fUserP);
+                      print(
+                          "''''''''''''''''''''''''fUserP''''''''''''''''''''''''");
+
                       saveUser.saveUser();
+                      ref.invalidate(getchangeUser);
                       context.go('/');
                     },
                     child: const Text(
@@ -101,9 +118,17 @@ class OpeningView extends StatelessWidget {
                   child: MaterialButton(
                     onPressed: () {
                       changeUserNotifer.chageUser(true);
+                      changeUserNotifer.changeUserid(uid!);
                       changeUserNotifer.saveChanageUser();
+                      saveUser.changeUserEmail(fUserE!);
+                      saveUser.changeUserId(uid!);
+                      saveUser.changeUserName(fUserN!);
+                      saveUser.changeUserPhotoUrl(fUserP!);
                       saveUser.saveUser();
+                      ref.invalidate(getchangeUser);
+
                       context.go('/');
+                      //return ref.refresh(getchangeUser);
                     },
                     child: const Text(
                       "Customer",

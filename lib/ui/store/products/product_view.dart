@@ -100,7 +100,6 @@ class ProductView extends StatelessWidget {
                                               fit: BoxFit.cover,
                                               borderRadius:
                                                   BorderRadius.circular(10),
-                                              enableMemoryCache: true,
                                             ),
                                           ),
                                           Padding(

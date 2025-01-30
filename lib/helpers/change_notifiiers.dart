@@ -20,7 +20,7 @@ final firestoreService = FirestoreService();
 final sendMessageNotifer =
     ChangeNotifierProvider<MessagesPro>((ref) => MessagesPro());
 
-final fcmNotifer = ChangeNotifierProvider<FcmProvider>((ref) => FcmProvider());
+//final fcmNotifer = ChangeNotifierProvider<FcmProvider>((ref) => FcmProvider());
 
 final productPro =
     ChangeNotifierProvider<ProductProvider>((ref) => ProductProvider());

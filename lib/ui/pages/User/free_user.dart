@@ -86,7 +86,7 @@ class UserProfile extends StatelessWidget {
                                 shape: BoxShape.rectangle,
                                 fit: BoxFit.fill,
                                 borderRadius: BorderRadius.circular(20),
-                                enableMemoryCache: true,
+
                                 height: height / 5,
                                 // width: width * 1,
                               ),
